@@ -1,0 +1,244 @@
+<div style="
+    padding: 25px;    
+  ">
+
+  <!-- Testing -->
+  <img src="assets/img/red-light.png" align="right" alt="red-light" class="margon-top--24">
+  <mat-stepper #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="vehicleDetailsFormGroup">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title  required--after mb-0" id="example-radio-group-label">Does your vehicle have a
+              clean title?</label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" required
+              formControlName="carTitle">
+              <mat-radio-button class="example-radio-button" name="Question.name" *ngFor="let option of CarTitleOptions"
+                [value]="option" (change)="radioChange($event)">
+                {{ option }}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+
+        <small all id="passwordHelp" class="text-danger d-flex justify-content-end"
+          *ngIf="vehicleDetailsFormGroup.get('carTitle')?.invalid && vehicleDetailsFormGroup.get('carTitle')?.touched">
+          Please select a Title.
+        </small>
+        <div class="margin-top-130">
+          <button mat-button matStepperNext class="btn ml-auto btn-next float-right">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+      <form [formGroup]="vehicleDetailsFormGroup">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">Do you currently have a loan
+              on your
+              {{ selectVechileDetails?.make }}?
+            </label>
+
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="carLoan">
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="margin-top-130">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext class="btn ml-auto btn-next float-right">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup" label="Fill out your address">
+      <form [formGroup]="vehicleDetailsFormGroup">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">Enter Loan Amount
+            </label>
+
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-start">
+            <input matInput required type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+              [ngClass]="{'form-control':true}" maxlength="6" name="loanAmount-field" autocomplete="doNotAutoComplete"
+              formControlName="loanAmount" placeholder="Loan Amount $" />
+          </div>
+        </div>
+        <div class="margin-top-130">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext class="btn ml-auto btn-next float-right">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="fourthFormGroup" label="Fill out your address">
+      <form [formGroup]="vehicleDetailsFormGroup">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">What is the current milage of
+              your car?</label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-start">
+            <input matInput type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+              [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('mileage')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('mileage')?.invalid && vehicleDetailsFormGroup.get('mileage')?.touched}"
+              maxlength="6" name="Mileage-field" autocomplete="doNotAutoComplete" formControlName="mileage" required
+              placeholder="Mileage ex. 123456" />
+          </div>
+        </div>
+        <div class="row align-items-center justify-content-end">
+          <mat-error class="d-flex justify-content-end mt-1"
+            *ngIf="vehicleDetailsFormGroup.get('mileage')?.invalid && vehicleDetailsFormGroup.get('mileage')?.touched">
+            <span *ngIf="vehicleDetailsFormGroup.get('mileage')?.hasError('required')">
+              Please provide mileage.
+            </span>
+            <span *ngIf="vehicleDetailsFormGroup.get('mileage')?.hasError('max')">
+              Mileage Should be less than 400000.
+            </span>
+          </mat-error>
+        </div>
+        <div class="margin-top-130">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext class="btn ml-auto btn-next float-right">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="fifthFormGroup" label="Fill out your address">
+      <form [formGroup]="vehicleDetailsFormGroup">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12  d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">What is the color of your {{
+              selectVechileDetails?.make }}?
+            </label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-6 align-items-center">
+            <mat-select required formControlName="color"
+              [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('color')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('color')?.invalid && vehicleDetailsFormGroup.get('color')?.touched}"
+              placeholder="ex. Select Color">
+              <mat-option *ngFor="let option of CarColorOptions" [value]="option">{{ option }}</mat-option>
+            </mat-select>
+          </div>
+        </div>
+        <div class="row align-itmes-center justify-content-end mt-1">
+          <mat-error class="d-flex justify-content-end"
+            *ngIf="vehicleDetailsFormGroup.get('color')?.invalid && vehicleDetailsFormGroup.get('color')?.touched">Please
+            select color of your
+            Car.</mat-error>
+        </div>
+        <div class="margin-top-130">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext class="btn ml-auto btn-next float-right">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="sixthFormGroup" label="Fill out your address">
+      <form [formGroup]="vehicleDetailsFormGroup">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12  d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">What is your vehicle pickup
+              zipCode?</label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-end form-group">
+            <input matInput required #zip type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+              class="form-control" name="zipcode-field"
+              [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('zipCode')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('zipCode')?.invalid && vehicleDetailsFormGroup.get('zipCode')?.touched}"
+              autocomplete="doNotAutoComplete" formControlName="zipCode" maxlength="5" placeholder="Zip ex. 28213" />
+          </div>
+          <div class="row  align-itmes-center justify-content-end mt-1">
+            <mat-error class="d-flex justify-content-end"
+              *ngIf="vehicleDetailsFormGroup.get('zipCode')?.invalid &&  vehicleDetailsFormGroup.get('zipCode')?.touched"><span
+                *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('required')">
+                ZIP code is required.
+              </span>
+              <span *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('pattern')">
+                Please enter a valid 5-digit ZIP code.
+              </span>
+            </mat-error>
+            <mat-hint align="end" class="d-flex justify-content-end">{{zip.value.length}}/5</mat-hint>
+          </div>
+        </div>
+        <div class="margin-top-130">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext class="btn ml-auto btn-next float-right">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="seventhFormGroup" label="Fill out your address">
+      <form [formGroup]="vehicleDetailsFormGroup">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">
+              Vehicle transmission type?
+            </label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="vechileTransmissionType">
+              <mat-radio-button class="example-radio-button" name="Question.name"
+                *ngFor="let option of carTransmissionTypes" [value]="option">
+                {{ option }}
+              </mat-radio-button>
+
+            </mat-radio-group>
+            <mat-error class="d-flex justify-content-end"
+              *ngIf="vehicleDetailsFormGroup.get('vechileTransmissionType')?.invalid && vehicleDetailsFormGroup.get('vechileTransmissionType')?.touched">
+
+              <span *ngIf="vehicleDetailsFormGroup.get('vechileTransmissionType')?.hasError('required')">
+                Please provide
+                transmission.
+              </span></mat-error>
+          </div>
+
+        </div>
+        <div class="margin-top-130">
+          <button mat-button matStepperPrevious>Back</button>
+          <!-- <button mat-button matStepperNext>Next</button> -->
+        </div>
+      </form>
+    </mat-step>
+    <!-- <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step> -->
+  </mat-stepper>
+</div>
