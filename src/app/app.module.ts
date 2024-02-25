@@ -45,6 +45,7 @@ import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.comp
 import { authInterceptorProviders } from './services/AuthInterceptor';
 import { ReviewModalComponent } from './common/review-modal/review-modal.component';
 import { AboutComponent } from './common/about/about.component';
+import { HowWeWorkComponent } from './common/how-we-work/how-we-work.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { AboutComponent } from './common/about/about.component';
     ProfileComponent,
     ReviewModalComponent,
     AboutComponent,
+    HowWeWorkComponent,
   ],
   imports: [
     BrowserModule,
