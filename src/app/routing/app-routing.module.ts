@@ -9,6 +9,7 @@ import { DashboardComponent } from '../common/dashboard/dashboard.component';
 import { ProfileComponent } from '../common/profile/profile.component';
 import { AuthGuardService } from '../services/AuthGuardService';
 import { AboutComponent } from '../common/about/about.component';
+import { HowWeWorkComponent } from '../common/how-we-work/how-we-work.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'questionaire', component: CarStepperComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
  /* { path: '', redirectTo: '/sell-car', pathMatch: 'full' }, */
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'how-we-work', component: HowWeWorkComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,

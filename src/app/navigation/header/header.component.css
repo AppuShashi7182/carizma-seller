@@ -1,0 +1,18 @@
+.header{
+    position: relative;
+}
+.headerLink{
+    cursor: pointer;
+}
+.link{
+    padding-bottom: 0;
+}
+.activeLink{
+    background: #1175B5;
+    height: 4px;
+    text-align: center;
+    display: flex;
+    display: flex;
+    margin-left: 15px;
+    justify-content: center;
+}

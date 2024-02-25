@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/AuthService';
 import { TokenStorageService } from 'src/app/services/TokenStorageService';
-
+import routes from '../../../assets/json/routes.json'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,12 +10,13 @@ import { TokenStorageService } from 'src/app/services/TokenStorageService';
 })
 export class HeaderComponent {
   @Output() public sidenavToggle = new EventEmitter();
-
+  public key = 'home'
   constructor(private router: Router, public authService: AuthService, public tokenService: TokenStorageService) {
-    
   }
 
   ngOnInit(): void {
+    this.key = routes?.filter((route:any)=>route.key === window.location.pathname.split('/')?.[1])?.[0]?.key
+      console.log(window.location.pathname.split('/')?.[1])
   }
 
   public onToggleSidenav = () => {
@@ -26,9 +27,10 @@ export class HeaderComponent {
     this.router.navigate(['/profile']);
   }
 
-  navigateToAbout() {
-    console.log('About navigation');
-    this.router.navigate(['/about']);
+  navigate(route:string) {
+    this.router.navigate([`/${route}`]);
+    this.key = route
+    console.log(this.key)
   }
 
   logOut() {
