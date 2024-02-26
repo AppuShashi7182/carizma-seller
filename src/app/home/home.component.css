@@ -1,0 +1,132 @@
+.home{
+    padding: 0;
+    margin-top: 5rem;
+}
+.sellContainer{
+    background-color: #F6F7F9;
+    padding: 0 4rem;
+}
+.sellCarText{
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+.sellCarTextColored{
+   color: #67A6F8;
+}
+.background{
+    width: 25rem;
+    height: 25rem;
+    background: #67A6F8;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    border-radius: 20px;
+    margin-top: 0px;
+}
+.onlineQuote{
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+.howItWorksText{
+    font-size: 1.5rem;
+    color: #7D7D7D;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.takeItAllTextHeader{
+    font-size: 1.1rem;
+    color: #C5D1D1;
+}
+.takeItAllText{
+    color: white;
+    font-size: 1.6rem;
+}
+.how-it-works-header{
+    font-size: 3rem;
+    font-weight: bolder;
+}
+.dots{
+    width: auto;
+    height: 20px;
+}
+.dots2{
+    width: auto;
+    width: 25px;
+}
+.how-it-works{
+    background-color: #F4F4F4;
+    padding: 0;
+    margin-top: 4rem;
+
+}
+.step1ColoredText{
+    color: #EA2B2B;
+}
+.step2ColoredText{
+    color: #FEE200;
+}
+.step3ColoredText{
+    color: #1D9F32;
+}
+.services{
+    width: 96%;
+    height: 96%;
+}
+.servicesBlock1{
+    background-color: #014379;
+}
+.servicesFlag{
+    position: absolute;
+    width: 37%;
+    height: auto;
+    z-index: 2;
+    margin-left: -2%;
+    margin-top: -7%;
+}
+.servicesBackground{
+    background-color: #EA2B2B;
+}
+.carContainer{
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+}
+.servicesCar{
+    width: 100%;
+}
+.carHeader{
+    color: white;
+}
+.carText{
+    color: white;
+    font-size: 1.4rem;
+    margin-top: 20px;
+}
+.nationWideContainer{
+    padding: 0 2rem;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-bottom: 8rem;
+    height: 100%;
+    display: flex;
+}
+.take-it-all{
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: black;
+}
+.takeAllCarsImg{
+    height: 100%;
+    width: 100%;
+}
+.textContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.backgroundCar{
+    position: absolute;
+    width: 12%;
+}

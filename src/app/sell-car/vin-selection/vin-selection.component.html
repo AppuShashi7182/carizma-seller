@@ -18,16 +18,18 @@
     <mat-grid-tile colspan="4"><a class="mat-subtitle-2" (click)="openBottomSheet()">Where is my VIN?</a>
     </mat-grid-tile>
     <mat-grid-tile colspan="4">
-      <button mat-raised-button class="btn-go" (click)="go()">
-        GET MY OFFER
+      <!-- <button mat-raised-button class="btn-go" (click)="go()">
+        GET MY OFFER -->
         <!-- <div class="row">
           <div class="col-10"> GET MY OFFER</div>
           <div class="col-2 text-right" style="font-size: larger;">
             >
           </div>
         </div> -->
-      </button>
-
+      <!-- </button> -->
+      <div class="d-flex justify-content-center">
+        <button type="button" (click)="go()" class="btn getOfferBtn ml-2">GET MY OFFER</button>
+    </div>
     </mat-grid-tile>
   </mat-grid-list>
 </form>
