@@ -1,5 +1,6 @@
 .header{
     position: relative;
+    background-color: #F6F7F9;
 }
 .headerLink{
     cursor: pointer;
@@ -15,4 +16,14 @@
     display: flex;
     margin-left: 15px;
     justify-content: center;
+}
+.loginBtn{
+    border: 2px solid #67A6F8;
+    color: #67A6F8;
+    padding: 5px 1rem;
+    width: 12rem;
+    border-radius: 10px;
+}
+.loginBtn:hover{
+    background-color: #F6F7F9;
 }
