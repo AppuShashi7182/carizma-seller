@@ -15,7 +15,7 @@
 }
 .background{
     width: 25rem;
-    height: 25rem;
+    height: 50%;
     background: #67A6F8;
     display: flex;
     position: absolute;
@@ -85,6 +85,7 @@
 }
 .servicesBackground{
     background-color: #EA2B2B;
+    margin: 8px;
 }
 .carContainer{
     display: flex;
@@ -129,4 +130,51 @@
 .backgroundCar{
     position: absolute;
     width: 12%;
+}
+.slide-container {
+    overflow: hidden;
+}
+.testimonailBackgroundImg{
+    width: 42%;
+
+}
+.testimonailBackground{
+    width: 96%;
+    height: 50%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    border-radius: 20px;
+    margin-top: 0px;
+    justify-content: flex-end;
+}
+.testimonialTestHeader{
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.quoteImg{
+    position: absolute;
+    left: 20%;
+    margin-top: -20%;
+}
+.testimonialContainer{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+.testimonial-item{
+    width: 40%;
+    background: white;
+    border-radius: 10px;
+    padding: 22px;
+    box-shadow: -13px -2px 20px -5px #dadada;
+}
+.testimonialHeader{
+    font-size: 3rem;
+    margin-left: 50%;
+    justify-content: flex-end;
+    display: flex;
+    margin-top: -10%;
+    position: absolute;
+    text-align: end;
 }

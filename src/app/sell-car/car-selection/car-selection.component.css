@@ -4,6 +4,8 @@
   font-weight: bold;
 }
 
+
+
 .mat-tab-list .mat-tab-labels .mat-tab-label-active {
   font-weight: bolder;
 }
@@ -109,10 +111,10 @@ mat-card::before {
   -webkit-filter: blur(10px);
 } */
 .card11 {
-  border-radius: 5px;
-  box-shadow: 0px 0px 6px 1px grey !important;
+  box-shadow: 3px 3px 5px 1px grey !important;
   background-image: #fff;
   width: 100%;
+  border-radius: 10px !important;
 }
 
 .mat-tab-group {
@@ -126,22 +128,22 @@ mat-card::before {
   }
 }
 /* Styles for tab labels */
-.mat-tab-label {
+/* .mat-tab-label {
   min-width: 10px !important;
   padding: 5px;
   background-color: transparent;
   color: black;
   font-weight: 500;
-}
+} */
 
 /* Styles for the active tab label */
-.mat-tab-label .mat-tab-label-active {
+/* .mat-tab-label .mat-tab-label-active {
   min-width: 10px !important;
   padding: 5px;
   background-color: transparent;
   color: black !important;
   font-weight: 500;
-}
+} */
 
 /* Styles for the ink bar */
 .mat-ink-bar {
@@ -170,17 +172,26 @@ mat-card::before {
 .mat-ink-bar {
   background-color: green;
 }
+.mdc-tab-indicator{
+  color: #67A6F8;
+  max-width: 140px;
+  left: auto  !important;
+}
+.mdc-tab-indicator .mdc-tab-indicator__content{
+left: auto;
 
-.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+}
+
+/* .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
   color: black !important;
   font-size: larger;
   font-family: 'Roboto';
   font-weight: bolder;
-}
-
+} */
+/* 
 .mat-mdc-tab .mdc-tab__text-label {
   color: black !important;
   font-size: larger;
   font-family: 'Roboto';
   font-weight: 400;
-}
+} */

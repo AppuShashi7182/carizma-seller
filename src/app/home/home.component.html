@@ -9,8 +9,8 @@
         <br /><br />
       </div>
       <div class="col-lg-7">
-        <div>
-          <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="height: 420px;">
+        <!-- <div>
+          <div #carousel id="myCarousel" class="carousel slide" data-ride="carousel" data-interval=200 data-pause="hover" data-ride=true data-bs-ride="carousel" style="height: 420px;">
             <div class="carousel-inner">
               <div class="d-flex justify-content-center">
                 <span class="background"></span>
@@ -24,55 +24,24 @@
               <div class="carousel-item" style="height: 400px;">
                 <img src="assets/img/home-carosoul-3.png" style="height: 100%; width: 100%; " alt="">
               </div>
-              <!-- <div class="carousel-item" style="height: 400px;">
-                  <div class="container">
-                    <div class="carousel-caption">
-                      <img src="assets/img/testimonials/testimonials-4.jpeg"
-                        style="height: 120px; width: 120px; border-radius: 50%;" alt="">
-                      <h3>Kumar</h3><br />
-                      <span>"My A1 German sessions went very well at MIFL. The trainer was very encouraging and helped
-                        me
-                        through the entire session step by step.
-                        I was pleased with one to one sessions,all the tips and personalized information given to help
-                        my
-                        needs.
-                        This course helped me to become more comfortable with the language. The trainer was very
-                        thorough,well
-                        planned took careful measures in helping me grasp the language.
-                        Really helpfull.Thank You very much."</span><br />
-                    </div>
-                  </div>
-                </div> -->
-              <!-- <div class="carousel-item" style="height: 400px;">
-                  <div class="container">
-                    <div class="carousel-caption">
-                      <img src="assets/img/testimonials/testimonials-5.jpeg"
-                        style="height: 120px; width: 120px; border-radius: 50%;" alt="">
-                      <h3>Umesh K T</h3><br />
-                      <span>"If you are studying Deutsch, Learning with MIFL is the answer. The nicest aspect is that is
-                        used,
-                        to be incorporating with the timetable
-                        when I couldn't make it to class because of my busy schedule when I started my German A2 while
-                        employed.
-                        I highly recommend MIFL , because they will do their best for you to learn and understand
-                        Deutsch.
-                        It has helped me to communicate easier. A big thanks to Meghana. German Language is a very
-                        interesting
-                        and beautiful language.
-                        I am sure you will enjoy learning it too."</span><br />
-                    </div>
-                  </div>
-                </div> -->
             </div>
-            <!-- <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
           <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-          </button> -->
+          </button>
           </div>
+        </div> -->
+        <div class="container mt-5" >
+          <div class="d-flex justify-content-center">
+            <span class="background"></span>
+          </div>
+          <div>
+          <img  class="d-block w-100" style="position: relative;" [src]="images[currentCarouselCarIndex]" alt="Slide">
+        </div>
         </div>
       </div>
     </div>
@@ -129,197 +98,97 @@
     <img class="dots " src="../../../assets/images/dots.PNG" alt="dots" />
   </div>
   <h5 class="howItWorksText">HOW IT WORKS</h5>
-  <div class="container">
+    <div class="container">
 
-    <div class="row gy-4">
+      <div class="row gy-4">
+  
+        <div class="col-lg-3">
+          <img src="assets/img/traffic-light.png" align="center" alt="yellow-light">
+        </div>
+  
+        <div class="col-lg-9">
+          <div [@slideIn1]="animationState" class="slide-container">
+  
+          <div class="margin-top-62">
+            <h2 class="how-it-works-header">Tell Us about <span class="step1ColoredText">your car</span></h2>
+            <p class="black-color">Provide information regarding the current state of your car and other basic details.
+              You'll receive
+              your offer!</p>
+          </div>
+          <br /><br />
+  </div>
 
-      <div class="col-lg-3">
-        <img src="assets/img/traffic-light.png" align="center" alt="yellow-light">
+  <div [@slideIn2]="animationState" class="slide-container">
+          <div class="margin-top-62">
+            <h2 class="how-it-works-header">Get your <span class="step2ColoredText">best price</span></h2>
+            <p class="black-color">Receive a no-hassle offer that is good for up to 7 days. All we need is some simple
+              documentation.</p>
+          </div>
+          <br /><br />
+        </div>
+        <div [@slideIn3]="animationState" class="slide-container">
+          <div class="margin-top-62">
+            <h2 class="how-it-works-header">We pick it, You <span class="step3ColoredText">get paid</span></h2>
+            <p class="black-color">Our designated pickup affiliate will perform a brief inspection, issue you a check and
+              elegantly tow
+              away your vehicle.</p>
+          </div>
+          </div>
+          <div class="d-flex align-items-center mt-20" (click)="navigate('how-we-work')">
+            <h5 style="font-weight: bold;">UNDERSTAND THE PROCESS BETTER</h5>
+            <mat-icon class="ml-2">arrow_right_alt</mat-icon>
+          </div>
+        </div>
       </div>
-
-      <div class="col-lg-9">
-
-        <div class="margin-top-62">
-          <h2 class="how-it-works-header">Tell Us about <span class="step1ColoredText">your car</span></h2>
-          <p class="black-color">Provide information regarding the current state of your car and other basic details.
-            You'll receive
-            your offer!</p>
-        </div>
-        <br /><br />
-        <div class="margin-top-62">
-          <h2 class="how-it-works-header">Get your <span class="step2ColoredText">best price</span></h2>
-          <p class="black-color">Receive a no-hassle offer that is good for up to 7 days. All we need is some simple
-            documentation.</p>
-        </div>
-        <br /><br />
-        <div class="margin-top-62">
-          <h2 class="how-it-works-header">We pick it, You <span class="step3ColoredText">get paid</span></h2>
-          <p class="black-color">Our designated pickup affiliate will perform a brief inspection, issue you a check and
-            elegantly tow
-            away your vehicle.</p>
-        </div>
-        <div class="d-flex align-items-center mt-20">
-          <h5 style="font-weight: bold;">UNDERSTAND THE PROCESS BETTER</h5>
-          <mat-icon class="ml-2">arrow_right_alt</mat-icon>
-        </div>
-      </div>
+  
     </div>
 
-  </div>
 
 </section>
 <!-- End How It Works Section -->
-
 <!-- Testimonials Section - Home Page -->
-<section id="testimonials" class="testimonials">
-
-  <div class="container">
+<section id="testimonials" class="testimonials" style="margin-top: 10%;padding: 4rem;">
+  <p class="testimonialHeader">
+    Listen to what our customers have to say
+  </p>
+  <div>
 
     <div class="row align-items-center">
 
-      <div class="col-lg-5 info">
-        <h3>Testimonials</h3>
-        <p>
-          Listen to what our customers have to say
-        </p>
+      <div class="col-lg-12 info">
+        <div class="d-flex align-items-center">
+          <div >
+        <img src="assets/images/threeDotsBlack.png" align="center" alt="yellow-light">
+        <p class="testimonialTestHeader">Clients Testimonials</p>
       </div>
-
-      <div class="col-lg-7">
-
-        <div class="swiper">
-          <!-- <template class="swiper-config">
-                {
-                "loop": true,
-                "speed" : 600,
-                "autoplay": {
-                "delay": 5000
-                },
-                "slidesPerView": "auto",
-                "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-                }
-                }
-              </template> -->
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="d-flex">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img flex-shrink-0" alt="">
-                  <div>
-                    <h3>Saul Goodman</h3>
-                    <h4>Ceo & Founder</h4>
-                    <div class="stars">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
+      <div class="quoteImg">
+        <img src="assets/images/testimonialImg.png" align="center" alt="yellow-light">
+      </div>
+        <div class="testimonailBackground">
+        <img src="assets/images/testimonailBackground.png" class="testimonailBackgroundImg" align="center" alt="testimonailBackgroundImg">
+      </div>
+        <div class="testimonialContainer mt-5 col-lg-5">
+            <div class="testimonial-item">
+              <div class="d-flex">
+                <img [src]="testimonials[currentCarouselTestimonialIndex].img" class="testimonial-img flex-shrink-0" alt="">
+                <div>
+                  <h3>{{testimonials[currentCarouselTestimonialIndex].author}}</h3>
+                  <h4>{{testimonials[currentCarouselTestimonialIndex].designation}}</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                   </div>
                 </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Outstanding car-buying experience, excellent service, and unbeatable deals. Highly
-                    recommend!"</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
               </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="d-flex">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img flex-shrink-0" alt="">
-                  <div>
-                    <h3>Sara Wilsson</h3>
-                    <h4>Designer</h4>
-                    <div class="stars">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Efficient, fair, and friendly - the perfect place to sell!</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="d-flex">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img flex-shrink-0" alt="">
-                  <div>
-                    <h3>Jena Karlis</h3>
-                    <h4>Store Owner</h4>
-                    <div class="stars">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Superb service, fair prices, seamless process.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="d-flex">
-                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img flex-shrink-0" alt="">
-                  <div>
-                    <h3>Matt Brandon</h3>
-                    <h4>Freelancer</h4>
-                    <div class="stars">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>My encounter with Carizma during the sale of my vehicle was flawless. Their offer surpassed
-                    others. The agent was punctual, friendly, and thorough in explaining paperwork. Afterward, I
-                    received my check and my car was transported.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="d-flex">
-                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img flex-shrink-0" alt="">
-                  <div>
-                    <h3>John Larson</h3>
-                    <h4>Entrepreneur</h4>
-                    <div class="stars">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Throughout the entire process, Carizma demonstrated exceptional attention, even sending
-                    personal texts to ensure I was well-informed and had no unanswered questions. If you're looking
-                    to sell a vehicle, Carizma should be your first destination.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                <span>{{testimonials[currentCarouselTestimonialIndex]?.text}}</span>
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
           </div>
-          <div class="swiper-pagination"></div>
         </div>
-
       </div>
-
+      </div>
     </div>
 
   </div>
