@@ -30,7 +30,6 @@ export class HeaderComponent {
   navigate(route:string) {
     this.router.navigate([`/${route}`]);
     this.key = route
-    console.log(this.key)
   }
 
   logOut() {
