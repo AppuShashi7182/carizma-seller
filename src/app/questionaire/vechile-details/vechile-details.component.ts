@@ -46,10 +46,11 @@ export class VechileDetailsComponent {
   selectVechileDetails?: IVechileModelDetails;
   @Input() formData: FormData[] | undefined;
   @Output() stepOneValidated = new EventEmitter<boolean>();
+  @Output() getPageNumber = new EventEmitter<any>();
 
 
   submitted: boolean | undefined;
-
+  pageData=0;
   carTransmissionTypes = ['Manual', 'Automatic', 'Others'];
   CarTitleOptions: string[] = ['Clean', 'Salvage/Rebuilt', 'Junk', 'No Title'];
   CarOwnershipOptions: string[] = ['Yes', 'No']; //['Own', 'Lease', 'Re-finance'];
@@ -156,5 +157,10 @@ export class VechileDetailsComponent {
   }
   public ngOnDestroy(): void {
     this.onDestroy$.next();
+  }
+
+  page(page:any){
+    this.pageData=page
+    this.getPageNumber.emit(page);
   }
 }

@@ -40,6 +40,7 @@ mat-form-field {
 .getOfferBtn{
   background-color: #67A6F8;
   font-size: 15px;
-  padding: 1rem 15rem;
+  margin: 30px;
+  width: 100%;
   border-radius: 10px;
 }

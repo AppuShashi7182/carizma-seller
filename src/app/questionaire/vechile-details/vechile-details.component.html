@@ -15,7 +15,7 @@
           </div>
         </div>
         <br />
-        <div class="row">
+        <div class="row" >
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center justify-content-start">
             <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" required
               formControlName="carTitle">
@@ -31,8 +31,10 @@
           *ngIf="vehicleDetailsFormGroup.get('carTitle')?.invalid && vehicleDetailsFormGroup.get('carTitle')?.touched">
           Please select a Title.
         </small>
-        <div class="margin-top-130">
-          <button mat-button matStepperNext class="btn ml-auto btn-next float-right">Next</button>
+        <div class="buttonContainer">
+          <button matStepperNext (click)="page('add')" mat-raised-button class=" ml-auto float-right nextBtn"  >Next</button>
+
+          <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
         </div>
       </form>
     </mat-step>
@@ -62,10 +64,13 @@
             </mat-radio-group>
           </div>
         </div>
-        <div class="margin-top-130">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext class="btn ml-auto btn-next float-right">Next</button>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub')">Back</button>
+          <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
+          <button matStepperNext (click)="page('add')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+
         </div>
+
       </form>
     </mat-step>
     <mat-step [stepControl]="thirdFormGroup" label="Fill out your address">
@@ -86,10 +91,13 @@
               formControlName="loanAmount" placeholder="Loan Amount $" />
           </div>
         </div>
-        <div class="margin-top-130">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext class="btn ml-auto btn-next float-right">Next</button>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious class="previousBtn" (click)="page('sub')">Back</button>
+          <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
+          <button matStepperNext (click)="page('add')" mat-raised-button class=" ml-auto float-right nextBtn"  >Next</button>
+
         </div>
+
       </form>
     </mat-step>
     <mat-step [stepControl]="fourthFormGroup" label="Fill out your address">
@@ -121,10 +129,12 @@
             </span>
           </mat-error>
         </div>
-        <div class="margin-top-130">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext class="btn ml-auto btn-next float-right">Next</button>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub')">Back</button>
+          <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
+          <button matStepperNext (click)="page('add')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
         </div>
+
       </form>
     </mat-step>
     <mat-step [stepControl]="fifthFormGroup" label="Fill out your address">
@@ -153,10 +163,13 @@
             select color of your
             Car.</mat-error>
         </div>
-        <div class="margin-top-130">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext class="btn ml-auto btn-next float-right">Next</button>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub')">Back</button>
+          <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
+          <button matStepperNext (click)="page('add')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+
         </div>
+
       </form>
     </mat-step>
     <mat-step [stepControl]="sixthFormGroup" label="Fill out your address">
@@ -189,10 +202,13 @@
             <mat-hint align="end" class="d-flex justify-content-end">{{zip.value.length}}/5</mat-hint>
           </div>
         </div>
-        <div class="margin-top-130">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext class="btn ml-auto btn-next float-right">Next</button>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub')">Back</button>
+          <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
+          <button matStepperNext (click)="page('add')" mat-raised-button class=" ml-auto float-right nextBtn"  >Next</button>
+
         </div>
+
       </form>
     </mat-step>
     <mat-step [stepControl]="seventhFormGroup" label="Fill out your address">
@@ -226,10 +242,11 @@
           </div>
 
         </div>
-        <div class="margin-top-130">
-          <button mat-button matStepperPrevious>Back</button>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub')">Back</button>
           <!-- <button mat-button matStepperNext>Next</button> -->
         </div>
+
       </form>
     </mat-step>
     <!-- <mat-step>
