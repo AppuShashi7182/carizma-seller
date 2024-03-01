@@ -155,14 +155,6 @@
               placeholder="ex. Select Color">
               <mat-option *ngFor="let option of CarColorOptions" [value]="option">{{ option }}</mat-option>
             </mat-select> -->
-            <!-- <mat-form-field>
-              <mat-label>Favorite food</mat-label>
-              <mat-select 
-              [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('color')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('color')?.invalid && vehicleDetailsFormGroup.get('color')?.touched}"
-              placeholder="ex. Select Color">
-              <mat-option *ngFor="let option of CarColorOptions" [value]="option">{{option}}</mat-option>
-              </mat-select>
-            </mat-form-field> -->
             <select [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('color')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('color')?.invalid && vehicleDetailsFormGroup.get('color')?.touched}" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
               <option selected>Select Color</option>
               <option *ngFor="let option of CarColorOptions" [value]="option">{{option}}</option>
