@@ -20,6 +20,20 @@
   color: white;
 }
 
+.buttonContainer{
+  margin-top: 7%;
+}
+.nextBtn{
+  background-color: #67A6F8  !important;
+  color: white !important;
+  padding: 10px 4rem !important;
+  border-radius: 10px !important;
+}
+.previousBtn{
+    background-color: white  !important;
+    padding: 10px 4rem !important;
+    border-radius: 10px !important;
+}
 
 
 .question-value {

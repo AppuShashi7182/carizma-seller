@@ -11,10 +11,11 @@
 }
 
 .car-stepper-content {
-  margin: 25px 100px 0 95px;
+  background: white;
+  margin: 25px 100px 25px 95px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 9px;
   min-width: 400px;
-  min-height: 80%;
+  max-height: 100%;
   border-radius: 16px;
 }
 
@@ -85,6 +86,43 @@ mat-horizontal-stepper {
   padding-top: 16px;
 }
 
+
+.mat-mdc-progress-bar{
+  height: 2rem !important;
+  /* position: absolute; */
+  /* bottom: -4rem; */
+}
+.mdc-linear-progress__primary-bar {
+  transform: scaleX(0.4);
+  color: #575756;
+  background: #575756;
+  height: 1rem !important;
+}
+
+.mdc-linear-progress__buffer{
+  height: 1rem !important;
+  background: #9D9D9C !important;
+
+}
+
+.mdc-linear-progress__bar mdc-linear-progress__primary-bar{
+  height: 4rem !important;
+  background: aquamarine !important;
+
+}
+.dollarImage{
+  width: 8rem;
+  height: 8rem;
+  margin-left: 92%;
+}
+.miniCarImage{
+  width: 6rem;
+  height: 4rem;
+}
+.mat-mdc-radio-button {
+  border:0 !important;
+
+}
 @media only screen and (max-width: 768px) {
   .car-stepper-content {
     margin: 5px 10px 0 15px

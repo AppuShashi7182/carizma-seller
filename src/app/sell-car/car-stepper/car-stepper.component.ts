@@ -1,4 +1,5 @@
-import { Component, QueryList, ViewChild, ViewChildren, HostListener } from '@angular/core';
+import { Component, QueryList, ViewChild, ViewChildren, HostListener, ElementRef } from '@angular/core';
+import { trigger, state, style, animate, transition, AnimationBuilder } from '@angular/animations';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
 import { IOfferData, IVechileData, IVechileModelDetails } from 'src/app/models/IVechile';
@@ -18,6 +19,17 @@ import { NHTSAService } from 'src/app/services/nhtsa-service';
   templateUrl: './car-stepper.component.html',
   styleUrls: ['./car-stepper.component.css'],
   encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger('slideInOut', [
+      state('left', style({
+        transform: 'translateX(5%)',
+      })),
+      state('right', style({
+        transform: 'translateX(-5%)',
+      })),
+      transition('left <=> right', animate('1s ease-in-out')),
+    ]),
+  ],
 })
 export class CarStepperComponent {
   private onDestroy$: Subject<void> = new Subject<void>();
@@ -30,6 +42,7 @@ export class CarStepperComponent {
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
   validator!: boolean;
+  stepperNumber=10;
   srcImages: string = '';
   images: string[] = [
     '../../../assets/images/IMG_3302.PNG',
@@ -37,11 +50,13 @@ export class CarStepperComponent {
     '../../../assets/images/IMG_3304.PNG',
     '../../../assets/images/IMG_3305.PNG',
   ];
+  carPosition=4;
+  carPositionAnimation: string = 'left';
 
   @ViewChild('stepper') public myStepper!: MatStepper;
   @ViewChildren(MatStep) steps!: QueryList<MatStep>;
   @ViewChild(VechileDetailsComponent) vechileDetailsComponent!: VechileDetailsComponent;
-
+  @ViewChild('animatedElement') animatedElement: ElementRef | undefined;
   constructor(
     private _formBuilder: FormBuilder,
     public _store: SellCarStoreService,
@@ -50,6 +65,7 @@ export class CarStepperComponent {
     public router: Router,
     public reviewService: ReviewService,
     private toaster: ToastrService,
+    private animationBuilder: AnimationBuilder
   ) {
     // this._store.loadSellerDetails();
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
@@ -104,12 +120,52 @@ export class CarStepperComponent {
       this.srcImages = this.imageRandom();
     }
   }
+  playAnimation() {
+    if (this.animatedElement) {
+    let factory :any;
+    if(this.carPositionAnimation === 'right'){
+      factory = this.animationBuilder.build([
+        style({transform: 'translateX(-5%)' }),
+        animate('500ms', style({ opacity: 1, transform: 'translateX(0)' }))
+      ]);
+    }else{
+      factory = this.animationBuilder.build([
+        style({transform: 'translateX(0)' }),
+        animate('500ms', style({ opacity: 1, transform: 'translateX(-5%)' }))
+      ]);
+    }
+    const player = factory.create(this.animatedElement.nativeElement);
+    player.play();
+  }else {
+    console.error("Element 'animatedElement' is undefined.");
+  }
+  }
+  
 
   validateStepperOne(event: boolean) {
      this.validator = event;
   }
+  toggleAnimation(key:any) {
+    this.carPositionAnimation = (this.carPositionAnimation === 'left' && key === 'sub') ? 'right' : 'left';
+  }
+  
+  getPageNumber(pageData:any){
+    if(pageData === 'add'){
+      this.carPositionAnimation = 'right'
+      this.playAnimation()
+      this.stepperNumber+=15
+      this.carPosition+=15
+    }else{
+      this.carPositionAnimation = 'left'
+      this.playAnimation()
+      this.stepperNumber-=15
+      this.carPosition-=15
+    }
+    console.log(pageData,this.stepperNumber)
 
+  }
   nextStep(index: number) {
+    console.log(index,this.stepperNumber)
     let sellerDetails  = this._store.sellerCompleteDetails;
     // if(index === 0 && sellerDetails.vehicleDetails.carTitle 
     //   && sellerDetails.vehicleDetails.mileage 

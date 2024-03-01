@@ -15,6 +15,7 @@ import { LicensePlateSelectionComponent } from './sell-car/license-plate-selecti
 import { VinSelectionComponent } from './sell-car/vin-selection/vin-selection.component';
 import { VechileSelectionComponent } from './sell-car/vechile-selection/vechile-selection.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { CarStepperComponent } from './sell-car/car-stepper/car-stepper.component';
 import { FooterComponent } from './navigation/footer/footer.component';
@@ -96,6 +97,7 @@ import { HowWeWorkComponent } from './common/how-we-work/how-we-work.component';
     HttpClientModule,
     UiSwitchModule,
     ToastrModule.forRoot(),
+    MatProgressBarModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
