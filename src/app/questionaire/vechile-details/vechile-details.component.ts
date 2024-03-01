@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsul
 import { IVechileData, IVechileModelDetails } from 'src/app/models/IVechile';
 import { CommondataSellService } from 'src/app/services/commondata-sell.service';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
-import { IVechileDetailQuestionaire } from '../questionsJson';
+import { IVechileConditionQuestionaire, IVechileDetailQuestionaire } from '../questionsJson';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
@@ -38,6 +38,85 @@ export class VechileDetailsComponent {
   seventhFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
+  eighthFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  ninthFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  tenthFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  eleventhFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  twelthFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  thirteenFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
+ fourteenFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  fifteenFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  sixteenFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  seventeenFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  eighteenFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });  
+  nineteenFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
+ tewntyFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  twentyOneFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  twentyTwoFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  twentyThreeGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  tenwetyFourFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  severityBodyDamageOptions = [{
+    id: 1,
+    value : 'Light',
+    img: '../../../assets/images/light_body_damage.png'
+  },{
+    id: 2,
+    value : 'Moderate',
+    img: '../../../assets/images/moderate_body_damage.png'
+  },{
+    id: 3,
+    value : 'Severe',
+    img: '../../../assets/images/severe_body_damage.png'
+  }]
+
+  EngineRepairOptions: string[] = ['Engine repairs', "I don't know"];
+  carEngineTransmissionOptions: string[] = [
+    'Engine is partly taken apart.',
+    'Engine or Transmission is removed but still available.',
+    'Engine or Tranmission is no longer available',
+  ];
+  BodyDamageOptions: string[] = ['No Damage', 'Some damage', 'Crashed'];
+  BodyDamageDentScratchOptions: string[] = [
+    'Less than 3',
+    '4 to 6 ',
+    '7 and more',
+  ];
+
+  BodyNoticableDentsScratcheOptions = ['Less than 3', '4 to 6', '7 and more'];
 
   private onDestroy$: Subject<void> = new Subject<void>();
   // sellerDetails: ISellerVechileDetails;
@@ -47,7 +126,8 @@ export class VechileDetailsComponent {
   @Input() formData: FormData[] | undefined;
   @Output() stepOneValidated = new EventEmitter<boolean>();
   @Output() getPageNumber = new EventEmitter<any>();
-
+  selectedMake?: string = '';
+  public vechileCondition: IVechileConditionQuestionaire;
 
   submitted: boolean | undefined;
   pageData=0;
@@ -75,7 +155,8 @@ export class VechileDetailsComponent {
   ) {
     this.vechileQuestionaire = this._store.sellerCompleteDetails.vehicleDetails;
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
-
+    this.selectedMake = this._store.sellerCompleteDetails.carDetails?.make;
+    this.vechileCondition = this._store.sellerCompleteDetails.vehicleCondition;
     this.vehicleDetailsFormGroup = new FormGroup({
       carTitle: new FormControl(null, Validators.required),
       carLoan: new FormControl(null,Validators.required),
@@ -84,6 +165,26 @@ export class VechileDetailsComponent {
       color: new FormControl(null, Validators.required),
       zipCode: new FormControl(null, [Validators.required, Validators.pattern(/(^\d{5}$)|(^\d{5}-\d{4}$)/)]),
       vechileTransmissionType: new FormControl(null, Validators.required),
+      doesCarDrive: new FormControl(this.vechileCondition.doesCarDrive, Validators.required),
+      doesCarStart: new FormControl(this.vechileCondition.doesCarStart, Validators.required),
+      carEngineandTransmission: new FormControl(this.vechileCondition.carEngineandTransmission, Validators.required),
+      doesCarHaveMechanicalIssues: new FormControl(this.vechileCondition.doesCarHaveMechanicalIssues, [Validators.required]),
+      mechanicalIssues: new FormGroup({
+        warningLights: new FormControl(false),
+        Electrical: new FormControl(false),
+        Mechanical: new FormControl(false),
+        Suspension: new FormControl(false),
+        Other: new FormControl(false),
+      }),
+      doesAllCarWheelInflated: new FormControl(this.vechileCondition.externalConditions.doesAllCarWheelInflated, Validators.required),
+      doesAllGlassorLightCracked: new FormControl(this.vechileCondition.externalConditions.doesAllGlassorLightCracked, Validators.required),
+      doesBodyDamage: new FormControl(this.vechileCondition.externalConditions.doesBodyDamage, Validators.required),
+      doesBodyDamageSeverity: new FormControl(this.vechileCondition.externalConditions.doesBodyDamageSeverity),
+      NoticeableDingsDentsScratches: new FormControl(this.vechileCondition.externalConditions.noticeableDingsDentsScratches, [Validators.required]),
+      doesBodyPanelIntact: new FormControl(this.vechileCondition.externalConditions.doesBodyPanelIntact, [Validators.required]),
+      doesAirbagsDeployedOrMissing: new FormControl(this.vechileCondition.externalConditions.doesAirbagsDeployedOrMissing, [Validators.required]),
+      DoesCarSufferedFloodorFireDamage: new FormControl(this.vechileCondition.externalConditions.doesCarSufferedFloodorFireDamage, [Validators.required]),
+      DoesInteriorIntact: new FormControl(this.vechileCondition.doesInteriorIntact, [Validators.required]),  
     });   
   }
 
@@ -127,6 +228,56 @@ export class VechileDetailsComponent {
     this.vehicleDetailsFormGroup.get('vechileTransmissionType')?.valueChanges.subscribe((value) => {
       this.vechileQuestionaire.vechileTransmissionType = value
     })
+    this.vehicleDetailsFormGroup.get('doesAllCarWheelInflated')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.externalConditions.doesAllCarWheelInflated = value
+    })
+    this.vehicleDetailsFormGroup.get('doesAllGlassorLightCracked')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.externalConditions.doesAllGlassorLightCracked = value
+    })
+    this.vehicleDetailsFormGroup.get('doesBodyDamage')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.externalConditions.doesBodyDamage = value
+      if(!value) {
+        this.vehicleDetailsFormGroup.get('doesBodyDamageSeverity')?.setValue('1')
+      }
+    })
+    this.vehicleDetailsFormGroup.get('doesBodyDamageSeverity')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.externalConditions.doesBodyDamageSeverity = value
+    })
+    this.vehicleDetailsFormGroup.get('NoticeableDingsDentsScratches')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.externalConditions.noticeableDingsDentsScratches = value
+    })
+    this.vehicleDetailsFormGroup.get('doesBodyPanelIntact')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.externalConditions.doesBodyPanelIntact = value
+    })
+    this.vehicleDetailsFormGroup.get('doesAirbagsDeployedOrMissing')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.externalConditions.doesAirbagsDeployedOrMissing = value
+    })
+    this.vehicleDetailsFormGroup.get('doesAirbagsDeployedOrMissing')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.externalConditions.doesAirbagsDeployedOrMissing = value
+    })
+    this.vehicleDetailsFormGroup.get('DoesCarSufferedFloodorFireDamage')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.externalConditions.doesCarSufferedFloodorFireDamage = value
+    })
+    this.vehicleDetailsFormGroup.get('DoesInteriorIntact')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.doesInteriorIntact = value
+    })
+
+    this.vehicleDetailsFormGroup.statusChanges.subscribe(status => {
+      if(status === 'VALID') {
+        /*if(this.vechileCondition.externalConditions.doesBodyDamage === false && this.vechileCondition.externalConditions.doesBodyDamageSeverity != null) {
+          this.stepThreeValidated.emit(false)
+          return;
+        }else {
+          this.stepThreeValidated.emit(true)
+        } */
+        // this.stepThreeValidated.emit(true)
+        this.reviewService.vehicleBodyConditionPageStepper= true;
+      } else {
+        // this.stepThreeValidated.emit(false)
+        this.reviewService.vehicleBodyConditionPageStepper= false;     
+      }
+      this.onSubmit();
+    })
     
     this.vehicleDetailsFormGroup.statusChanges.subscribe(status => {
       if(status === 'VALID') {
@@ -159,8 +310,8 @@ export class VechileDetailsComponent {
     this.onDestroy$.next();
   }
 
-  page(page:any){
+  page(page:any,data:any){
     this.pageData=page
-    this.getPageNumber.emit(page);
+    this.getPageNumber.emit({page,data});
   }
 }

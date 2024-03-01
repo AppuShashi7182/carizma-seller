@@ -149,19 +149,22 @@ export class CarStepperComponent {
     this.carPositionAnimation = (this.carPositionAnimation === 'left' && key === 'sub') ? 'right' : 'left';
   }
   
-  getPageNumber(pageData:any){
-    if(pageData === 'add'){
+  getPageNumber(props:any){
+    console.log(props,'props')
+    if(props.data !== 'end-of-section'){
+    if(props.page === 'add'){
       this.carPositionAnimation = 'right'
       this.playAnimation()
-      this.stepperNumber+=15
-      this.carPosition+=15
+      this.stepperNumber+=4.68;
+      this.carPosition+=4.68;
     }else{
       this.carPositionAnimation = 'left'
       this.playAnimation()
-      this.stepperNumber-=15
-      this.carPosition-=15
+      this.stepperNumber-=4.68;
+      this.carPosition-=4.68;
     }
-    console.log(pageData,this.stepperNumber)
+  }
+    console.log(props.page,this.stepperNumber)
 
   }
   nextStep(index: number) {
