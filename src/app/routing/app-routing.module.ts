@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'questionaire', component: CarStepperComponent },
   { path: 'contact-us', component: ContactComponent },
-  { path: '', component: SellCarHomeComponent },
+  { path: '', component: HomeComponent },
  /* { path: '', redirectTo: '/sell-car', pathMatch: 'full' }, */
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },

@@ -32,7 +32,7 @@
           Please select a Title.
         </small>
         <div class="buttonContainer">
-          <button matStepperNext (click)="page('add')" mat-raised-button class=" ml-auto float-right nextBtn"  >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"  >Next</button>
 
           <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
         </div>
@@ -65,9 +65,9 @@
           </div>
         </div>
         <div class="buttonContainer">
-          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub')">Back</button>
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
           <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
-          <button matStepperNext (click)="page('add')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
 
         </div>
 
@@ -92,9 +92,9 @@
           </div>
         </div>
         <div class="buttonContainer">
-          <button mat-raised-button matStepperPrevious class="previousBtn" (click)="page('sub')">Back</button>
+          <button mat-raised-button matStepperPrevious class="previousBtn" (click)="page('sub','')">Back</button>
           <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
-          <button matStepperNext (click)="page('add')" mat-raised-button class=" ml-auto float-right nextBtn"  >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"  >Next</button>
 
         </div>
 
@@ -130,9 +130,9 @@
           </mat-error>
         </div>
         <div class="buttonContainer">
-          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub')">Back</button>
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
           <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
-          <button matStepperNext (click)="page('add')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
         </div>
 
       </form>
@@ -150,11 +150,15 @@
         <br />
         <div class="row">
           <div class="col-sm-6 col-md-6 col-lg-6 align-items-center">
-            <mat-select required formControlName="color"
+            <!-- <mat-select required formControlName="color"
               [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('color')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('color')?.invalid && vehicleDetailsFormGroup.get('color')?.touched}"
               placeholder="ex. Select Color">
               <mat-option *ngFor="let option of CarColorOptions" [value]="option">{{ option }}</mat-option>
-            </mat-select>
+            </mat-select> -->
+            <select [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('color')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('color')?.invalid && vehicleDetailsFormGroup.get('color')?.touched}" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option selected>Select Color</option>
+              <option *ngFor="let option of CarColorOptions" [value]="option">{{option}}</option>
+            </select>
           </div>
         </div>
         <div class="row align-itmes-center justify-content-end mt-1">
@@ -164,9 +168,8 @@
             Car.</mat-error>
         </div>
         <div class="buttonContainer">
-          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub')">Back</button>
-          <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
-          <button matStepperNext (click)="page('add')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
 
         </div>
 
@@ -203,9 +206,8 @@
           </div>
         </div>
         <div class="buttonContainer">
-          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub')">Back</button>
-          <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
-          <button matStepperNext (click)="page('add')" mat-raised-button class=" ml-auto float-right nextBtn"  >Next</button>
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"  >Next</button>
 
         </div>
 
@@ -243,11 +245,458 @@
 
         </div>
         <div class="buttonContainer">
-          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub')">Back</button>
-          <!-- <button mat-button matStepperNext>Next</button> -->
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
         </div>
 
       </form>
+    </mat-step>
+    <mat-step [stepControl]="eighthFormGroup">
+      <form [formGroup]="vehicleDetailsFormGroup">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">Are all of the wheels inflated
+              on your {{
+              selectedMake
+              }} ?
+            </label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="doesAllCarWheelInflated">
+              <mat-radio-button class="example-radio-button" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+        </div>
+      </form>
+    </mat-step>    
+
+    <mat-step [stepControl]="ninthFormGroup">
+      <form [formGroup]="vehicleDetailsFormGroup">
+
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">Any glass or lights cracked or
+              broken on your {{
+              selectedMake }} ?
+            </label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="doesAllGlassorLightCracked">
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="tenthFormGroup">
+      <form [formGroup]="vehicleDetailsFormGroup">
+
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">Does it have any body damage?
+            </label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="doesBodyDamage">
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <ng-container *ngIf="vehicleDetailsFormGroup.get('doesBodyDamage')?.value === true">
+      <mat-step [stepControl]="eleventhFormGroup" label="Fill out your address">
+        <form [formGroup]="vehicleDetailsFormGroup">
+          <div class="row">
+            <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+              <label class="content-title required--after" id="example-radio-group-label">Severity of Body Damages?
+              </label>
+              &nbsp; &nbsp;
+            </div>
+          </div>
+          <div class="row">
+            <div class="mt-2 d-flex align-items-center justify-content-start">
+              <div required>
+                <label *ngFor="let option of severityBodyDamageOptions">
+                  <div class="d-flex flex-column justify-conten-center">
+                    <input type="radio" formControlName="doesBodyDamageSeverity" [value]="option.id">
+
+                    <img style="width: 80%;" class="ml-auto mr-auto" [src]="option.img" [alt]="option.value">
+                    <p class="text-center">{{option.value}}</p>
+                  </div>
+
+                </label>
+
+              </div>
+            </div>
+          </div>
+          <div class="buttonContainer">
+            <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+            <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+          </div>
+        </form>
+      </mat-step>
+    </ng-container>
+
+    <mat-step [stepControl]="twelthFormGroup">
+      <form [formGroup]="vehicleDetailsFormGroup">
+
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">Does your {{selectedMake }} has noticeable 
+              dents greater  tennis ball  ?
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label"
+              formControlName="NoticeableDingsDentsScratches">
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+        </div>
+      </form>
+    </mat-step>
+  
+    <mat-step [stepControl]="thirteenFormGroup">
+      <form [formGroup]="vehicleDetailsFormGroup">
+
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">Body panels intact?
+            </label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="doesBodyPanelIntact">
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fourteenFormGroup">
+      <form [formGroup]="vehicleDetailsFormGroup">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">Are the airbags deployed or
+              missing?
+            </label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="doesAirbagsDeployedOrMissing">
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fifteenFormGroup">
+      <form [formGroup]="vehicleDetailsFormGroup">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">
+              Did your {{ selectedMake }} ever suffer flood or fire damage?
+            </label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="DoesCarSufferedFloodorFireDamage">
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="sixteenFormGroup">
+      <form [formGroup]="vehicleDetailsFormGroup">
+        <div class="row">
+          <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">
+              Is the interior of your {{ selectedMake }} intact?
+            </label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="DoesInteriorIntact">
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+        </div>
+      </form>
+    </mat-step>
+    
+    <mat-step [stepControl]="seventeenFormGroup">
+      <form [formGroup]="vehicleDetailsFormGroup">
+
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">
+              Does your {{ selectedMake }} run and drive?</label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="doesCarDrive">
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <ng-container *ngIf="vehicleDetailsFormGroup.get('doesCarDrive')?.value === false">
+      <mat-step [stepControl]="eighteenFormGroup" label="Fill out your address">
+        <form [formGroup]="vehicleDetailsFormGroup">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+              <label class="content-title required--after" id="example-radio-group-label">Does your {{ selectedMake }}
+                start?</label>
+              &nbsp; &nbsp;
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-12 d-flex align-items-center justify-content-start">
+              <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+                required formControlName="doesCarStart">
+                <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                  Yes
+                </mat-radio-button>
+                <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                  No
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+          <div class="buttonContainer">
+            <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+            <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="nineteenFormGroup" label="Fill out your address">
+        <form [formGroup]="vehicleDetailsFormGroup">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+              <label class="content-title required--after" id="example-radio-group-label">Is its engine or transmission
+                missing</label>
+              &nbsp; &nbsp;
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-12 d-flex align-items-center justify-content-start">
+              <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+                required formControlName="carEngineandTransmission">
+                <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                  Yes
+                </mat-radio-button>
+                <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                  No
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+          <div class="buttonContainer">
+            <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+            <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+          </div>
+        </form>
+      </mat-step>
+    </ng-container>
+
+    <mat-step [stepControl]="tewntyFormGroup">
+      <form [formGroup]="vehicleDetailsFormGroup">
+
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">Does your {{ selectedMake }}
+              have any mechanical
+              issues?</label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="doesCarHaveMechanicalIssues">
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <ng-container *ngIf="vehicleDetailsFormGroup.get('doesCarHaveMechanicalIssues')?.value">
+      <mat-step [stepControl]="twentyOneFormGroup" label="Fill out your address">
+        <form [formGroup]="vehicleDetailsFormGroup">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+              <label class="content-title required--after" id="example-radio-group-label">Select Mechanical Issues</label>
+              &nbsp; &nbsp;
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-12 d-flex flex-row align-items-start justify-content-start" formGroupName="mechanicalIssues">
+              <div class="row">
+                <mat-checkbox class="col-12" formControlName="warningLights">Any warning lights (ABS, battery charge
+                  warning light,
+                  engine
+                  temperature etc.)
+                </mat-checkbox>
+                <mat-checkbox class="col-3" formControlName="Electrical">Electrical</mat-checkbox>
+                <mat-checkbox class="col-3" formControlName="Mechanical">Mechanical</mat-checkbox>
+                <mat-checkbox class="col-3" formControlName="Suspension">Suspension</mat-checkbox>
+                <mat-checkbox class="col-3" formControlName="Mechanical">Other</mat-checkbox>
+              </div>
+  
+            </div>
+          </div>
+          <div class="buttonContainer">
+            <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+            <button matStepperNext (click)="page('add','end-of-section')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+          </div>
+        </form>
+      </mat-step>
+    </ng-container>
+    <mat-step label="Instant Offer">
+      <app-seller-instant-offer [callAPI]="instantOfferAPICall" [srcImages]="srcImages"></app-seller-instant-offer>
+      <mat-divider></mat-divider>
+      <!-- <div class="w-100">
+        <div class="row m-0">
+          <div class="col-6 d-flex m-0 mt-3 p-0">
+            <button class="btn btn-back" (click)="prevStep(4)">Back</button>
+          </div>
+        </div>
+      </div> -->
     </mat-step>
     <!-- <mat-step>
     <ng-template matStepLabel>Done</ng-template>

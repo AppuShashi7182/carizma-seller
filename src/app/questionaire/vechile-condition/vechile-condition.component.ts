@@ -16,6 +16,7 @@ export class VechileConditionComponent {
   public vechileCondition: IVechileConditionQuestionaire;
   vehicleConditionFormGroup: FormGroup = new FormGroup({});
   @Output() stepTwoValidated = new EventEmitter<boolean>();
+  @Output() stepThreeValidated = new EventEmitter<boolean>();
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
@@ -51,23 +52,17 @@ export class VechileConditionComponent {
         Suspension: new FormControl(false),
         Other: new FormControl(false),
       }),
+      doesAllCarWheelInflated: new FormControl(this.vechileCondition.externalConditions.doesAllCarWheelInflated, Validators.required),
+      doesAllGlassorLightCracked: new FormControl(this.vechileCondition.externalConditions.doesAllGlassorLightCracked, Validators.required),
+      doesBodyDamage: new FormControl(this.vechileCondition.externalConditions.doesBodyDamage, Validators.required),
+      doesBodyDamageSeverity: new FormControl(this.vechileCondition.externalConditions.doesBodyDamageSeverity),
+      NoticeableDingsDentsScratches: new FormControl(this.vechileCondition.externalConditions.noticeableDingsDentsScratches, [Validators.required]),
+      doesBodyPanelIntact: new FormControl(this.vechileCondition.externalConditions.doesBodyPanelIntact, [Validators.required]),
+      doesAirbagsDeployedOrMissing: new FormControl(this.vechileCondition.externalConditions.doesAirbagsDeployedOrMissing, [Validators.required]),
+      DoesCarSufferedFloodorFireDamage: new FormControl(this.vechileCondition.externalConditions.doesCarSufferedFloodorFireDamage, [Validators.required]),
+      DoesInteriorIntact: new FormControl(this.vechileCondition.doesInteriorIntact, [Validators.required]),  
      });
   }
-
-  EngineRepairOptions: string[] = ['Engine repairs', "I don't know"];
-  carEngineTransmissionOptions: string[] = [
-    'Engine is partly taken apart.',
-    'Engine or Transmission is removed but still available.',
-    'Engine or Tranmission is no longer available',
-  ];
-  BodyDamageOptions: string[] = ['No Damage', 'Some damage', 'Crashed'];
-  BodyDamageDentScratchOptions: string[] = [
-    'Less than 3',
-    '4 to 6 ',
-    '7 and more',
-  ];
-
-  BodyNoticableDentsScratcheOptions = ['Less than 3', '4 to 6', '7 and more'];
   mechanical  = {
     warningLights: 'Any warning lights (ABS, battery charge warning light, engine temperature etc.)',
     
