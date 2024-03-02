@@ -163,6 +163,9 @@ export class CarStepperComponent {
       this.stepperNumber-=4.68;
       this.carPosition-=4.68;
     }
+  }else{
+    // this.setNoTittleDefaultValue();
+    this.callApiToGetInstantOffer()
   }
     console.log(props.page,this.stepperNumber)
 

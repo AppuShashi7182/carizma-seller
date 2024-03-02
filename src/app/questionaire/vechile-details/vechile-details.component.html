@@ -687,6 +687,17 @@
         </form>
       </mat-step>
     </ng-container>
+    <mat-step label="Instant Offer">
+      <app-seller-instant-offer [callAPI]="instantOfferAPICall" [srcImages]="srcImages"></app-seller-instant-offer>
+      <mat-divider></mat-divider>
+      <!-- <div class="w-100">
+        <div class="row m-0">
+          <div class="col-6 d-flex m-0 mt-3 p-0">
+            <button class="btn btn-back" (click)="prevStep(4)">Back</button>
+          </div>
+        </div>
+      </div> -->
+    </mat-step>
     <!-- <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>

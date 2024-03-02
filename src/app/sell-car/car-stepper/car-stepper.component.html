@@ -29,7 +29,7 @@
 <div class="car-stepper-content">
   <mat-horizontal-stepper #stepper (selectionChange)="onStepChange($event)" linear>
     <mat-step label="Vehicle  Details">
-      <app-vechile-details (getPageNumber)="getPageNumber($event)" (stepOneValidated)="validateStepperOne($event)"></app-vechile-details>
+      <app-vechile-details  (getPageNumber)="getPageNumber($event)" (stepOneValidated)="validateStepperOne($event)"></app-vechile-details>
       <div>
         <img src="assets/images/dollar.png" class="dollarImage" alt="">
       </div>
@@ -38,7 +38,7 @@
       </div>
       <mat-progress-bar  mode="determinate" value={{this.stepperNumber}}></mat-progress-bar>
       <!-- <mat-divider></mat-divider> -->
-      <div *ngIf="reviewService.activateContactPage" class="w-100">
+      <!-- <div *ngIf="reviewService.activateContactPage" class="w-100">
         <div class="row m-0">
           <div class="col-12 d-flex m-0 mt-3 p-0">
             <button (click)="setNoTittleDefaultValue()" class="btn ml-auto btn-next">
@@ -55,12 +55,12 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
     </mat-step>
-    <mat-step label="Vehicle Condition">
+    <!-- <mat-step label="Vehicle Condition">
       <app-vechile-condition (stepTwoValidated)="validateStepperOne($event)"></app-vechile-condition>
 
-      <!-- <mat-divider></mat-divider> -->
+      <mat-divider></mat-divider>
       <div class="w-100" *ngIf="reviewService.vehicleConditionPageStepper">
         <div class="row m-0">
           <div class="col-md-6 offset-1 d-flex m-0 mt-3 p-0">
@@ -73,8 +73,8 @@
           </div>
         </div>
       </div>
-    </mat-step>
-    <mat-step label="Vehicle Body Condition">
+    </mat-step> -->
+    <!-- <mat-step label="Vehicle Body Condition">
       <app-vechile-body-condition (stepThreeValidated)="validateStepperOne($event)"></app-vechile-body-condition>
 
       <mat-divider></mat-divider>
@@ -90,7 +90,7 @@
           </div>
         </div>
       </div>
-    </mat-step>
+    </mat-step> -->
 
     <mat-step label="Contact Information">
       <app-seller-contact (contactStepValidation)="validateStepperOne($event)"></app-seller-contact>

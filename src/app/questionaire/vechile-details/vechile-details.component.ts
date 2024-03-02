@@ -115,7 +115,10 @@ export class VechileDetailsComponent {
     '4 to 6 ',
     '7 and more',
   ];
-
+  mechanical  = {
+    warningLights: 'Any warning lights (ABS, battery charge warning light, engine temperature etc.)',
+    
+  }
   BodyNoticableDentsScratcheOptions = ['Less than 3', '4 to 6', '7 and more'];
 
   private onDestroy$: Subject<void> = new Subject<void>();
@@ -126,9 +129,12 @@ export class VechileDetailsComponent {
   @Input() formData: FormData[] | undefined;
   @Output() stepOneValidated = new EventEmitter<boolean>();
   @Output() getPageNumber = new EventEmitter<any>();
+  @Output() stepTwoValidated = new EventEmitter<boolean>();
+  @Output() stepThreeValidated = new EventEmitter<boolean>();
   selectedMake?: string = '';
   public vechileCondition: IVechileConditionQuestionaire;
-
+  srcImages: string = '';
+  instantOfferAPICall: boolean = false;
   submitted: boolean | undefined;
   pageData=0;
   carTransmissionTypes = ['Manual', 'Automatic', 'Others'];
@@ -184,7 +190,7 @@ export class VechileDetailsComponent {
       doesBodyPanelIntact: new FormControl(this.vechileCondition.externalConditions.doesBodyPanelIntact, [Validators.required]),
       doesAirbagsDeployedOrMissing: new FormControl(this.vechileCondition.externalConditions.doesAirbagsDeployedOrMissing, [Validators.required]),
       DoesCarSufferedFloodorFireDamage: new FormControl(this.vechileCondition.externalConditions.doesCarSufferedFloodorFireDamage, [Validators.required]),
-      DoesInteriorIntact: new FormControl(this.vechileCondition.doesInteriorIntact, [Validators.required]),  
+      DoesInteriorIntact: new FormControl(this.vechileCondition.doesInteriorIntact, [Validators.required]),    
     });   
   }
 
@@ -261,7 +267,57 @@ export class VechileDetailsComponent {
     this.vehicleDetailsFormGroup.get('DoesInteriorIntact')?.valueChanges.subscribe((value) => {
       this.vechileCondition.doesInteriorIntact = value
     })
+    this.vehicleDetailsFormGroup.get('doesCarDrive')?.valueChanges.subscribe((value) => {
+      if(value) {
+        this.vehicleDetailsFormGroup.get('doesCarStart')?.setValue(true)
+        this.vehicleDetailsFormGroup.get('carEngineandTransmission')?.setValue(true)
+      } else {  
+        this.vehicleDetailsFormGroup.get('doesCarStart')?.setValue(null)
+        this.vehicleDetailsFormGroup.get('carEngineandTransmission')?.setValue(null)
+      }
+      this.vechileCondition.doesCarDrive = value
+    })
 
+    this.vehicleDetailsFormGroup.get('doesCarStart')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.doesCarStart = value
+    })
+    this.vehicleDetailsFormGroup.get('carEngineandTransmission')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.carEngineandTransmission = value
+    })
+    this.vehicleDetailsFormGroup.get('doesCarHaveMechanicalIssues')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.doesCarHaveMechanicalIssues = value
+    })
+
+    this.vehicleDetailsFormGroup.get('mechanicalIssues')?.valueChanges.subscribe((mechanicalIssues: { [key: string]: boolean }) => {
+      const selectedIssues = Object.keys(mechanicalIssues).filter(
+        (key) =>  {
+          return mechanicalIssues[key]
+        }
+      );
+
+      selectedIssues.map((item:any) => {
+        if(item === 'warningLights') {
+          return this.mechanical.warningLights;
+        }
+        return item.toString;
+      }) 
+      console.log('selectedIssues',selectedIssues);
+      this.vechileCondition.mechanicalIssues = selectedIssues.join();
+      console.log('selectedIssues.join',this.vechileCondition.mechanicalIssues);
+    });
+    this.vehicleDetailsFormGroup.statusChanges.subscribe(status => {
+      if(status === 'VALID') {
+        if(this.vechileCondition.doesCarHaveMechanicalIssues === true && this.vechileCondition.mechanicalIssues?.length === 0) {
+          return;
+        }else {
+          this.stepTwoValidated.emit(true)
+          this.reviewService.vehicleConditionPageStepper = true;
+        }
+      }else {
+        this.stepTwoValidated.emit(false)
+        this.reviewService.vehicleConditionPageStepper = false;
+      }
+    })
     this.vehicleDetailsFormGroup.statusChanges.subscribe(status => {
       if(status === 'VALID') {
         /*if(this.vechileCondition.externalConditions.doesBodyDamage === false && this.vechileCondition.externalConditions.doesBodyDamageSeverity != null) {
@@ -294,7 +350,59 @@ export class VechileDetailsComponent {
       }
       this.onSubmit();
     })
-   
+      
+    this.vehicleDetailsFormGroup.get('doesCarDrive')?.valueChanges.subscribe((value) => {
+      if(value) {
+        this.vehicleDetailsFormGroup.get('doesCarStart')?.setValue(true)
+        this.vehicleDetailsFormGroup.get('carEngineandTransmission')?.setValue(true)
+      } else {  
+        this.vehicleDetailsFormGroup.get('doesCarStart')?.setValue(null)
+        this.vehicleDetailsFormGroup.get('carEngineandTransmission')?.setValue(null)
+      }
+      this.vechileCondition.doesCarDrive = value
+    })
+
+    this.vehicleDetailsFormGroup.get('doesCarStart')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.doesCarStart = value
+    })
+    this.vehicleDetailsFormGroup.get('carEngineandTransmission')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.carEngineandTransmission = value
+    })
+    this.vehicleDetailsFormGroup.get('doesCarHaveMechanicalIssues')?.valueChanges.subscribe((value) => {
+      this.vechileCondition.doesCarHaveMechanicalIssues = value
+    })
+
+    this.vehicleDetailsFormGroup.get('mechanicalIssues')?.valueChanges.subscribe((mechanicalIssues: { [key: string]: boolean }) => {
+      const selectedIssues = Object.keys(mechanicalIssues).filter(
+        (key) =>  {
+          return mechanicalIssues[key]
+        }
+      );
+
+      selectedIssues.map((item:any) => {
+        if(item === 'warningLights') {
+          return this.mechanical.warningLights;
+        }
+        return item.toString;
+      }) 
+      console.log('selectedIssues',selectedIssues);
+      this.vechileCondition.mechanicalIssues = selectedIssues.join();
+      console.log('selectedIssues.join',this.vechileCondition.mechanicalIssues);
+    });
+    this.vehicleDetailsFormGroup.statusChanges.subscribe(status => {
+      if(status === 'VALID') {
+        if(this.vechileCondition.doesCarHaveMechanicalIssues === true && this.vechileCondition.mechanicalIssues?.length === 0) {
+          return;
+        }else {
+          this.stepTwoValidated.emit(true)
+          this.reviewService.vehicleConditionPageStepper = true;
+        }
+      }else {
+        this.stepTwoValidated.emit(false)
+        this.reviewService.vehicleConditionPageStepper = false;
+      }
+      this.onSubmit();
+    })
   }
 
   onSubmit() {
@@ -309,7 +417,15 @@ export class VechileDetailsComponent {
   public ngOnDestroy(): void {
     this.onDestroy$.next();
   }
-
+  doesCarDriveEvent(event: boolean) {
+    this.vechileCondition.doesCarDrive = event;
+  }
+  onChangeDoesCarDrive(event : boolean) {
+    if(!event) {
+      this.vechileCondition.doesCarStart = true;
+      this.vechileCondition.carEngineandTransmission = true;
+    }
+  }
   page(page:any,data:any){
     this.pageData=page
     this.getPageNumber.emit({page,data});
