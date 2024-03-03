@@ -91,16 +91,16 @@ export class VechileDetailsComponent {
   });
   severityBodyDamageOptions = [{
     id: 1,
-    value : 'Light',
-    img: '../../../assets/images/light_body_damage.png'
+    value : 'Light damage',
+    img: ['../../../assets/images/lightDamage1.png','../../../assets/images/lightDamage2.png']
   },{
     id: 2,
-    value : 'Moderate',
-    img: '../../../assets/images/moderate_body_damage.png'
+    value : 'Moderate damage',
+    img: ['../../../assets/images/moderateDamage1.png','../../../assets/images/moderateDamage2.png']
   },{
     id: 3,
-    value : 'Severe',
-    img: '../../../assets/images/severe_body_damage.png'
+    value : 'Severe damage',
+    img: ['../../../assets/images/severeDamage1.png','../../../assets/images/severeDamage2.png']
   }]
 
   EngineRepairOptions: string[] = ['Engine repairs', "I don't know"];

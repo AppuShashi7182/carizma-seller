@@ -15,7 +15,8 @@
   margin: 25px 100px 25px 95px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 9px;
   min-width: 400px;
-  max-height: 100%;
+  max-height: 100rem;
+  height: auto;
   border-radius: 16px;
 }
 
@@ -121,7 +122,10 @@ mat-horizontal-stepper {
 }
 .mat-mdc-radio-button {
   border:0 !important;
-
+  background-color: white !important;
+}
+.mat-mdc-radio-checked{
+  background-color: #cee6f3  !important;
 }
 @media only screen and (max-width: 768px) {
   .car-stepper-content {
