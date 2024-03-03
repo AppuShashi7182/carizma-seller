@@ -164,6 +164,11 @@ export class CarStepperComponent {
       this.carPosition-=4.68;
     }
   }else{
+    this.carPositionAnimation = 'right'
+    this.playAnimation()
+    let remainingPosition=100-this.stepperNumber
+    this.stepperNumber+=Math.abs(remainingPosition);
+    this.carPosition+=Math.abs(remainingPosition);
     // this.setNoTittleDefaultValue();
     this.callApiToGetInstantOffer()
   }
