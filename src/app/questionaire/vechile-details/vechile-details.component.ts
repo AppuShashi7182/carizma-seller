@@ -428,6 +428,15 @@ export class VechileDetailsComponent {
   }
   page(page:any,data:any){
     this.pageData=page
-    this.getPageNumber.emit({page,data});
+    console.log(page,this.vehicleDetailsFormGroup.get('doesAllCarWheelInflated')?.value,this.vehicleDetailsFormGroup.get('doesCarHaveMechanicalIssues')?.value,'data')
+    if(this.vehicleDetailsFormGroup.get('doesCarHaveMechanicalIssues')?.value){
+      this.getPageNumber.emit({page,data}); 
+      return;
+    }
+    if(this.vehicleDetailsFormGroup.get('doesAllCarWheelInflated')?.value || !this.vehicleDetailsFormGroup.get('doesAllCarWheelInflated')?.value){
+      this.getPageNumber.emit({page,data});
+      return;
+    }
+    this.getPageNumber.emit({page});
   }
 }

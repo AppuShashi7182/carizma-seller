@@ -46,7 +46,7 @@ export class LicensePlateSelectionComponent implements OnInit {
       },
       (error) => {
         
-        this.toaster.error('Error in Loading States Please Refresh Page', 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
+        // this.toaster.error('Error in Loading States Please Refresh Page', 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
       }
     );
 
