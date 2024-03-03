@@ -62,12 +62,11 @@ export class HomeComponent {
     this.startTestimonialCarousel();
   }
   testimonials = [
-    { author: 'Sam Altman',designation:'Ceo',img:'assets/img/testimonials/testimonials-1.jpg',text: 'Outstanding car-buying experience, excellent service, and unbeatable deals. Highly recommend!' },
-    { author: 'Jane Doe',designation:'Ceo',img:'assets/img/testimonials/testimonials-2.jpg',text: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.' },
-    { author: 'Jane Doe',designation:'Ceo',img:'assets/img/testimonials/testimonials-3.jpg',text: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.' },
-    { author: 'Jane Doe',designation:'Ceo',img:'assets/img/testimonials/testimonials-4.jpg',text: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.' },
-    { author: 'Jane Doe',designation:'Ceo',img:'assets/img/testimonials/testimonials-5.jpg',text: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.' },
-    // Add more testimonials as needed
+    { author: 'Rosemary',designation:'Design consultant',img:'assets/img/testimonials/testimonials-1.jpg',text: 'My encounter with Carizma during the sale of my vehicle was flawless. Their offer surpassed others. The agent was punctual, friendly, and thorough in explaining paperwork. Afterward, I received my check and my car was transported.' },
+    { author: 'Ethel Johnston',designation:'Human Directives Director',img:'assets/img/testimonials/testimonials-2.jpg',text: 'Efficient, fair, and friendly - the perfect place to sell!' },
+    { author: 'Jennifer',designation:'Designer',img:'assets/img/testimonials/testimonials-3.jpg',text: 'Outstanding car-buying experience, excellent service, and unbeatable deals. Highly recommend!' },
+    { author: 'John',designation:'Managing Director',img:'assets/img/testimonials/testimonials-4.jpg',text: 'My encounter with Carizma during the sale of my vehicle was flawless and smooth.' },
+    { author: 'William',designation:'Software Engineer',img:'assets/img/testimonials/testimonials-5.jpg',text: 'The offer of Carizma surpassed others. The agent was very punctual and friendly, thorough in explaining paperwork.' },
   ];
   startCarCarousel() {
     setInterval(() => {
@@ -77,7 +76,7 @@ export class HomeComponent {
   startTestimonialCarousel() {
     setInterval(() => {
       this.nextTestimonial();
-    }, 6000); // Adjust the interval as needed
+    }, 4000); // Adjust the interval as needed
   }
   images = [
     'assets/img/home-carosoul-1.png',

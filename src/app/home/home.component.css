@@ -178,3 +178,8 @@
     position: absolute;
     text-align: end;
 }
+.know-more{
+    justify-content: center;
+    margin-bottom: 4rem;
+    cursor: pointer;
+}

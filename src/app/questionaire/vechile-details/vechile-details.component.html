@@ -73,6 +73,7 @@
 
       </form>
     </mat-step>
+    <ng-container *ngIf="vehicleDetailsFormGroup.get('carLoan')?.value === true">
     <mat-step [stepControl]="thirdFormGroup" label="Fill out your address">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
@@ -100,6 +101,7 @@
 
       </form>
     </mat-step>
+    </ng-container>
     <mat-step [stepControl]="fourthFormGroup" label="Fill out your address">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
@@ -190,7 +192,7 @@
             <input matInput required #zip type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
               class="form-control" name="zipcode-field"
               [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('zipCode')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('zipCode')?.invalid && vehicleDetailsFormGroup.get('zipCode')?.touched}"
-              autocomplete="doNotAutoComplete" formControlName="zipCode" maxlength="5" placeholder="Zip ex. 28213" />
+              autocomplete="doNotAutoComplete" formControlName="zipCode" maxlength="5" placeholder="Enter Zip Code" />
           </div>
           <div class="row  align-itmes-center justify-content-end mt-1">
             <mat-error class="d-flex justify-content-end"
@@ -251,39 +253,8 @@
 
       </form>
     </mat-step>
-    <mat-step [stepControl]="eighthFormGroup">
-      <form [formGroup]="vehicleDetailsFormGroup">
-        <div class="row">
-          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
-            <label class="content-title required--after" id="example-radio-group-label">Are all of the wheels inflated
-              on your {{
-              selectedMake
-              }} ?
-            </label>
-            &nbsp; &nbsp;
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 d-flex align-items-center justify-content-start">
-            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
-              required formControlName="doesAllCarWheelInflated">
-              <mat-radio-button class="example-radio-button" [value]="true">
-                Yes
-              </mat-radio-button>
-              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
-                No
-              </mat-radio-button>
-            </mat-radio-group>
-          </div>
-        </div>
-        <div class="buttonContainer">
-          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
-        </div>
-      </form>
-    </mat-step>    
 
-    <mat-step [stepControl]="ninthFormGroup">
+    <mat-step [stepControl]="eighthFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
 
         <div class="row">
@@ -315,7 +286,7 @@
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="tenthFormGroup">
+    <mat-step [stepControl]="ninthFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
 
         <div class="row">
@@ -346,7 +317,7 @@
     </mat-step>
 
     <ng-container *ngIf="vehicleDetailsFormGroup.get('doesBodyDamage')?.value === true">
-      <mat-step [stepControl]="eleventhFormGroup" label="Fill out your address">
+      <mat-step [stepControl]="tenthFormGroup" label="Fill out your address">
         <form [formGroup]="vehicleDetailsFormGroup">
           <div class="row">
             <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
@@ -359,11 +330,18 @@
             <div class="mt-2 d-flex align-items-center justify-content-start">
               <div required>
                 <label *ngFor="let option of severityBodyDamageOptions">
-                  <div class="d-flex flex-column justify-conten-center">
-                    <input type="radio" formControlName="doesBodyDamageSeverity" [value]="option.id">
-
-                    <img style="width: 80%;" class="ml-auto mr-auto" [src]="option.img" [alt]="option.value">
-                    <p class="text-center">{{option.value}}</p>
+                <div class="d-flex flex-column justify-conten-center">
+                    <div class="damgeImages">
+                <div class="d-flex align-items-center ">
+                  <ng-container *ngFor="let img of option.img">
+                    <img style="width: 80%;" class="ml-auto mr-auto damagedImage" [src]="img" [alt]="option.value">
+                  </ng-container>
+                </div>
+                <div class="d-flex align-items-center" style="padding-top: 10px;">
+                  <input class="damageRadio" type="radio" formControlName="doesBodyDamageSeverity" [value]="option.id">
+                  <p class="damageValueText">{{option.value}}</p>
+              </div>
+              </div>
                   </div>
 
                 </label>
@@ -379,7 +357,7 @@
       </mat-step>
     </ng-container>
 
-    <mat-step [stepControl]="twelthFormGroup">
+    <mat-step [stepControl]="eleventhFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
 
         <div class="row">
@@ -409,7 +387,7 @@
       </form>
     </mat-step>
   
-    <mat-step [stepControl]="thirteenFormGroup">
+    <mat-step [stepControl]="twelthFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
 
         <div class="row">
@@ -439,7 +417,7 @@
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="fourteenFormGroup">
+    <mat-step [stepControl]="thirteenFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -469,7 +447,7 @@
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="fifteenFormGroup">
+    <mat-step [stepControl]="fourteenFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -499,7 +477,7 @@
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="sixteenFormGroup">
+    <mat-step [stepControl]="fifteenFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
@@ -529,7 +507,7 @@
       </form>
     </mat-step>
     
-    <mat-step [stepControl]="seventeenFormGroup">
+    <mat-step [stepControl]="sixteenFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
 
         <div class="row">
@@ -561,7 +539,7 @@
     </mat-step>
 
     <ng-container *ngIf="vehicleDetailsFormGroup.get('doesCarDrive')?.value === false">
-      <mat-step [stepControl]="eighteenFormGroup" label="Fill out your address">
+      <mat-step [stepControl]="seventeenFormGroup" label="Fill out your address">
         <form [formGroup]="vehicleDetailsFormGroup">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -591,7 +569,7 @@
         </form>
       </mat-step>
 
-      <mat-step [stepControl]="nineteenFormGroup" label="Fill out your address">
+      <mat-step [stepControl]="eighteenFormGroup" label="Fill out your address">
         <form [formGroup]="vehicleDetailsFormGroup">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -622,7 +600,7 @@
       </mat-step>
     </ng-container>
 
-    <mat-step [stepControl]="tewntyFormGroup">
+    <mat-step [stepControl]="nineteenFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
 
         <div class="row">
@@ -655,7 +633,7 @@
     </mat-step>
 
     <ng-container *ngIf="vehicleDetailsFormGroup.get('doesCarHaveMechanicalIssues')?.value">
-      <mat-step [stepControl]="twentyOneFormGroup" label="Fill out your address">
+      <mat-step [stepControl]="tewntyFormGroup" label="Fill out your address">
         <form [formGroup]="vehicleDetailsFormGroup">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -687,6 +665,37 @@
         </form>
       </mat-step>
     </ng-container>
+    <mat-step [stepControl]="twentyOneFormGroup">
+      <form [formGroup]="vehicleDetailsFormGroup">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">Are all of the wheels inflated
+              on your {{
+              selectedMake
+              }} ?
+            </label>
+            &nbsp; &nbsp;
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex align-items-center justify-content-start">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="doesAllCarWheelInflated">
+              <mat-radio-button class="example-radio-button" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="buttonContainer">
+          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class=" ml-auto float-right nextBtn"   >Next</button>
+        </div>
+      </form>
+    </mat-step>    
     <mat-step label="Instant Offer">
       <app-seller-instant-offer [callAPI]="instantOfferAPICall" [srcImages]="srcImages"></app-seller-instant-offer>
       <mat-divider></mat-divider>
