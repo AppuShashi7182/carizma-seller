@@ -54,9 +54,9 @@
     width: 25px;
 }
 .how-it-works{
-    background-color: #F4F4F4;
-    padding: 0;
-    margin-top: 4rem;
+    background-color: #DEFDDE;
+    padding-top: 2rem;
+    /* margin-top: 4rem; */
 
 }
 .step1ColoredText{
@@ -103,6 +103,15 @@
     font-size: 1.4rem;
     margin-top: 20px;
 }
+
+.nation-wide-service {
+    background-color: #BFCFE7;
+}
+
+.faq {
+    background-color: #F6F9D8;
+}
+
 .nationWideContainer{
     padding: 0 2rem;
     justify-content: flex-end;

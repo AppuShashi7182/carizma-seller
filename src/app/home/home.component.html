@@ -195,51 +195,57 @@
 
 </section>
 <!-- End Testimonials Section -->
-<div class="d-flex justify-content-center">
-  <img class="dots " src="../../../assets/images/dots.PNG" alt="dots" />
-</div>
-<h5 class="howItWorksText mt-5">NATION WIDE SERVICES</h5>
-<mat-grid-list cols="3" rowHeight="3:2" style="margin: 0 6rem;">
-  <img class="servicesFlag" src="../../../assets/images/nationWideServicesflag.png" alt="services" />
-  <mat-grid-tile [colspan]="1" [rowspan]="2" class="servicesBlock1">
-    <!-- <div class="col-md-12">
-  <h1 class="carHeader">Nationwide Presence </h1>
-</div>
-<div class="col-md-12">
-  <h5 class="carText">Our Reach Extends to Every State in the USA!</h5>
-</div> -->
-    <div class="col-md-7" style="nationWideContainer">
-      <h1 class="carHeader">Nationwide Presence </h1>
-      <h5 class="carText">Our Reach Extends to Every State in the USA!</h5>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile> <img class="services" src="../../../assets/images/nationWideServices2.png"
-      alt="services" /></mat-grid-tile>
-  <mat-grid-tile> <img class="services" src="../../../assets/images/nationWideServices3.png"
-      alt="services" /></mat-grid-tile>
-  <mat-grid-tile> <img class="services" src="../../../assets/images/nationWideServices4.png"
-      alt="services" /></mat-grid-tile>
-  <mat-grid-tile> <img class="services" src="../../../assets/images/nationWideServices5.png"
-      alt="services" /></mat-grid-tile>
-  <mat-grid-tile> <img class="services" src="../../../assets/images/nationWideServices6.png"
-      alt="services" /></mat-grid-tile>
-  <div class="carContainer">
-  </div>
-  <mat-grid-tile [colspan]="2" [rowspan]="1" class="servicesBackground">
-    <div class="col-md-7" style="padding:0 2rem">
-      <h1 class="carHeader">Driving Dreams, One Trade at a Time</h1>
-      <h5 class="carText">Over 100,000 Cars Acquired Across the USA!</h5>
-    </div>
-    <div class="col-md-5">
-      <img class="servicesCar" src="../../../assets/images/nationWideServicesCar.png" alt="services" />
 
+<section class="nation-wide-service">
+  <div class="d-flex justify-content-center">
+    <img class="dots " src="../../../assets/images/dots.PNG" alt="dots" />
+  </div>
+  <h5 class="howItWorksText mt-5">NATION WIDE SERVICES</h5>
+  <mat-grid-list cols="3" rowHeight="3:2" style="margin: 0 6rem;">
+    <img class="servicesFlag" src="../../../assets/images/nationWideServicesflag.png" alt="services" />
+    <mat-grid-tile [colspan]="1" [rowspan]="2" class="servicesBlock1">
+      <!-- <div class="col-md-12">
+    <h1 class="carHeader">Nationwide Presence </h1>
+  </div>
+  <div class="col-md-12">
+    <h5 class="carText">Our Reach Extends to Every State in the USA!</h5>
+  </div> -->
+      <div class="col-md-7" class="nationWideContainer">
+        <h1 class="carHeader">Nationwide Presence </h1>
+        <h5 class="carText">Our Reach Extends to Every State in the USA!</h5>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile> <img class="services" src="../../../assets/images/nationWideServices2.png"
+        alt="services" /></mat-grid-tile>
+    <mat-grid-tile> <img class="services" src="../../../assets/images/nationWideServices3.png"
+        alt="services" /></mat-grid-tile>
+    <mat-grid-tile> <img class="services" src="../../../assets/images/nationWideServices4.png"
+        alt="services" /></mat-grid-tile>
+    <mat-grid-tile> <img class="services" src="../../../assets/images/nationWideServices5.png"
+        alt="services" /></mat-grid-tile>
+    <mat-grid-tile> <img class="services" src="../../../assets/images/nationWideServices6.png"
+        alt="services" /></mat-grid-tile>
+    <div class="carContainer">
     </div>
-  </mat-grid-tile>
-</mat-grid-list>
-<div class="d-flex align-items-center know-more" (click)="navigate('about')">
-  <h5 style="font-weight: bold;">KNOW MORE ABOUT US</h5>
-  <mat-icon class="ml-2">arrow_right_alt</mat-icon>
-</div>
+    <mat-grid-tile [colspan]="2" [rowspan]="1" class="servicesBackground">
+      <div class="col-md-7" style="padding: 0 2rem">
+        <h1 class="carHeader">Driving Dreams, One Trade at a Time</h1>
+        <h5 class="carText">Over 100,000 Cars Acquired Across the USA!</h5>
+      </div>
+      <div class="col-md-5">
+        <img class="servicesCar" src="../../../assets/images/nationWideServicesCar.png" alt="services" />
+  
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="d-flex align-items-center know-more" (click)="navigate('about')">
+    <h5 style="font-weight: bold;">KNOW MORE ABOUT US</h5>
+    <mat-icon class="ml-2">arrow_right_alt</mat-icon>
+  </div>
+</section>
+
+
+
 <div style="background: white;padding:3rem 0">
   <div>
     <img class="backgroundCar" src="../../../assets/images/takeAllCarsBackgroundCar.png" alt="backgroundCar" />

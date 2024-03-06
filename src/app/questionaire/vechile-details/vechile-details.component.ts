@@ -77,18 +77,6 @@ export class VechileDetailsComponent {
  tewntyFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
-  twentyOneFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  twentyTwoFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  twentyThreeGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  tenwetyFourFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
   severityBodyDamageOptions = [{
     id: 1,
     value : 'Light damage',

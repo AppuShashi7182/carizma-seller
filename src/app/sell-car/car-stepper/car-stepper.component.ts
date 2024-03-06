@@ -170,7 +170,7 @@ export class CarStepperComponent {
     this.stepperNumber+=Math.abs(remainingPosition);
     this.carPosition+=Math.abs(remainingPosition);
     // this.setNoTittleDefaultValue();
-    this.callApiToGetInstantOffer()
+    this.myStepper.next()
   }
     console.log(props.page,this.stepperNumber)
 
@@ -278,7 +278,7 @@ export class CarStepperComponent {
           this.reviewService.offerPrice = undefined
           this.isLoading = false;
           this.myStepper.next()
-          // this.toaster.warning('Unable to calculate the instant offer at the moment and our customer care team will reach out to you shortly.', 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
+          this.toaster.warning('Unable to calculate the instant offer at the moment and our customer care team will reach out to you shortly.', 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
         }
       );
       
