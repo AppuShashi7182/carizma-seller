@@ -678,8 +678,8 @@ section {
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  --color-background: #f4f4f4;
-  --color-box-background: #eaeaea;
+  --color-background: #DEFDDE;
+  --color-box-background: #9BF099;
   color: var(--color-default);
   background-color: var(--color-background);
   font-size: 14px;
@@ -895,8 +895,11 @@ section {
 /* Clients Section - Home Page
 ------------------------------*/
 .clients {
-  background-color: #f4f4f4;
-  padding: 10px 0;
+  background-color: #becdd8;
+  padding-top: 2rem !important;
+  padding-left: 4rem !important;
+  padding-right: 4rem !important;
+  padding-bottom: 3rem !important;
 }
 
 .clients .client-logo {
@@ -1169,7 +1172,7 @@ section {
 /* Features Section - Home Page
 ------------------------------*/
 .features {
-  background-color: #f4f4f4;
+  background-color: #CCCFF7;
 }
 
 .features .features-item {
