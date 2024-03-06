@@ -1,15 +1,11 @@
 <app-car-loader *ngIf="isLoading"></app-car-loader>
 
-<form [formGroup]="manualVechileSelectionForm" (submit)="onSubmit()">
+<!-- <form [formGroup]="manualVechileSelectionForm" (submit)="onSubmit()">
   <div class="container-fluid" style="padding-top: 15px">
     <div class="row">
-      <!-- <mat-grid-list cols="4" rowHeight="75px" gutterSize="1px">
-    <mat-grid-tile colspan="2"> -->
       <div class="col-6">
         <mat-form-field appearance="outline">
           <mat-label>Year</mat-label>
-          <!-- <mat-hint *ngIf="manualVechileSelectionForm.value.yearSelected === 0" class="text-center">Select
-            Year</mat-hint> -->
           <mat-select style="font-size: 1.1rem;" matNativeControl (selectionChange)="yearSelectionChange($event)" formControlName="yearSelected"
             name="yearSelected">
             <mat-option *ngFor="let year of VechileRegisterationList" [value]="year">
@@ -19,8 +15,6 @@
         </mat-form-field>
       </div>
       <div class="col-6">
-        <!-- </mat-grid-tile> -->
-        <!-- <mat-grid-tile colspan="2" (focusout)="validateTextField($event, 'Make')"> -->
         <mat-form-field appearance="outline">
           <mat-label>
             Make
@@ -36,48 +30,21 @@
               </mat-option>
             </mat-optgroup>
           </mat-autocomplete>
-          <!-- <mat-label>Make</mat-label>
-          <mat-select matNativeControl formControlName="selectedMake" name="selectedMake"
-            (selectionChange)="makeSelectionChange()">
-            <mat-optgroup style="  font-weight: bold;" *ngFor="let group of makesList|async" [label]="group.groupName">
-              <mat-option *ngFor="let make of group.makes" [value]="make">
-                {{ make }}
-              </mat-option>
-            </mat-optgroup> -->
-          <!-- <mat-optgroup *ngFor="let group of makesList|async" label="All Makes"
-            >
-               <mat-option *ngFor="let make of makesList | async" [value]="make">
-                 {{ make }}
-               </mat-option>
-               </mat-optgroup> -->
-          <!-- </mat-select> -->
         </mat-form-field>
       </div>
-      <!-- </mat-grid-tile> -->
       <div class="col-6">
-        <!-- <mat-grid-tile colspan="2"> -->
         <mat-form-field appearance="outline">
           <mat-label>
             Model
           </mat-label>
           <input style="font-size: 1.1rem;" type="text" placeholder="Select Model" matInput formControlNamehj="selectedModel" name="selectedModel"
             [formControl]="modelControl" [matAutocomplete]="autoMake" required />
-          <!-- <mat-error *ngIf="licensePlateSelection.status == 'INVALID'"
-            >State is required</mat-error
-          > -->
           <mat-hint *ngIf="modelControl.value === ''" class="text-center">Click to see Model</mat-hint>
           <mat-autocomplete #autoMake="matAutocomplete" (optionSelected)="modelSelectionChange($event)">
             <mat-option *ngFor="let option of modelList | async" [value]="option">
               {{ option }}
             </mat-option>
           </mat-autocomplete>
-          <!-- <mat-label>Model</mat-label>
-          <mat-select matNativeControl formControlNameame="selectedModel" name="selectedModel"
-            (selectionChange)="modelSelectionChange($event)">
-            <mat-option *ngFor="let model of modelList | async" [value]="model">
-              {{ model }}
-            </mat-option>
-          </mat-select> -->
         </mat-form-field>
       </div>
 
@@ -92,23 +59,67 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <!-- </mat-grid-tile> -->
-        <!-- <mat-grid-tile [colspan]="2"> -->
       </div>
       <div class="col-12 text-center">
-        <!-- <button mat-raised-button class="btn-go">
-          GET MY OFFER -->
-          <!-- <div class="row">
-            <div class="col-10"> GET MY OFFER</div>
-            <div class="col-2 text-right" style="font-size: larger;">
-              >
-            </div>
-          </div> -->
-        <!-- </button> -->
         <div class="d-flex justify-content-center mb-4 w-100">
           <button type="button" class="btn getOfferBtn ml-2">GET MY OFFER</button>
       </div>
       </div>
     </div>
   </div>
+</form> -->
+<form [formGroup]="manualVechileSelectionForm" style="height: 70%" (ngSubmit)="onSubmit()">
+  
+  <mat-grid-list cols="4" rowHeight="50px" gutterSize="3px">
+  <mat-grid-tile colspan="2" rowspan="1.5">
+  <div class="form-group"  style="width: 90%;">
+    <select id="year" class="form-control" formControlName="year" [(ngModel)]="modelDetails.year">
+      <option value=""  disabled>Select Year</option>
+          <option *ngFor="let year of VechileRegisterationList" [value]="year" >{{year}}</option>
+    </select>
+
+    <div *ngIf="manualVechileSelectionForm.get('year')?.touched && manualVechileSelectionForm.get('year')?.hasError('required')" class="text-danger">
+      Year is required.
+    </div>
+  </div>
+</mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1.5">
+  <div class="form-group" style="width: 90%;">
+    <input type="text" id="make" class="form-control" placeholder="Enter Make" [(ngModel)]="modelDetails.make" formControlName="make">
+
+    <!-- Display error only if the field is touched -->
+    <div *ngIf="manualVechileSelectionForm.get('make')?.touched && manualVechileSelectionForm.get('make')?.hasError('required')" class="text-danger">
+      Make is required.
+    </div>
+  </div>
+</mat-grid-tile>
+<mat-grid-tile colspan="2" rowspan="1.5">
+  <div class="form-group" style="width: 90%;">
+    <input type="text" id="model" class="form-control" placeholder="Enter Model" [(ngModel)]="modelDetails.model" formControlName="model">
+
+    <!-- Display error only if the field is touched -->
+    <div *ngIf="manualVechileSelectionForm.get('model')?.touched && manualVechileSelectionForm.get('model')?.hasError('required')" class="text-danger">
+      Model is required.
+    </div>
+  </div>
+</mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1.5">
+  <div class="form-group"  style="width: 90%;">
+    <select id="trim" class="form-control" formControlName="trim" [(ngModel)]="modelDetails.trim">
+      <option value="" disabled>Select Trim</option>
+          <option *ngFor="let trim of trimList | async" [value]="trim" >{{trim}}</option>
+    </select>
+
+    <div *ngIf="manualVechileSelectionForm.get('trim')?.touched && manualVechileSelectionForm.get('trim')?.hasError('required')" class="text-danger">
+      Trim is required.
+    </div>
+  </div>
+</mat-grid-tile>
+
+<mat-grid-tile colspan="4" class="w-80">
+  <div class="d-flex justify-content-center w-100">
+    <button type="button" (click)="onSubmit()" class="btn getOfferBtn ml-2">GET MY OFFER</button>
+</div>
+</mat-grid-tile>
+</mat-grid-list>
 </form>
