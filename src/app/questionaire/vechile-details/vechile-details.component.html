@@ -5,7 +5,7 @@
   <!-- Testing -->
   <img src="assets/img/red-light.png" align="right" alt="red-light" class="margon-top--24">
   <mat-stepper #stepper>
-    <mat-step [stepControl]="firstFormGroup">
+    <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -32,13 +32,13 @@
           Please select a Title.
         </small>
         <div class="buttonContainer">
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"  >Next</button>
+          <button matStepperNext [disabled]="!this.vehicleDetailsFormGroup?.value?.carTitle" (click)="page('add','')" mat-raised-button class="nextBtn"  >Next</button>
 
           <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+    <mat-step [stepControl]="vehicleDetailsFormGroup" label="Fill out your address">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -67,14 +67,14 @@
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
           <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext  [disabled]="this.vehicleDetailsFormGroup?.value?.carLoan===null" (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
 
         </div>
 
       </form>
     </mat-step>
     <ng-container *ngIf="vehicleDetailsFormGroup.get('carLoan')?.value === true">
-    <mat-step [stepControl]="thirdFormGroup" label="Fill out your address">
+    <mat-step [stepControl]="vehicleDetailsFormGroup" label="Fill out your address">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-6 col-lg-12 d-flex align-items-center">
@@ -95,14 +95,16 @@
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious class="previousBtn" (click)="page('sub','')">Back</button>
           <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"  >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn" 
+          [disabled]="!this.vehicleDetailsFormGroup?.value?.loanAmount" 
+          >Next</button>
 
         </div>
 
       </form>
     </mat-step>
     </ng-container>
-    <mat-step [stepControl]="fourthFormGroup" label="Fill out your address">
+    <mat-step [stepControl]="vehicleDetailsFormGroup" label="Fill out your address">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -134,12 +136,13 @@
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
           <!-- <button mat-button matStepperNext class="btn ml-auto btn-next float-right" (click)="page('add')">Next</button> -->
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   
+          [disabled]="!this.vehicleDetailsFormGroup?.value?.mileage" >Next</button>
         </div>
 
       </form>
     </mat-step>
-    <mat-step [stepControl]="fifthFormGroup" label="Fill out your address">
+    <mat-step [stepControl]="vehicleDetailsFormGroup" label="Fill out your address">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12  d-flex align-items-center">
@@ -171,13 +174,15 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn" 
+           [disabled]="!this.vehicleDetailsFormGroup?.value?.color" 
+           >Next</button>
 
         </div>
 
       </form>
     </mat-step>
-    <mat-step [stepControl]="sixthFormGroup" label="Fill out your address">
+    <mat-step [stepControl]="vehicleDetailsFormGroup" label="Fill out your address">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12  d-flex align-items-center">
@@ -208,13 +213,15 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"  >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"  
+          [disabled]="!this.vehicleDetailsFormGroup?.value?.zipCode"
+          >Next</button>
 
         </div>
 
       </form>
     </mat-step>
-    <mat-step [stepControl]="seventhFormGroup" label="Fill out your address">
+    <mat-step [stepControl]="vehicleDetailsFormGroup" label="Fill out your address">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -247,13 +254,15 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"  
+          [disabled]="!this.vehicleDetailsFormGroup?.value?.vechileTransmissionType"
+           >Next</button>
         </div>
 
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="eighthFormGroup">
+    <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
 
         <div class="row">
@@ -279,12 +288,14 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn" 
+          [disabled]="this.vehicleDetailsFormGroup?.value?.doesCarDrive === null"
+            >Next</button>
         </div>
       </form>
     </mat-step>
     <ng-container *ngIf="vehicleDetailsFormGroup.get('doesCarDrive')?.value === false">
-      <mat-step [stepControl]="ninthFormGroup" label="Fill out your address">
+      <mat-step [stepControl]="vehicleDetailsFormGroup" label="Fill out your address">
         <form [formGroup]="vehicleDetailsFormGroup">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -309,12 +320,14 @@
           </div>
           <div class="buttonContainer">
             <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-            <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+            <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   
+            [disabled]="this.vehicleDetailsFormGroup?.value?.doesCarStart=== null"
+            >Next</button>
           </div>
         </form>
       </mat-step>
 
-      <mat-step [stepControl]="tenthFormGroup" label="Fill out your address">
+      <mat-step [stepControl]="vehicleDetailsFormGroup" label="Fill out your address">
         <form [formGroup]="vehicleDetailsFormGroup">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -339,13 +352,15 @@
           </div>
           <div class="buttonContainer">
             <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-            <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+            <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn" 
+            [disabled]="this.vehicleDetailsFormGroup?.value?.carEngineandTransmission=== null"
+            >Next</button>
           </div>
         </form>
       </mat-step>
     </ng-container>
     
-    <mat-step [stepControl]="eleventhFormGroup">
+    <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
 
         <div class="row">
@@ -372,13 +387,15 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   
+          [disabled]="this.vehicleDetailsFormGroup?.value?.doesCarHaveMechanicalIssues=== null"
+          >Next</button>
         </div>
       </form>
     </mat-step>
 
     <ng-container *ngIf="vehicleDetailsFormGroup.get('doesCarHaveMechanicalIssues')?.value">
-      <mat-step [stepControl]="twelthFormGroup" label="Fill out your address">
+      <mat-step [stepControl]="vehicleDetailsFormGroup" label="Fill out your address">
         <form [formGroup]="vehicleDetailsFormGroup">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -405,13 +422,15 @@
           </div>
           <div class="buttonContainer">
             <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-            <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn" >Next</button>
+            <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn" 
+            [disabled]="!this.vehicleDetailsFormGroup?.value?.mechanicalIssues"
+            >Next</button>
           </div>
         </form>
       </mat-step>
     </ng-container>
 
-    <mat-step [stepControl]="thirteenFormGroup">
+    <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -438,12 +457,14 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"  
+          [disabled]="this.vehicleDetailsFormGroup?.value?.doesAllCarWheelInflated=== null"
+          >Next</button>
         </div>
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="fourteenFormGroup">
+    <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
 
         <div class="row">
@@ -470,12 +491,14 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   
+          [disabled]="this.vehicleDetailsFormGroup?.value?.doesAllGlassorLightCracked=== null"
+          >Next</button>
         </div>
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="fourteenFormGroup">
+    <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
 
         <div class="row">
@@ -500,13 +523,15 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"  
+          [disabled]="this.vehicleDetailsFormGroup?.value?.doesBodyDamage=== null"
+           >Next</button>
         </div>
       </form>
     </mat-step>
 
     <ng-container *ngIf="vehicleDetailsFormGroup.get('doesBodyDamage')?.value === true">
-      <mat-step [stepControl]="fifteenFormGroup" label="Fill out your address">
+      <mat-step [stepControl]="vehicleDetailsFormGroup" label="Fill out your address">
         <form [formGroup]="vehicleDetailsFormGroup">
           <div class="row">
             <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
@@ -540,13 +565,15 @@
           </div>
           <div class="buttonContainer">
             <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-            <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+            <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn" 
+            [disabled]="!this.vehicleDetailsFormGroup?.value?.doesBodyDamageSeverity"
+            >Next</button>
           </div>
         </form>
       </mat-step>
     </ng-container>
 
-    <mat-step [stepControl]="sixteenFormGroup">
+    <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
 
         <div class="row">
@@ -571,12 +598,14 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   
+          [disabled]="this.vehicleDetailsFormGroup?.value?.NoticeableDingsDentsScratches=== null"
+          >Next</button>
         </div>
       </form>
     </mat-step>
   
-    <mat-step [stepControl]="seventeenFormGroup">
+    <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
 
         <div class="row">
@@ -601,12 +630,14 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   
+          [disabled]="this.vehicleDetailsFormGroup?.value?.doesBodyPanelIntact=== null"
+          >Next</button>
         </div>
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="eighteenFormGroup">
+    <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -631,12 +662,14 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   
+          [disabled]="this.vehicleDetailsFormGroup?.value?.doesAirbagsDeployedOrMissing=== null"
+          >Next</button>
         </div>
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="nineteenFormGroup">
+    <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
@@ -661,12 +694,14 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"  
+          [disabled]="this.vehicleDetailsFormGroup?.value?.DoesCarSufferedFloodorFireDamage=== null"
+           >Next</button>
         </div>
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="tewntyFormGroup">
+    <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
           <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
@@ -691,7 +726,9 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','end-of-section')" mat-raised-button class="nextBtn"   >Next</button>
+          <button matStepperNext (click)="page('add','end-of-section')" mat-raised-button class="nextBtn"   
+          [disabled]="this.vehicleDetailsFormGroup?.value?.DoesInteriorIntact=== null"
+          >Next</button>
         </div>
       </form>
     </mat-step>
