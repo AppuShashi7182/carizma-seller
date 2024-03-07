@@ -1,7 +1,28 @@
 
 <header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="btn-group" style="margin: 10px 10px 0;"> 
+    <ng-container *ngIf="!showMenu">
+      <div (click)="handleShowMenu()"><mat-icon >dehaze</mat-icon></div>
+    </ng-container>
+    <ng-container  *ngIf="showMenu">
+      <div (click)="handleShowMenu()"><mat-icon>close</mat-icon></div>
+      
+    </ng-container>
+    <ng-container  *ngIf="showMenu" >
+      <div style="display:block;margin-top: 30px;">
+    <ul class="dropdown-menu" style="display:block;border-radius: 10px;">
+      <li class="menu-item"><a class="dropdown-item" (click)="navigate('home')"style="align-items: center;display: flex;"><span>Home</span></a></li>
+      <mat-divider style="border: 1px solid #e9e9e9;"></mat-divider> 
+      <li class="menu-item"><a class="dropdown-item" (click)="navigate('about')" style="align-items: center;display: flex"><span>About</span></a></li>
+      <mat-divider  style="border: 1px solid #e9e9e9;"></mat-divider> 
+      <li class="menu-item"><a class="dropdown-item" (click)="navigate('how-we-work')" style="align-items: center;display: flex"> 	<span>How we work</span></a></li>
+      <mat-divider  style="border: 1px solid #e9e9e9;"></mat-divider> 
+      <li class="menu-item"><a class="dropdown-item" href="index.html#contact" style="align-items: center;display: flex"><span>Contact</span></a></li>
+    </ul>
+  </div>
+    </ng-container>
+  </div>
   <div class="container-fluid d-flex align-items-center justify-content-between">
-
     <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
       <!-- Uncomment the line below if you also wish to use an image logo -->
       <img src="assets/img/logo01.png" alt="carizma logo">
