@@ -27,3 +27,11 @@
 .loginBtn:hover{
     background-color: #F6F7F9;
 }
+.dropdown-item{
+    cursor: pointer;
+}
+.menu-item{
+    :hover{
+        background-color: #cae8ff ;
+    }
+}

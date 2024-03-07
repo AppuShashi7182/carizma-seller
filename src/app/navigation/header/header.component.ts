@@ -11,6 +11,7 @@ import routes from '../../../assets/json/routes.json'
 export class HeaderComponent {
   @Output() public sidenavToggle = new EventEmitter();
   public key = 'home'
+  showMenu=false;
   constructor(private router: Router, public authService: AuthService, public tokenService: TokenStorageService) {
   }
 
@@ -30,8 +31,11 @@ export class HeaderComponent {
   navigate(route:string) {
     this.router.navigate([`/${route}`]);
     this.key = route
+    this.showMenu=false;
   }
-
+  handleShowMenu(){
+    this.showMenu=!this.showMenu
+  }
   logOut() {
     this.authService.logout();
     this.router.navigate(['']);
