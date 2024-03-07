@@ -678,8 +678,8 @@ section {
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  --color-background: #DEFDDE;
-  --color-box-background: #9BF099;
+  --color-background: #B2D2FB;
+  --color-box-background: #83B6F8;
   color: var(--color-default);
   background-color: var(--color-background);
   font-size: 14px;
@@ -895,7 +895,7 @@ section {
 /* Clients Section - Home Page
 ------------------------------*/
 .clients {
-  background-color: #becdd8;
+  background-color: #B2D2FB;
   padding-top: 2rem !important;
   padding-left: 4rem !important;
   padding-right: 4rem !important;
