@@ -16,67 +16,6 @@ import { Subject, takeUntil } from 'rxjs';
   encapsulation: ViewEncapsulation.None,
 })
 export class VechileDetailsComponent {
-
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-  });
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  thirdFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  fourthFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  fifthFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  sixthFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  seventhFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  eighthFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  ninthFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  tenthFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  eleventhFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  twelthFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  thirteenFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-  });
- fourteenFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  fifteenFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  sixteenFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  seventeenFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  eighteenFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });  
-  nineteenFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-  });
- tewntyFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
   severityBodyDamageOptions = [{
     id: 1,
     value : 'Light damage',
@@ -201,6 +140,7 @@ export class VechileDetailsComponent {
     this.vehicleDetailsFormGroup.get('carTitle')?.valueChanges.subscribe((value) => {
       this.vechileQuestionaire.carTitle = value
     })
+    console.log(this.vechileQuestionaire.carTitle,'this.vechileQuestionaire.carTitle')
     this.vehicleDetailsFormGroup.get('carLoan')?.valueChanges.subscribe((value) => {
         this.vechileQuestionaire.carLoan = value
       if(!value) {
