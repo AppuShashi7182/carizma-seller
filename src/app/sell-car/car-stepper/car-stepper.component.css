@@ -127,6 +127,7 @@ mat-horizontal-stepper {
 .mat-mdc-radio-checked{
   background-color: #cee6f3  !important;
 }
+
 @media only screen and (max-width: 768px) {
   .car-stepper-content {
     margin: 5px 10px 0 15px

@@ -538,3 +538,45 @@ img {
   outline: none;
   transition: 0.2s all;
 }
+
+.backgroundImage{
+  justify-content: center;
+    display: flex;
+    position: absolute;
+    width: 100%;
+}
+.signal{
+  position: absolute;
+  right: 0;
+}
+.chequeContainer{
+  justify-content: center;
+  display: flex;
+  z-index: 10;
+  margin-top: -4rem;
+}
+.chequeImage{
+    width: 16rem;
+    height: auto;
+}
+.offerText1{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.currency{
+  font-size: 3.5rem;
+  font-weight: bolder;
+  color:#67A6F8
+}
+.vehicleDetails{
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.continue-to{
+  background-color: #67A6F8 !important;
+  color: white !important;
+  font-size: 15px;
+  margin: 30px;
+  width: 100%;
+  border-radius: 10px;
+}
