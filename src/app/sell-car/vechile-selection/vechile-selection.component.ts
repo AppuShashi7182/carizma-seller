@@ -41,6 +41,7 @@ export class VechileSelectionComponent {
 
   manualVechileSelectionForm: FormGroup;
 
+  modelDetails = { make: '', year: '',model:'',trim:''};
   constructor(
     private _service: NHTSAService,
     public _store: SellCarStoreService,
@@ -52,10 +53,10 @@ export class VechileSelectionComponent {
     this.modelList = of([]);
     this.trimList = of([]);
     this.manualVechileSelectionForm = new FormGroup({
-      yearSelected: new FormControl(0, Validators.required),
-      selectedMake: new FormControl('', Validators.required),
-      selectedModel: new FormControl('', Validators.required),
-      selectedStyle: new FormControl('', Validators.required),
+      year: new FormControl('', Validators.required),
+      make:  new FormControl('', Validators.required),
+      trim:  new FormControl('', Validators.required),
+      model:  new FormControl('', Validators.required),
     });
   }
   get yearSelected() {
@@ -144,18 +145,16 @@ export class VechileSelectionComponent {
   trimSelectionChange() { }
 
   onSubmit(): void {
-
-    if (this.getErrorMessage()) {
-      return;
-    }
+    this.manualVechileSelectionForm.markAllAsTouched();
+    if (this.manualVechileSelectionForm.valid) {
     this.isLoading = true;
     // setTimeout(() => (this.isLoading = false), 10000);
 
     let carSelection = new IVechileModelDetails();
-    carSelection.make = this.makelistControl.value;
-    carSelection.model = this.modelControl.value;
-    carSelection.trim = this.selectedTrim.value;
-    carSelection.year = this.manualVechileSelectionForm.value.yearSelected;
+    carSelection.make = this.modelDetails.make;
+    carSelection.model = this.modelDetails.model;
+    carSelection.trim = this.modelDetails.trim;
+    carSelection.year = Number(this.modelDetails.year);
 
     carSelection.plateNumber = '';
     carSelection.state = '';
@@ -170,7 +169,7 @@ export class VechileSelectionComponent {
     this._store.setCurrentSellVechileDetails(carSelection)
     this.router.navigate(['/questionaire']);
   }
-
+  }
   getErrorMessage() {
     let invalid: boolean = true;
     if (this.yearSelected?.invalid) {

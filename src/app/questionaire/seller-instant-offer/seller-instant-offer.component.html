@@ -1,4 +1,4 @@
-<div style="background-color: whitesmoke; padding: 25px">
+<div style="background-color: white; padding: 25px">
   <!--  -->
   <!-- <mat-card class="question-card">
     <mat-card-content>
@@ -27,9 +27,55 @@
   </mat-card> -->
   <div class="container">
     <mat-card>
-      <mat-card-content style="overflow: hidden">
-        <div class="row">
-          <div class="col-sm-12 col-md-3 col-lg-3">
+      <img src="assets/img/green-light.png" alt="green-light" class="signal">
+      <div class="backgroundImage">
+        <img src="assets/images/bestPrice.png" alt="background" class="">
+      </div>
+      <div class="chequeContainer">
+        <img src="assets/images/cheque.png" alt="background" class="chequeImage">
+      </div>
+      <div style="text-align:center;margin-top:-3rem">
+        <p class="offerText1">Voila! We'd love to make an offer for your car of</p>
+        <ng-container *ngIf="!reviewService.offerPrice || reviewService.offerPrice < 1">
+          <br />
+          <div class="col-12 alert alert-warning" role="alert" 
+          style="background: white;
+          border: white;">
+            <h2>
+              <strong>
+                Unable to calculate the instant offer at the moment </strong>and our customer care team will reach
+              out to you shortly.
+            </h2>
+          </div>
+        </ng-container>
+        <p *ngIf="reviewService.offerPrice" class="currency">${{ reviewService.offerPrice | currency }}</p>
+        <p *ngIf="!reviewService.offerPrice" class="currency">$__,__,__</p>
+        <p class="vehicleDetails"> {{
+          selectVechileDetails?.make+" "+selectVechileDetails?.model 
+          }}</p>
+          
+          <p class="vehicleDetails">{{selectVechileDetails?.year}} Year,{{ this.sellerDetails?.vehicleDetails?.mileage}} miles</p>
+          <ng-container *ngIf="reviewService.offerPrice">
+            <p>Please login to Accept or Reject this offer</p>
+            <div class="col-md-12" style="display:flex;justify-content: center;">
+              <div class="col-md-4" style="display: flex; justify-content: flex-start;">
+            <button mat-raised-button class="ml-2 continue-to"
+            (click)="routeToDashboard()">
+            Continue to login / Sign up
+          </button>
+        </div>
+        </div>
+          </ng-container>
+           <!-- <div class="row mt-3">
+            <div class="display-inline-block">
+              <span class="car-make">{{ selectVechileDetails?.year }}</span>
+              <span class="h6 ml-2 text-secondary">{{ this.sellerDetails?.vehicleDetails?.mileage }} miles</span>
+            </div>
+          </div> -->
+      </div>
+      <!-- <mat-card-content style="overflow: hidden">
+        <div class="row"> -->
+          <!-- <div class="col-sm-12 col-md-3 col-lg-3">
             <div class="card shadow-md">
               <div style="background-color: #eff0f1; border-radius: 4px">
                 <div class="vehica-car-card__featured">
@@ -39,9 +85,9 @@
                   class="lazyautosizes lazyloaded" />
               </div>
             </div>
-          </div>
-          <div class="col-sm-12 col-md-9 col-lg-9">
-            <div class="row mb-0 mt-3">
+          </div> -->
+          <!-- <div class="col-sm-12 col-md-9 col-lg-9"> -->
+            <!-- <div class="row mb-0 mt-3">
               <span title="Bentley Mulsanne 4-door sedan blue" class="vehica-car-card-row__name">
                 {{
                 " " +
@@ -50,13 +96,13 @@
                 selectVechileDetails?.model
                 }}
               </span>
-              <!-- <div class="blockquote">
+              <div class="blockquote">
                 <span>Blind spot alert,</span>
                 <span>Bluetooth,</span>
                 <span>Keyless start</span>
-              </div> -->
-            </div>
-            <div class="row mt-3">
+              </div>
+            </div> -->
+            <!-- <div class="row mt-3">
               <div class="display-inline-block">
                 <span class="car-make">{{ selectVechileDetails?.year }}</span>
                 <span class="h6 ml-2 text-secondary">{{ this.sellerDetails?.vehicleDetails?.mileage }} miles</span>
@@ -70,8 +116,8 @@
                   {{ this.sellerDetails?.vehicleDetails?.zipCode }}
                 </span>
               </div>
-            </div>
-            <ng-container *ngIf="!reviewService.offerPrice || reviewService.offerPrice < 1">
+            </div> -->
+            <!-- <ng-container *ngIf="!reviewService.offerPrice || reviewService.offerPrice < 1">
               <br />
               <div class="col-12 alert alert-warning" role="alert">
                 <h2>
@@ -80,8 +126,8 @@
                   out to you shortly.
                 </h2>
               </div>
-            </ng-container>
-            <div class="container mt-5" *ngIf="reviewService.offerPrice && reviewService.offerPrice > 0">
+            </ng-container> -->
+            <!-- <div class="container mt-5" *ngIf="reviewService.offerPrice && reviewService.offerPrice > 0">
               <div class="row text-right">
                 <div class="vehica-car-card-row__price-desktop">
                   {{ reviewService.offerPrice | currency }}
@@ -90,20 +136,20 @@
                   <a title="" target="_blank"><span>Best Deal</span></a>
                 </div>
               </div>
-            </div>
-            <div class="row mt-5">
-              <ng-container *ngIf="reviewService.offerPrice">
+            </div> -->
+            <!-- <div class="row mt-5">
+              <ng-container *ngIf="reviewService.offerPrice"> -->
                 <!-- <div class="col-sm-6 col-md-12 col-lg-12 ng-star-inserted d-flex justify-content-center">
                   
 
                 </div> -->
-                <div class="col-sm-6 col-md-12 col-lg-12 ng-star-inserted d-flex justify-content-center">
+                <!-- <div class="col-sm-6 col-md-12 col-lg-12 ng-star-inserted d-flex justify-content-center">
                   <h2>Please login to accept/Reject the offer</h2>
                   <button mat-raised-button class="ml-2  btn float-right btn-success offer-btn"
                     (click)="routeToDashboard()">
                     CONTINUE
                   </button>
-                </div>
+                </div> -->
                 <!-- <div
                   class="col-sm-6 col-md-8 col-lg-8 d-flex justify-content-end"
                 >
@@ -126,11 +172,12 @@
                     <mat-icon>thumb_down</mat-icon> &nbsp; Reject
                   </button>
                 </div> -->
-              </ng-container>
+              <!-- </ng-container>
             </div>
-          </div>
-        </div>
-      </mat-card-content>
+          </div> -->
+
+        <!-- </div>
+      </mat-card-content> -->
     </mat-card>
   </div>
 

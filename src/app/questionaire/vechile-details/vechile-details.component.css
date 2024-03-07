@@ -24,15 +24,17 @@
   margin-top: 7%;
 }
 .nextBtn{
-  background-color: white  !important;
   padding: 10px 4rem !important;
   border-radius: 10px !important;
   margin-left: 20px;
+  background-color: #bae3ba !important;
 }
 .previousBtn{
-    background-color: white  !important;
     padding: 10px 4rem !important;
     border-radius: 10px !important;
+    background-color: #1b1b1b !important;
+    color: white !important;
+
 }
 
 

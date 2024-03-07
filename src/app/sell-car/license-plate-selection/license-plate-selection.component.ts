@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators,FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, map, of, startWith } from 'rxjs';
@@ -17,14 +17,15 @@ import { NHTSAService } from 'src/app/services/nhtsa-service';
   styleUrls: ['./license-plate-selection.component.css'],
 })
 export class LicensePlateSelectionComponent implements OnInit {
+  myForm!: FormGroup;
   states: string[] = [];
   filteredOptions: Observable<string[]> = of([]);
   myStateControl = new FormControl();
   isLoading: boolean = false;
-
+  licenseDetails = { licensePlateNumber: '', state: ''};
   licensePlateSelection = new FormGroup({
-    licensePlate: new FormControl('', Validators.required),
-    selectedState: new FormControl('', Validators.required),
+    licensePlateNumber: new FormControl('', Validators.required),
+    state: new FormControl('', Validators.required),
   });
 
   constructor(
@@ -34,6 +35,7 @@ export class LicensePlateSelectionComponent implements OnInit {
     private _nhtsa: NHTSAService,
     private alertService: AlertService,
     private toaster: ToastrService,
+    private fb: FormBuilder
   ) {
     this._dataService.getUSStates().subscribe(
       
@@ -53,7 +55,8 @@ export class LicensePlateSelectionComponent implements OnInit {
     // pipe(ap((r) => r.code);
     // });
   }
-  ngOnInit(): void { }
+  ngOnInit(): void {
+   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
@@ -66,21 +69,25 @@ export class LicensePlateSelectionComponent implements OnInit {
 
   //Handle Errors if we submit
   onSubmit(): void {
-    this.licensePlateSelection.controls['selectedState'].setValue(this.myStateControl.value);
-
-    if (
-      this.licensePlateSelection.invalid ||
-      this.myStateControl.invalid
-    ) {
-      // this.getErrorMessage()
-      return;
-    }
+    // console.log(this.myStateControl.value,'this.myStateControl.value')
+    // this.licensePlateSelection.controls['state'].setValue(this.myStateControl.value);
+    // console.log(this.licensePlateSelection.invalid ||
+    //   this.myStateControl.invalid)
+    // if (
+    //   this.licensePlateSelection.invalid ||
+    //   this.myStateControl.invalid
+    // ) {
+    //   // this.getErrorMessage()
+    //   return;
+    // }
     // this.getErrorMessage()
+    this.licensePlateSelection.markAllAsTouched();
+    if (this.licensePlateSelection.valid) {
     this.isLoading = true;
     this._nhtsa
       .getVechileDetailsByRegistrationDetails(
-        this.licensePlateSelection.controls.licensePlate.value ?? '',
-        this.myStateControl.value ?? ''
+        this.licenseDetails?.licensePlateNumber,
+        this.licenseDetails?.state
       )
       .subscribe(
         (res) => {
@@ -88,7 +95,7 @@ export class LicensePlateSelectionComponent implements OnInit {
             res.licensePlateLookup as IVechileModelDetails;
           this.isLoading = false;
           carSelection.plateNumber =
-            this.licensePlateSelection.controls.licensePlate.value ?? '';
+            this.licensePlateSelection.controls.licensePlateNumber.value ?? '';
           carSelection.state = this.myStateControl.value;
           // carSelection.make = '';
           // carSelection.model = '';
@@ -110,13 +117,13 @@ export class LicensePlateSelectionComponent implements OnInit {
           this.isLoading = false;
         }
       );
+      }
   }
-
   getErrorMessage() {
-    if (this.licensePlateSelection.controls.licensePlate.invalid) {
+    if (this.licenseDetails?.licensePlateNumber=='') {
       this.toaster.error('License Plate is required field', 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
     }
-    if (this.myStateControl.invalid) {
+    if (this.licenseDetails?.state=='') {
       this.toaster.error('State is a required field please select state from the below options.', 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
 
     }
