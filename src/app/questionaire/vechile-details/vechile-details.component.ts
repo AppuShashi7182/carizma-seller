@@ -79,6 +79,10 @@ export class VechileDetailsComponent {
     'Yellow',
     'other',
   ];
+  signal1=true;
+  signal2=false;
+  signal3=false;
+  signalCount=0;
   vehicleDetailsFormGroup: FormGroup;
   constructor(
     public _nhtsaervice: NHTSAService,
@@ -356,7 +360,11 @@ export class VechileDetailsComponent {
   }
   page(page:any,data:any){
     this.pageData=page
-    console.log(page,this.vehicleDetailsFormGroup.get('doesAllCarWheelInflated')?.value,this.vehicleDetailsFormGroup.get('doesCarHaveMechanicalIssues')?.value,'data')
+  if(page === 'add'){
+    this.signalCount+=1
+  }else{
+    this.signalCount-=1
+  }
     if(this.vehicleDetailsFormGroup.get('doesCarHaveMechanicalIssues')?.value){
       this.getPageNumber.emit({page,data}); 
       return;
