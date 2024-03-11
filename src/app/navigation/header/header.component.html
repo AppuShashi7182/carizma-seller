@@ -11,13 +11,13 @@
     <ng-container  *ngIf="showMenu" >
       <div style="display:block;margin-top: 30px;">
     <ul class="dropdown-menu" style="display:block;border-radius: 10px;">
-      <li class="menu-item"><a class="dropdown-item" (click)="navigate('home')"style="align-items: center;display: flex;"><span>Home</span></a></li>
+      <li class="menu-item"><a class="dropdown-item text-format-open-sans" (click)="navigate('home')"style="align-items: center;display: flex;"><span>Home</span></a></li>
       <mat-divider style="border: 1px solid #e9e9e9;"></mat-divider> 
-      <li class="menu-item"><a class="dropdown-item" (click)="navigate('about')" style="align-items: center;display: flex"><span>About</span></a></li>
+      <li class="menu-item"><a class="dropdown-item text-format-open-sans" (click)="navigate('about')" style="align-items: center;display: flex"><span>About</span></a></li>
       <mat-divider  style="border: 1px solid #e9e9e9;"></mat-divider> 
-      <li class="menu-item"><a class="dropdown-item" (click)="navigate('how-we-work')" style="align-items: center;display: flex"> 	<span>How we work</span></a></li>
+      <li class="menu-item"><a class="dropdown-item text-format-open-sans" (click)="navigate('how-we-work')" style="align-items: center;display: flex"> 	<span>How we work</span></a></li>
       <mat-divider  style="border: 1px solid #e9e9e9;"></mat-divider> 
-      <li class="menu-item"><a class="dropdown-item" href="index.html#contact" style="align-items: center;display: flex"><span>Contact</span></a></li>
+      <li class="menu-item"><a class="dropdown-item text-format-open-sans" href="index.html#contact" style="align-items: center;display: flex"><span>Contact</span></a></li>
     </ul>
   </div>
     </ng-container>
@@ -33,9 +33,9 @@
     <!-- Nav Menu -->
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li class="headerLink" ><a (click)="navigate('home')" class="link"   [ngClass]="{ 'active': key === 'home'}">Home</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'home'}"></span></li>
-        <li  class="headerLink"><a (click)="navigate('about')" class="link" [ngClass]="{'active': key === 'about'}">About</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'about'}"></span></li>
-        <li  class="headerLink"><a (click)="navigate('how-we-work')" class="link" [ngClass]="{ 'active': key === 'how-we-work'}">How we work</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'how-we-work'}"></span></li>
+        <li class="headerLink" ><a (click)="navigate('home')" class="link text-format-open-sans"   [ngClass]="{ 'active': key === 'home'}">Home</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'home'}"></span></li>
+        <li  class="headerLink"><a (click)="navigate('about')" class="link text-format-open-sans" [ngClass]="{'active': key === 'about'}">About</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'about'}"></span></li>
+        <li  class="headerLink"><a (click)="navigate('how-we-work')" class="link text-format-open-sans" [ngClass]="{ 'active': key === 'how-we-work'}">How we work</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'how-we-work'}"></span></li>
         <!-- <li  class="headerLink"><a href="index.html#services" class="link" [ngClass]="{ 'active': key === 'services'}">Services</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'services'}"></span></li> -->
         <!-- <li><a href="index.html#portfolio">Portfolio</a></li>
         <li><a href="index.html#team">Team</a></li>
@@ -57,13 +57,13 @@
             <li><a href="#">Dropdown 4</a></li>
           </ul>
         </li> -->
-        <li class="headerLink"><a href="index.html#contact"  class="link" [ngClass]="{ 'active': key === 'services'}">Contact</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'contact'}"></span></li>
+        <li class="headerLink"><a href="index.html#contact"  class="link text-format-open-sans" [ngClass]="{ 'active': key === 'services'}">Contact</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'contact'}"></span></li>
       </ul>
 
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
     <!-- End Nav Menu -->
-    <button type="button" class="loginBtn btn btn-outline-primary">Login / Sign Up</button> 
+    <button type="button" class="loginBtn btn btn-outline-primary text-format-open-sans">Login / Sign Up</button> 
     <!-- <a class="btn-getstarted" href="index.html#about">Login / Sign Up</a> -->
 
   </div>

@@ -1,10 +1,13 @@
 .container-fluid{
     background: white;
+    padding: 0 50px;
+    overflow-y: hidden;
 }
 .aboutUsHeader{
     font-size: 4rem;
     font-weight: 500;
     padding: 0 5rem;
+    margin-top: 2.5rem;
 }
 .groupImg{
     width: 100%;
@@ -76,6 +79,7 @@
     background-color: black;
     height: auto;
     padding: 5rem 0;
+    overflow: hidden;
 }
 .visionImg{
     width: 40%;
