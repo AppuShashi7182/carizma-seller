@@ -3,7 +3,17 @@
   ">
 
   <!-- Testing -->
-  <img src="assets/img/red-light.png" align="right" alt="red-light" class="margon-top--24">
+  <ng-container *ngIf="signalCount<=5">
+    <img src="assets/img/red-light.png" align="right" alt="red-light" class="margon-top--24">
+  </ng-container>
+  <ng-container *ngIf="signalCount>5 && signalCount<=11">
+  <img src="assets/img/yellow-light.png" align="right" alt="yellow-light" class="margon-top--24">
+
+  </ng-container>
+  <ng-container *ngIf="signalCount>11">
+  <img src="assets/img/green-light.png" align="right" alt="green-light" class="margon-top--24">
+
+  </ng-container>
   <mat-stepper #stepper>
     <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">

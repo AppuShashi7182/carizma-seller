@@ -71,7 +71,7 @@ export class HomeComponent {
   startCarCarousel() {
     setInterval(() => {
       this.next();
-    }, 5000); // Adjust the interval as needed
+    }, 2000); // Adjust the interval as needed
   }
   startTestimonialCarousel() {
     setInterval(() => {

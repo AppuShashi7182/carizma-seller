@@ -291,3 +291,19 @@
 .text-format-montserrat{
     font-family: 'Montserrat', sans-serif;
 }
+@media (max-width: 768px) {
+    .background {
+      max-width: 30% !important;
+    }
+    .how-it-works-light{
+        justify-content: center;
+        display: flex;
+    }
+    .testimonial-item{
+        width: 100%;
+    }
+    .testimonialHeader{
+        margin-top: -28%;
+        font-size: 30px;
+    }
+  }
