@@ -73,7 +73,7 @@
   <mat-grid-list cols="4" rowHeight="50px" gutterSize="3px">
   <mat-grid-tile colspan="2" rowspan="1.5">
   <div class="form-group"  style="width: 90%;">
-    <select id="year" class="form-control" formControlName="year" [(ngModel)]="modelDetails.year">
+    <select id="year" class="form-control" formControlName="year" (change)="yearSelectionChange($event)" [(ngModel)]="modelDetails.year">
       <option value=""  disabled>Select Year</option>
           <option *ngFor="let year of VechileRegisterationList" [value]="year" >{{year}}</option>
     </select>
@@ -85,8 +85,16 @@
 </mat-grid-tile>
   <mat-grid-tile colspan="2" rowspan="1.5">
   <div class="form-group" style="width: 90%;">
-    <input type="text" id="make" class="form-control" placeholder="Enter Make" [(ngModel)]="modelDetails.make" formControlName="make">
-
+    <!-- <input type="text" id="make" class="form-control" placeholder="Enter Make" [(ngModel)]="modelDetails.make" formControlName="make"> -->
+    <select  id="make" class="form-control" formControlName="make" (change)="makeSelectionChange($event)" [(ngModel)]="modelDetails.make">
+      
+      <option value=""  disabled>Select Make</option>
+      <optgroup *ngFor="let group of makesList | async"
+      [label]="group.groupName">
+        <option *ngFor="let make of group.makes" [value]="make" >{{make}}</option>
+      </optgroup>
+      
+    </select>
     <!-- Display error only if the field is touched -->
     <div *ngIf="manualVechileSelectionForm.get('make')?.touched && manualVechileSelectionForm.get('make')?.hasError('required')" class="text-danger">
       Make is required.
@@ -95,8 +103,11 @@
 </mat-grid-tile>
 <mat-grid-tile colspan="2" rowspan="1.5">
   <div class="form-group" style="width: 90%;">
-    <input type="text" id="model" class="form-control" placeholder="Enter Model" [(ngModel)]="modelDetails.model" formControlName="model">
-
+    <!-- <input type="text" id="model" class="form-control" placeholder="Enter Model" [(ngModel)]="modelDetails.model" formControlName="model"> -->
+    <select id="year" class="form-control" formControlName="model" (change)="modelSelectionChange($event)" [(ngModel)]="modelDetails.model">
+      <option value=""  disabled>Select Model</option>
+          <option *ngFor="let model of modelList | async" [value]="model" >{{model}}</option>
+    </select>
     <!-- Display error only if the field is touched -->
     <div *ngIf="manualVechileSelectionForm.get('model')?.touched && manualVechileSelectionForm.get('model')?.hasError('required')" class="text-danger">
       Model is required.

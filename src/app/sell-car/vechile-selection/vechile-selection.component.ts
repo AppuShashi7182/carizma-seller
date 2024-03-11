@@ -63,6 +63,8 @@ export class VechileSelectionComponent {
     return this.manualVechileSelectionForm.get('yearSelected');
   }
   yearSelectionChange(e: any) {
+    console.log(this.modelDetails,this.manualVechileSelectionForm,'this.modelDetails')
+
     this.yearSelected?.setValue(e?.value, {
       emitEvent: true,
     });
@@ -115,12 +117,12 @@ export class VechileSelectionComponent {
   makeSelectionChange(event: any) {
     this.modelControl.setValue('');
     this.trimList = of([]);
-
-    this.manualVechileSelectionForm.controls['selectedMake'].setValue(this.makelistControl.value)
+    console.log(this.makelistControl.value,this.modelDetails,this.modelDetails.make,'this.makelistControl.value',event)
+    // this.manualVechileSelectionForm.controls['selectedMake'].setValue(this.makelistControl.value)
     this._service
       .getModel(
-        this.manualVechileSelectionForm.value.yearSelected,
-        this.manualVechileSelectionForm.value.selectedMake ?? 'TOYOTA'
+        Number(this.modelDetails.year),
+        this.modelDetails.make ?? 'TOYOTA'
       )
       .subscribe((s) => {
         this.model = s;
@@ -128,16 +130,17 @@ export class VechileSelectionComponent {
           startWith(''),
           map((value) => this._filterModel(value))
         );
+        console.log(this.modelList)
       });
   }
 
   modelSelectionChange(e: any) {
-    this.manualVechileSelectionForm.controls['selectedModel'].setValue(this.modelControl.value)
-
+    // this.manualVechileSelectionForm.controls['selectedModel'].setValue(this.modelControl.value)
+    console.log(this.manualVechileSelectionForm)
     this.trimList = this._service.getTrim(
-      this.manualVechileSelectionForm.value.yearSelected ?? 1990,
-      this.makelistControl.value ?? 'TOYOTA',
-      this.modelControl.value ??
+      Number(this.modelDetails.year) ?? 1990,
+      this.modelDetails.make ?? 'TOYOTA',
+      this.modelDetails.model ??
       'COROLLA'
     );
   }
@@ -215,7 +218,7 @@ export class VechileSelectionComponent {
       .map((group) => ({
         groupName: group.groupName,
         makes: group.makes.filter((make) =>
-          make.toLowerCase().includes(filterValue)
+          make
         ),
       }))
       .filter((group) => group.makes.length > 0);
@@ -226,7 +229,7 @@ export class VechileSelectionComponent {
     return filterValue == ''
       ? this.model
       : this.model?.filter((option) =>
-        option.toLowerCase().includes(filterValue)
+        option
       );
   }
 }
