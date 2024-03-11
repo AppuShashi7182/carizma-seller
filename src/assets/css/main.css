@@ -678,8 +678,8 @@ section {
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  --color-background: #85B7F9;
-  --color-box-background: #B2D2FB;
+  --color-background: black;
+  --color-box-background: black;
   color: var(--color-default);
   background-color: var(--color-background);
   font-size: 14px;
@@ -1172,7 +1172,7 @@ section {
 /* Features Section - Home Page
 ------------------------------*/
 .features {
-  background-color: #D8D1D5;
+  background-color: #F4F4F4;
 }
 
 .features .features-item {
@@ -3124,7 +3124,12 @@ section {
   width:
     100%;
 }
-
+.text-format-open-sans{
+  font-family: 'Open Sans', sans-serif;
+}
+.text-format-montserrat{
+  font-family: 'Montserrat', sans-serif;
+}
 .auto-group-unvs-StD {
   align-items: center;
   display: flex;

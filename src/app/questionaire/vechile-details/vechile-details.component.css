@@ -28,12 +28,14 @@
   border-radius: 10px !important;
   margin-left: 20px;
   background-color: #bae3ba !important;
+  font-family: 'Open Sans', sans-serif;
 }
 .previousBtn{
     padding: 10px 4rem !important;
     border-radius: 10px !important;
     background-color: #1b1b1b !important;
     color: white !important;
+    font-family: 'Open Sans', sans-serif;
 
 }
 
@@ -188,7 +190,7 @@ mat-radio-button {
 .content-title {
   font-size: 1.8rem;
   font-weight: 480;
-  font-family: Roboto;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .mdc-form-field>label {
@@ -197,7 +199,7 @@ mat-radio-button {
   padding-left: 4px;
   padding-right: 0;
   order: 0;
-  font-family: Roboto;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1.1rem;
 }
 

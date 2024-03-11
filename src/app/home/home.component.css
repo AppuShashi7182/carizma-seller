@@ -9,14 +9,14 @@
 .sellCarText{
     font-size: 2.5rem;
     font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
 }
 .sellCarTextColored{
    color: #67A6F8;
 }
 .background{
     width: 25rem;
-    height: 50%;
-    background: #67A6F8;
+    height: auto;
     display: flex;
     position: absolute;
     justify-content: center;
@@ -26,12 +26,14 @@
 .onlineQuote{
     font-size: 1.1rem;
     margin-bottom: 3rem;
+    font-family: 'Open Sans', sans-serif;
 }
 .howItWorksText{
     font-size: 1.5rem;
     color: #7D7D7D;
     margin-bottom: 1rem;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 .takeItAllTextHeader{
     font-size: 1.1rem;
@@ -44,10 +46,22 @@
 .how-it-works-header{
     font-size: 3rem;
     font-weight: bolder;
+    font-family: 'Montserrat', sans-serif;
+}
+.how-it-works-text{
+    font-family: 'Open Sans', sans-serif;
+}
+.popularCarstxt{
+    font-size: 1.5rem;
+    font-weight: bolder; 
+    color: #7D7D7D;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 .dots{
     width: auto;
-    height: 20px;
+    height: 10px;
 }
 .dots2{
     width: auto;
@@ -56,8 +70,19 @@
 .how-it-works{
     background-color: #FEFFFE;
     padding-top: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder; 
     /* margin-top: 4rem; */
+}
+.hoverLink{
+    cursor: pointer;
 
+}
+.hoverLink:hover {
+    text-decoration: underline;
+  }
+  .arrowicon:hover{
+    transform: translateX(5px);
 }
 .step1ColoredText{
     color: #EA2B2B;
@@ -72,8 +97,32 @@
     width: 96%;
     height: 96%;
 }
+.presence{
+    width: 96%;
+    height: 96%;
+    border: 3px solid black;
+    transition: background-color 0.8s ease;
+    background-color: #B2D2FB;
+    padding: 22px 45px;
+    cursor:default;
+}
+.presence:hover{
+    background-color: black;
+    color: white;
+}
+.presenceTxt{
+    font-size: 2.6rem;
+    text-align: center;
+    font-weight: 500;
+}
+.mapBackground{
+    position: absolute;
+    right: 0;
+    margin-top: -15%;
+    width: 20rem;
+}
 .servicesBlock1{
-    background-color: #014379;
+    /* background-color: #014379; */
 }
 .servicesFlag{
     position: absolute;
@@ -97,11 +146,31 @@
 }
 .carHeader{
     color: white;
+    position: relative;
+    z-index: 3;
+    margin-top: 85%;
+    padding-left: 30px;
+}
+.drivingDream{
+    position: absolute;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 96%;
+}
+.drivingDreamHeader{
+    color: white;
+    position: relative;
+    z-index: 3;
+    padding-left: 30px;
 }
 .carText{
     color: white;
     font-size: 1.4rem;
     margin-top: 20px;
+    position: relative;
+    z-index: 3;
+    padding: 0 30px;
 }
 
 .nation-wide-service {
@@ -109,16 +178,31 @@
 }
 
 .faq {
-    background-color: #f7f7f7;
+    background-color: black;
+}
+.faq-content{
+    color: white !important;;
+    font-family: 'Open Sans', sans-serif;
+}
+.faq-item{
+    color: white !important;
+    font-family: 'Open Sans', sans-serif;
+}
+.num{
+    color: white !important;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .nationWideContainer{
-    padding: 0 2rem;
-    justify-content: flex-end;
-    flex-direction: column;
-    padding-bottom: 8rem;
+    width: 100%;
     height: 100%;
-    display: flex;
+    position: absolute;
+}
+.nationWideBackground{
+    width: 98%;
+    height: 99%;
+    padding-left: 10px;
+    position: absolute;
 }
 .take-it-all{
     width: 65%;
@@ -160,6 +244,7 @@
 .testimonialTestHeader{
     font-size: 1.4rem;
     font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
 }
 .quoteImg{
     position: absolute;
@@ -177,6 +262,7 @@
     border-radius: 10px;
     padding: 22px;
     box-shadow: -13px -2px 20px -5px #dadada;
+    font-family: 'Open Sans', sans-serif;
 }
 .testimonialHeader{
     font-size: 3rem;
@@ -185,10 +271,23 @@
     display: flex;
     margin-top: -10%;
     position: absolute;
-    text-align: end;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+}
+.authorDesignation{
+    font-family: 'Open Sans', sans-serif;
+}
+.authorName{
+    font-family: 'Open Sans', sans-serif;
 }
 .know-more{
     justify-content: center;
     margin-bottom: 4rem;
     cursor: pointer;
+}
+.text-format-open-sans{
+    font-family: 'Open Sans', sans-serif;
+}
+.text-format-montserrat{
+    font-family: 'Montserrat', sans-serif;
 }

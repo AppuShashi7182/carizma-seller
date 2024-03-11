@@ -59,7 +59,7 @@ mat-icon {
 
 /* Redes Sociais */
 .circle-button {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #ccc;
   display: inline-block;
   font-size: 2rem;
@@ -92,7 +92,7 @@ mat-icon {
 .content-title {
   font-size: 1.25rem;
   font-weight: 700;
-  font-family: "Roboto, Helvetica Neue, sans-serif"
+  font-family: "Open Sans, Helvetica Neue, sans-serif"
 }
 
 .text-secondary {
