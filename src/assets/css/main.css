@@ -679,7 +679,7 @@ section {
 --------------------------------------------------------------*/
 .footer {
   --color-background: black;
-  --color-box-background: black;
+  --color-box-background: rgb(33, 32, 32);
   color: var(--color-default);
   background-color: var(--color-background);
   font-size: 14px;
@@ -688,11 +688,6 @@ section {
 
 .footer .footer-top {
   padding-top: 50px;
-}
-
-.footer .footer-about .logo {
-  line-height: 0;
-  margin-bottom: 25px;
 }
 
 .footer .footer-about .logo img {
