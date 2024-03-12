@@ -48,7 +48,7 @@
             </h2>
           </div>
         </ng-container>
-        <p *ngIf="reviewService.offerPrice" class="currency">${{ reviewService.offerPrice | currency }}</p>
+        <p *ngIf="reviewService.offerPrice" class="currency">{{ reviewService.offerPrice | currency }}</p>
         <p *ngIf="!reviewService.offerPrice" class="currency">$__,__,__</p>
         <p class="vehicleDetails"> {{
           selectVechileDetails?.make+" "+selectVechileDetails?.model 
