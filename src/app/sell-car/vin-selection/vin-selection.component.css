@@ -35,8 +35,9 @@ a {
 .btn-go {
   margin-bottom: 14px;
   width: 50%;
-  color:  #BDF279;
-  border: 1px solid black;
+  border: 2px solid #67A6F8;
+  background: #67A6F8;
+  color: white;
   border-radius: 30px;
   cursor: pointer;
   font-family: 'Open Sans';
@@ -49,7 +50,6 @@ a {
   padding-top: 15px;
 }
 .btn-go:hover{
-  background:  #BDF279;
   box-shadow: 2px 1px 5px black ;
 }
 

@@ -1,5 +1,5 @@
 .check_icon {
-  color: green;
+  color: #67A6F8;
   width: 100%;
   font-size: 3rem;
   height: 100%;
@@ -22,9 +22,9 @@ svg {
 .btn-go {
   margin-bottom: 14px;
   width: 50%;
-  background-color:  #BDF279;
-  color: black;
-  border: 1px solid black;
+  border: 2px solid #67A6F8;
+  background: #67A6F8;
+  color: white;
   border-radius: 30px;
   cursor: pointer;
   font-family: 'Open Sans';
@@ -37,8 +37,6 @@ svg {
   padding-top: 15px;
 }
 .btn-go:hover{
-  color: black;
-  background:  #BDF279;
   box-shadow: 2px 1px 5px black ;
 }
 
@@ -67,7 +65,7 @@ svg {
   stroke-dashoffset: 166;
   stroke-width: 2;
   stroke-miterlimit: 10;
-  stroke: #7ac142;
+  stroke: #67A6F8;
   fill: none;
   animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
 }
@@ -81,7 +79,7 @@ svg {
   stroke: #fff;
   stroke-miterlimit: 10;
   margin: 3% auto;
-  box-shadow: inset 0px 0px 0px #7ac142;
+  box-shadow: inset 0px 0px 0px #67A6F8;
   animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
 }
 
@@ -112,10 +110,10 @@ svg {
 
 @keyframes fill {
   100% {
-    box-shadow: inset 0px 0px 0px 30px #7ac142
+    box-shadow: inset 0px 0px 0px 30px #67A6F8
   }
 }
 
 .container {
-  border-top: 10px solid #7ac142 !important;
+  border-top: 10px solid #67A6F8 !important;
 }

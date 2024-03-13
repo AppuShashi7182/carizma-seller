@@ -150,7 +150,11 @@ export class CarStepperComponent {
   }
   
   getPageNumber(props:any){
-    console.log(props,'props')
+    console.log(props,this.reviewService,'props')
+    if(this.reviewService?.activateContactPage){
+      this.setNoTittleDefaultValue()
+      return;
+    }
     if(props.data !== 'end-of-section'){
     if(props.page === 'add'){
       this.carPositionAnimation = 'right'

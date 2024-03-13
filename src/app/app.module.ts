@@ -47,6 +47,7 @@ import { authInterceptorProviders } from './services/AuthInterceptor';
 import { ReviewModalComponent } from './common/review-modal/review-modal.component';
 import { AboutComponent } from './common/about/about.component';
 import { HowWeWorkComponent } from './common/how-we-work/how-we-work.component';
+import { TermsAndConditionsComponent } from './common/terms-and-conditions/terms-and-conditions.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { HowWeWorkComponent } from './common/how-we-work/how-we-work.component';
     ReviewModalComponent,
     AboutComponent,
     HowWeWorkComponent,
+    TermsAndConditionsComponent,
   ],
   imports: [
     BrowserModule,
