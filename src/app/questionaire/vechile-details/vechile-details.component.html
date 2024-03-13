@@ -48,6 +48,10 @@
         </div>
       </form>
     </mat-step>
+    <ng-container *ngIf="
+    vehicleDetailsFormGroup.controls['carTitle'].value && 
+    vehicleDetailsFormGroup.controls['carTitle'].value != 'No Title' 
+  ">
     <mat-step [stepControl]="vehicleDetailsFormGroup" label="Fill out your address">
       <form [formGroup]="vehicleDetailsFormGroup">
         <div class="row">
@@ -765,5 +769,7 @@
       <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step> -->
+  </ng-container>
   </mat-stepper>
+
 </div>

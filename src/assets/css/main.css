@@ -3087,6 +3087,13 @@ section {
   margin-top: -24px;
 }
 
+.cdk-global-overlay-wrapper{
+  position: absolute !important;
+  top: 25% !important;
+  left: 25%!important;
+}
+
+
 /* Image Gallery */
 
 
