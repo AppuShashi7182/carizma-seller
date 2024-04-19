@@ -60,4 +60,9 @@ export class ReviewPageComponent {
   routeToStepperIndex(index: number) {
     this.reviewService.setStepperIndex(index);
   }
+
+  navigate() {
+    window.open('https://www.carizma.com/terms-and-conditions', '_blank');
+      return;
+  }
 }
