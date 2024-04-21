@@ -708,7 +708,7 @@
         </div>
         <div class="buttonContainer">
           <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"  
+          <button matStepperNext (click)="this.vehicleDetailsFormGroup?.value?.doesAirbagsDeployedOrMissing ? page('add','end-of-section'):page('add','')" mat-raised-button class="nextBtn"  
           [disabled]="this.vehicleDetailsFormGroup?.value?.DoesCarSufferedFloodorFireDamage=== null"
            >Next</button>
         </div>
