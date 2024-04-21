@@ -16,10 +16,10 @@ export class ReviewPageComponent {
   selectedMake?: string = '';
   isLoading: boolean = false;
 
-  checked: boolean = false;
+  // checked: boolean = false;
   @Output() reviewPageValidated = new EventEmitter<boolean>();
 
-  reviewCheckbox = new FormControl(null, Validators.requiredTrue)
+  // reviewCheckbox = new FormControl(null, Validators.requiredTrue)
   constructor(
     private reviewService: ReviewService,
     public _store: SellCarStoreService,
@@ -44,19 +44,19 @@ export class ReviewPageComponent {
     // if (this.reviewCheckbox.value) {
     //   this.checkValue(this.reviewCheckbox.value)
     // }
-    this.reviewCheckbox.valueChanges.subscribe(check => {
-      this.checkValue(check)
-    })
+    // this.reviewCheckbox.valueChanges.subscribe(check => {
+    //   this.checkValue(check)
+    // })
 
   }
-  checkValue(value: any) {
-    this.reviewService.reviewPageStepper = value
-    if (value) {
-      this.reviewPageValidated.emit(true);
-    } else {
-      this.reviewPageValidated.emit(false);
-    }
-  }
+  // checkValue(value: any) {
+  //   this.reviewService.reviewPageStepper = value
+  //   if (value) {
+  //     this.reviewPageValidated.emit(true);
+  //   } else {
+  //     this.reviewPageValidated.emit(false);
+  //   }
+  // }
   routeToStepperIndex(index: number) {
     this.reviewService.setStepperIndex(index);
   }

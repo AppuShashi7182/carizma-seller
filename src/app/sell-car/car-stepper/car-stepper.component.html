@@ -30,9 +30,9 @@
   <mat-horizontal-stepper #stepper (selectionChange)="onStepChange($event)" linear>
     <mat-step label="Vehicle  Details">
       <app-vechile-details  (getPageNumber)="getPageNumber($event)" (stepOneValidated)="validateStepperOne($event)"></app-vechile-details>
-      <div>
+      <!-- <div>
         <img src="assets/images/dollar.png" class="dollarImage" alt="">
-      </div>
+      </div> -->
       <div #animatedElement>
         <img src="assets/images/miniCar.png" class="miniCarImage" alt="" [style.margin-left]="carPosition+'%'">
       </div>
@@ -147,7 +147,7 @@
           </div>
           <div class="col-6 d-flex m-0 mt-3 p-0">
             <button class="btn ml-auto btn-next" (click)="nextStep(4)">
-              Next
+              Submit
             </button>
           </div>
         </div>

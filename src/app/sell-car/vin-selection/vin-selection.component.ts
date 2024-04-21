@@ -28,10 +28,11 @@ export class VinSelectionComponent {
     private toaster: ToastrService,
   ) { }
   vin = new FormControl('', [Validators.required, Validators.minLength(17)]);
-
+  public errorMessage={required:"",minlength:''};
   go() {
     //this.validateVinNumber();
-    if (this.getErrorMessage() == '') {
+    console.log(this.getErrorMessage(),'this.getErrorMessage()')
+    if (this.getErrorMessage() === '') {
       this.isLoading = true;
 
       this._nhtsaervice
@@ -69,14 +70,14 @@ export class VinSelectionComponent {
     if (this.vin.hasError('required')) {
       message = 'VIN is required';
       // this.toaster.error('Error: ' + message, 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
-
+      this.errorMessage['required']=message;
       return message;
     }
     this.vin.hasError('minlength')
       ? (message = 'Not a valid VIN. Please Provide Valid VIN')
       : (message = '');
     // this.toaster.error('Error: ' + message, 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
-
+    this.errorMessage['minlength']=message;
     return message;
   }
 
