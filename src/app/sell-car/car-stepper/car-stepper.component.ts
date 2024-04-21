@@ -204,7 +204,7 @@ export class CarStepperComponent {
     else if (this.reviewService.conatctPageStepper && index == 3) {
       this.validator = true;
     } 
-    else if (this.reviewService.reviewPageStepper && index == 4) {
+    else if (index == 4) {
       this.validator = true;
     }
     if (this.validator ) {
