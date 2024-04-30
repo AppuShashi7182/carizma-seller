@@ -14,6 +14,10 @@
 .sellCarTextColored{
    color: #67A6F8;
 }
+.link{
+    color: blue;
+    cursor: pointer;
+}
 .background{
     width: 25rem;
     height: auto;

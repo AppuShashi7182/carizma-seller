@@ -54,6 +54,9 @@ export class HomeComponent {
   CarouselTestimonialDirection = 0;
   interval: any;
   animationState = 'void';
+  showImage1: boolean = false;
+  showImage2: boolean = false;;
+  showImage3: boolean = false;;
 
   constructor(private router: Router) {}
   
@@ -87,6 +90,12 @@ export class HomeComponent {
     this.CarCarousalDirection = -100;
     this.currentCarouselCarIndex = (this.currentCarouselCarIndex + 1) % this.images.length;
   }
+  @HostListener('window:scroll', [])
+
+
+  showDistance(){
+    window.open(`http://maps.google.com/?q=13935 Lynmar Blvd Tampa, FL 33626`, '_blank');
+  }
 
   nextTestimonial() {
     this.CarouselTestimonialDirection= -100; // Slide to the left
@@ -103,7 +112,25 @@ export class HomeComponent {
 
     // Adjust this value based on when you want the animation to start
     const triggerPosition = 200;
-
+    console.log(scrollPosition,'scrollPosition')
+    // Adjust these values according to where you want the images to appear
+    if (scrollPosition < 750) {
+      this.showImage1 = true;
+      this.showImage2 = false;
+      this.showImage3 = false;
+      // Set other image variables accordingly
+    } else if (scrollPosition >= 750 && scrollPosition < 1000) {
+      this.showImage1 = false;
+      this.showImage2 = true;
+      this.showImage3 = false;
+      // Set other image variables accordingly
+    } else {
+      // Hide all images beyond this point
+      this.showImage1 = false;
+      this.showImage2 = false;
+      this.showImage3 = true;
+      // Set other image variables accordingly
+    }
     if (scrollPosition > triggerPosition) {
       this.animationState = '*';
     } else {
