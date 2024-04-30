@@ -107,7 +107,15 @@
       <div class="row gy-4">
   
         <div class="how-it-works-light col-lg-3">
-          <img src="assets/img/traffic-light.png" align="center" alt="yellow-light">
+          <ng-container *ngIf="showImage1">
+            <img src="assets/img/red-light-traffic.png" align="center" alt="yellow-light">
+          </ng-container>
+          <ng-container *ngIf="showImage2">
+            <img src="assets/img/yellow-light-traffic.png" align="center" alt="yellow-light">
+          </ng-container>
+          <ng-container *ngIf="showImage3">
+            <img src="assets/img/green-light-traffic.png" align="center" alt="yellow-light">
+          </ng-container>
         </div>
   
         <div class="col-lg-9">
@@ -399,9 +407,9 @@
           <div class="col-md-6">
             <div class="info-item" data-aos="fade" data-aos-delay="200">
               <i class="bi bi-geo-alt"></i>
-              <h3 class="text-format-montserrat">Address</h3>
-              <p class="text-format-open-sans">13935 Lynmar Blvd</p>
-              <p class="text-format-open-sans">Tampa, FL 33626</p>
+              <h3 class="text-format-montserrat link" (click)="showDistance()">Address</h3>
+              <p class="text-format-open-sans link" (click)="showDistance()">13935 Lynmar Blvd</p>
+              <p class="text-format-open-sans link" (click)="showDistance()">Tampa, FL 33626</p>
             </div>
           </div><!-- End Info Item -->
 
