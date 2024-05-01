@@ -28,7 +28,7 @@ export class VinSelectionComponent {
     private toaster: ToastrService,
   ) { }
   vin = new FormControl('', [Validators.required, Validators.minLength(17)]);
-  public errorMessage={required:"",minlength:''};
+  public errorMessage={required:"",minlength:'',vinErrorText:''};
   go() {
     //this.validateVinNumber();
     console.log(this.getErrorMessage(),'this.getErrorMessage()')
@@ -47,10 +47,14 @@ export class VinSelectionComponent {
             trim: '',
             vin: this.vin.value ?? '',
           });
-
+          console.log(s,'s')
+          if(s.ErrorCode ==='0'){
+            this.router.navigate(['/questionaire']);
+          }else{
+            this.errorMessage['vinErrorText']="Invalid VIN Number"
+          }
           this.isLoading = false;
 
-          this.router.navigate(['/questionaire']);
         })
         .catch((error) => {
           this.isLoading = false;

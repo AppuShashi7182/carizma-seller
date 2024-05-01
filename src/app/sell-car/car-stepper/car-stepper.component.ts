@@ -282,7 +282,7 @@ export class CarStepperComponent {
           this.reviewService.offerPrice = undefined
           this.isLoading = false;
           this.myStepper.next()
-          this.toaster.warning('Unable to calculate the instant offer at the moment and our customer care team will reach out to you shortly.', 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
+          this.toaster.warning('Voila! We’d love to make an offer for your car. Our team is working on it and will reach out to you shortly.', 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
         }
       );
       

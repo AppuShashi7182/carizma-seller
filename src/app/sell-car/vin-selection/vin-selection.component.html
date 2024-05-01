@@ -12,7 +12,7 @@
           required</div>
           <div style="z-index: 100; position: absolute;color:red;margin-top:2rem" *ngIf="errorMessage?.minlength">Please provide Valid
             VIN</div>
-            
+            <div style="z-index: 100; position: absolute;color:red;margin-top:2rem" *ngIf="errorMessage?.vinErrorText">{{errorMessage['vinErrorText']}}</div>
           </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile colspan="4"><a class="mat-subtitle-2" (click)="openBottomSheet()">Where is my VIN?</a>
