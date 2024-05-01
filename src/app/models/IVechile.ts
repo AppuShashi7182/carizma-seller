@@ -20,6 +20,7 @@ export interface IVechileData {
   ModelYear: string;
   Make?: string;
   Model?: string;
+  ErrorCode?:string;
 }
 
 export interface IOfferData {
