@@ -333,7 +333,7 @@
                 <!-- <input class="form-check-input custom-checkbox-style col-form-label-lg" type="checkbox"
                   [formControl]="reviewCheckbox" id="reviewdefaultCheck" /> -->
                 <label class="form-check-label text-justify">
-                 By clicking submit I hereby accept all <a class="text-danger font-weight-bold" style="text-decoration: none">terms and conditions.</a> We reserve the right to modify or cancel
+                 By clicking submit I hereby accept all <a class="text-danger font-weight-bold" (click)="navigate()" style="text-decoration: none">terms and conditions.</a> We reserve the right to modify or cancel
                  this offer if the condition of the vehicle does not meet the description of the vehicle provided. Offer is
                  valid for seven days or 500 miles whichever comes first. The information I provided is correct to the best of
                  my knowledge.
