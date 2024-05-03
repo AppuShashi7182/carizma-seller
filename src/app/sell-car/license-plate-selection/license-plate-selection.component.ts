@@ -23,6 +23,7 @@ export class LicensePlateSelectionComponent implements OnInit {
   myStateControl = new FormControl();
   isLoading: boolean = false;
   licenseDetails = { licensePlateNumber: '', state: ''};
+  errors:any={};
   licensePlateSelection = new FormGroup({
     licensePlateNumber: new FormControl('', Validators.required),
     state: new FormControl('', Validators.required),
@@ -109,7 +110,8 @@ export class LicensePlateSelectionComponent implements OnInit {
           if (error.message.includes('404')) {
             this.toaster.error('Error: 404 Not Found', 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
           }else if (error.message.includes('500')){
-            this.toaster.error('Error: Information Not Found', 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
+            this.errors['licensePlate']='Information Not Found'
+            // this.toaster.error('Error: Information Not Found', 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
           }           
           else {
             this.toaster.error('Error ' + error.message, 'Error', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
