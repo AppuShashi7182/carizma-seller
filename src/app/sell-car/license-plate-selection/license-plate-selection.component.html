@@ -44,6 +44,9 @@
       <div class="text-format-open-sans" *ngIf="licensePlateSelection.get('licensePlateNumber')?.touched && licensePlateSelection.get('licensePlateNumber')?.hasError('required')" class="text-danger">
         License Number is required.
       </div>
+      <div class="text-format-open-sans" *ngIf="errors['licensePlate']" class="text-danger">
+        {{errors['licensePlate']}}
+      </div>
     </div>
   </mat-grid-tile>
     <mat-grid-tile colspan="2" rowspan="1.5">
@@ -56,13 +59,16 @@
       <div class="text-format-open-sans" *ngIf="licensePlateSelection.get('state')?.touched && licensePlateSelection.get('state')?.hasError('required')" class="text-danger">
         State is required.
       </div>
+      <div class="text-format-open-sans" *ngIf="errors['licensePlate']" class="text-danger">
+        &nbsp;
+      </div>
     </div>
   </mat-grid-tile>
-  
   <mat-grid-tile colspan="4" class="w-80">
     <div class="d-flex justify-content-center w-100">
       <button type="button" (click)="onSubmit()" class="btn getOfferBtn ml-2 text-format-open-sans">GET MY OFFER</button>
   </div>
+
   </mat-grid-tile>
 </mat-grid-list>
   </form>
