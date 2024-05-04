@@ -33,6 +33,9 @@ $primary:       #007CBB !default;
     }
   }
 
+  .border{
+    border: none;
+  }
   
 /* Add the grey border and dot for next steps */
 .mat-step-header .mat-step-icon-state-default {
