@@ -127,12 +127,13 @@
       <div class="w-100">
         <div class="row m-0">
           <div class="col-6 d-flex m-0 mt-3 p-0">
-            <button class="btn btn-back" (click)="prevStep(2)">Back</button>
+            <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="prevStep(2)">Back</button>
           </div>
-          <div class="col-6 d-flex m-0 mt-3 p-0">
-            <button class="btn ml-auto btn-next" (click)="nextStep(3)">
+          <div class="col-6 d-flex m-0 mt-3 p-0 d-flex justify-content-end">
+            <!-- <button class="btn ml-auto btn-next" (click)="nextStep(3)">
               Next
-            </button>
+            </button> -->
+            <button matStepperNext (click)="nextStep(3)" class="nextBtn border" >Next</button>
           </div>
         </div>
       </div>
@@ -143,12 +144,15 @@
       <div class="w-100">
         <div class="row m-0">
           <div class="col-6 d-flex m-0 mt-3 p-0">
-            <button class="btn btn-back" (click)="prevStep(3)">Back</button>
+            <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="prevStep(3)">Back</button>
+         
+            <!-- <button class="btn btn-back" (click)="prevStep(3)">Back</button> -->
           </div>
-          <div class="col-6 d-flex m-0 mt-3 p-0">
-            <button class="btn ml-auto btn-next" (click)="nextStep(4)">
+          <div class="col-6 d-flex m-0 mt-3 p-0 d-flex justify-content-end">
+            <button matStepperNext (click)="nextStep(4)" class="nextBtn border">Submit</button>
+            <!-- <button class="btn ml-auto btn-next" (click)="nextStep(4)">
               Submit
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
