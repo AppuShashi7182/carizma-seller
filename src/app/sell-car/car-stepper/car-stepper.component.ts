@@ -207,7 +207,7 @@ export class CarStepperComponent {
     else if (index == 4) {
       this.validator = true;
     }
-    if (this.validator ) {
+    if (this.validator) {
       if (index == 4) {
         this.callApiToGetInstantOffer()
         return;
