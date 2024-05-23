@@ -1,6 +1,9 @@
 import { Component, HostListener } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Router } from '@angular/router';
+import { NHTSAService } from '../services/nhtsa-service';
+import { AlertService } from '../services/alert.service';
+import { ToastrService } from 'ngx-toastr';
 
 export interface ITestimonials {
   body: string,
@@ -57,8 +60,10 @@ export class HomeComponent {
   showImage1: boolean = false;
   showImage2: boolean = false;;
   showImage3: boolean = false;;
-
-  constructor(private router: Router) {}
+  isLoading:boolean=false;
+  contactDetails:any={};
+  constructor(private router: Router, private _nhtsaervice: NHTSAService ,public alertService: AlertService,
+    private toaster: ToastrService,) {}
   
   ngOnInit() {
     this.startCarCarousel();
@@ -140,6 +145,18 @@ export class HomeComponent {
 
   navigate(route:string) {
     this.router.navigate([`/${route}`]);
+  }
+
+  submitContactDetails(){
+    this.isLoading = true;
+
+    this._nhtsaervice.submitUserDetails(this.contactDetails).subscribe(
+      (response)=>{
+        alert('Details Submitted successfully');
+      },(error)=>{
+        console.error('Error');
+      }
+    )
   }
 
 }

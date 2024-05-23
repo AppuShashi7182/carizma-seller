@@ -31,3 +31,11 @@ export interface ISellerVehicle {
   contact_number: string;
   customer_name: string;
 }
+
+export interface IBuyerDetails {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
