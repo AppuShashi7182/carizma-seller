@@ -22,10 +22,11 @@ import {
   updateProfileInfo_URL,
   getProfileInfo_URL,
   getlocalhostURL,
+  sendEmail_URL,
 } from '../constants.ts/constants';
 import { IMake, IState } from '../models/IState';
 import { ISellerVechileDetails } from '../models/ISellerVechileDetails';
-import { ISellerVehicle, ProfileInfoObject } from '../models/ISellVechile';
+import { IBuyerDetails, ISellerVehicle, ProfileInfoObject } from '../models/ISellVechile';
 import { TokenStorageService } from './TokenStorageService';
 
 @Injectable({
@@ -174,6 +175,19 @@ export class NHTSAService {
     };
     return this.http.put<ProfileInfoObject>(
       environment.apiURL + updateProfileInfo_URL(),sellerInfo     
+    );
+  }
+  submitUserDetails(userDetails:IBuyerDetails): Observable<IBuyerDetails> {  
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': '*',
+        Authorization: `Bearer ${this.token.getToken()}`,
+      }),
+    };
+    return this.http.put<IBuyerDetails>(
+      environment.apiURL + sendEmail_URL(),userDetails     
     );
   }
 }
