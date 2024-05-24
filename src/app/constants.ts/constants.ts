@@ -259,7 +259,7 @@ export const getSellerVehicleInfo_URL = () => `/carizma/seller/seller-vehicle-in
 export const getSellerVehicleCompleteInfo_URL = () => `/carizma/seller/seller-vehicle-complete-info`;
 export const getProfileInfo_URL = () => `/carizma/seller/profile-info`;
 export const updateProfileInfo_URL = () => `/carizma/seller/update-profile-info`;
-export const sendEmail_URL = () => `/carizma-seller/carizma/seller/sendEmail`;
+export const sendEmail_URL = () => `/carizma/seller/sendEmail`;
 
 //localhost:3000/carizma/vehicle-info/make/200
 export const VechileYears: Number[] = [
