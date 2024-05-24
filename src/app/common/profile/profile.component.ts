@@ -2,23 +2,38 @@ import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ISellerVehicle, ProfileInfoObject } from 'src/app/models/ISellVechile';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import {
+  IOfferStatusData
+} from 'src/app/models/IVechile';
+import {
+  contact_title,
+  conatc_message,
+  accept_title,
+  accept_message,
+} from 'src/app/constants.ts/constants';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/common/dialog/dialog.component';
 
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
 })
+
 export class ProfileComponent {
+  isLoading: boolean = false;
   profileFormGroup: FormGroup = new FormGroup({})
   sellerVehicleDetails: Observable<ISellerVehicle[]> = of([]);
   sellerProfile: ProfileInfoObject =  new ProfileInfoObject();
   LocationOptions: string[] = ['Residence', "Office", "Others"];
+  
+  vehicle_id: any;
 
-  constructor(private router: Router,private _service: NHTSAService,private toaster: ToastrService) {    
+  constructor(private router: Router, private _service: NHTSAService, private toaster: ToastrService, public dialog: MatDialog, private route: ActivatedRoute) {    
     this.profileFormGroup = new FormGroup({
       seller_id: new FormControl('', Validators.required),
       email_id: new FormControl('', Validators.required),
@@ -38,12 +53,14 @@ export class ProfileComponent {
         Validators.pattern(/(^\d{5}$)|(^\d{5}-\d{4}$)/),]),
       locationOptions: new FormControl(this.LocationOptions),
     });
-
-    
-
   }
 
   ngOnInit(): void {
+    this.route.queryParamMap
+      .subscribe((params) => {
+        this.vehicle_id = params;
+      }
+    );
     this.loadData();
   }
 
@@ -85,17 +102,50 @@ export class ProfileComponent {
         this.sellerProfile.zip_code= this.profileFormGroup.value.zip_code;
         this._service.updateUserProfileDetails(this.sellerProfile).subscribe(
           (response)=>{
-            alert('Profile is saved');
+            // alert('Profile is saved');
+
+            this.isLoading = true;
+            let offer: IOfferStatusData = new IOfferStatusData();
+            offer.seller_id = this.sellerProfile.seller_id;
+            offer.vehicle_id = this.vehicle_id?.params?.vehicle_id;
+            offer.acceptance_status = 'ACCEPTED';
+
+            this._service.RequestOffer(offer).subscribe(
+              () => {
+                this.isLoading = false;
+                this.openDialog('accept');
+                this.loadData();
+              },
+              (error: any) =>         this.toaster.error("Unable to Process request, Please try again", 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+              //need to change to warning
+            );
           },(error)=>{
             console.error('Error');
           }
-        )
-    //  }else{
-    //    this.toaster.warning('Please fill all the required Fields', 'Warning', { timeOut: 4000, positionClass: 'toast-top-center', closeButton: true })
-   //   }
-       
- 
+        ) 
     }
 
-   
+    openDialog(value: string): void {
+      let title: string;
+      let message: string;
+      if (value == 'accept') {
+        title = accept_title;
+        message = accept_message;
+      } else {
+        title = 'Thank You!';
+        message =
+          'Our representative will be connecting with you shortly please feel free to look into other options.';
+      }
+      const dialogRef = this.dialog.open(DialogComponent, {
+        data: { title: title, message: message, page: 'contact' },
+      });
+  
+      dialogRef.beforeClosed().subscribe(() => {
+        this.isLoading = true;
+        // setTimeout(() => {
+          this.isLoading = false;
+          this.router.navigateByUrl('/dashboard');
+        // }, 1000);
+      });
+    }
 }

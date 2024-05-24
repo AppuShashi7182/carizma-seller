@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ISellerVehicle } from 'src/app/models/ISellVechile';
 // import { NHTSAService } from 'src/app/services/';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmModalComponent } from 'src/app/common/confirm-modal/confirm-modal.component';
 import { DialogComponent } from 'src/app/common/dialog/dialog.component';
@@ -94,23 +94,27 @@ export class DashboardComponent {
   }
 
   accept(event: ISellerVehicle) {
-    this.isLoading = true;
-    let offer: IOfferStatusData = new IOfferStatusData();
-    offer.seller_id = event.seller_id;
-    offer.vehicle_id = event.vehicle_id;
-    offer.acceptance_status = 'ACCEPTED';
 
-    this._service.RequestOffer(offer).subscribe(
-      () => {
-        this.isLoading = false;
+    // this.router.navigate(['/assignments/renegotiate'], { queryParams: { assignmentID: row?.assignment_id } });
+
+    this.router.navigate(['/profile'], { queryParams: { vehicle_id: event.vehicle_id } });
+
+    // this.isLoading = true;
+    // let offer: IOfferStatusData = new IOfferStatusData();
+    // offer.seller_id = event.seller_id;
+    // offer.vehicle_id = event.vehicle_id;
+    // offer.acceptance_status = 'ACCEPTED';
+
+    // this._service.RequestOffer(offer).subscribe(
+    //   () => {
+    //     this.isLoading = false;
         // this.toaster.war('Successfully Accepted teh offer.', 'Congratulations', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
-        this.openDialog('accept');
-        this.loadData();
-      },
-      (error: any) =>         this.toaster.error("Unable to Process request, Please try again", 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
-      //need to change to warning
-    );
-    
+    //     this.openDialog('accept');
+    //     this.loadData();
+    //   },
+    //   (error: any) =>         this.toaster.error("Unable to Process request, Please try again", 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+    //   //need to change to warning
+    // );    
   }
 
   reject(event: ISellerVehicle) {
