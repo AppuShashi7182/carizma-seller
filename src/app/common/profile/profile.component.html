@@ -150,11 +150,15 @@
                   </div>
                   <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
                     <!-- <mat-form-field appearance="outline" class="form-control"> -->
-                      <mat-select name="location_type" required>
+                      <!-- <mat-select name="location_type" required>
                       <mat-option *ngFor="let option of LocationOptions" [value]="option">
                           {{ option }}
                         </mat-option>
-                      </mat-select>                
+                      </mat-select>                 -->
+                      <select id="location_type" class="form-control" formControlName="location_type">
+                        <option value="" disabled>Select Location Type</option>
+                            <option *ngFor="let option of LocationOptions" [value]="option" >{{option}}</option>
+                      </select>
                   </div>
                 </div>
               </div>
