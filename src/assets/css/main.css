@@ -3091,6 +3091,9 @@ section {
   position: absolute !important;
   top: 25% !important;
   left: 25%!important;
+  z-index: 10;
+  position: relative;
+  background: white;
 }
 
 
