@@ -23,6 +23,7 @@ import {
   getProfileInfo_URL,
   getlocalhostURL,
   sendEmail_URL,
+  salesForceAPI_URL,
 } from '../constants.ts/constants';
 import { IMake, IState } from '../models/IState';
 import { ISellerVechileDetails } from '../models/ISellerVechileDetails';
@@ -177,6 +178,18 @@ export class NHTSAService {
       environment.apiURL + updateProfileInfo_URL(),sellerInfo     
     );
   }
+
+  updateSalesForceDetails(
+    sellerId: number,
+    vehicleid: number
+  ): Observable<any> {
+    let data = { seller_id: sellerId, vehicle_id: vehicleid };
+    return this.http.post<any>(
+      environment.apiURL + salesForceAPI_URL(),
+      data
+    );
+  }
+
   submitUserDetails(userDetails:IBuyerDetails): Observable<IBuyerDetails> {  
     const httpOptions = {
       headers: new HttpHeaders({

@@ -587,37 +587,39 @@
       </mat-step>
     </ng-container>
 
-    <mat-step [stepControl]="vehicleDetailsFormGroup" *ngIf="this.vehicleDetailsFormGroup?.value?.doesBodyDamageSeverity">
-      <form [formGroup]="vehicleDetailsFormGroup">
-
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
-            <label class="content-title required--after" id="example-radio-group-label">Does your {{selectedMake }} has noticeable 
-              dents greater than tennis ball  ?
-            </label>
+    <ng-container *ngIf="vehicleDetailsFormGroup.get('doesBodyDamage')?.value === false">
+      <mat-step [stepControl]="vehicleDetailsFormGroup" *ngIf="this.vehicleDetailsFormGroup?.value?.doesBodyDamageSeverity">
+        <form [formGroup]="vehicleDetailsFormGroup">
+  
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 d-flex align-items-center">
+              <label class="content-title required--after" id="example-radio-group-label">Does your {{selectedMake }} has noticeable 
+                dents greater than tennis ball  ?
+              </label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center justify-content-start">
-            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label"
-              formControlName="NoticeableDingsDentsScratches">
-              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
-                Yes
-              </mat-radio-button>
-              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
-                No
-              </mat-radio-button>
-            </mat-radio-group>
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center justify-content-start">
+              <mat-radio-group color="primary" aria-labelledby="example-radio-group-label"
+                formControlName="NoticeableDingsDentsScratches">
+                <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                  Yes
+                </mat-radio-button>
+                <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                  No
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
           </div>
-        </div>
-        <div class="buttonContainer">
-          <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
-          <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   
-          [disabled]="this.vehicleDetailsFormGroup?.value?.NoticeableDingsDentsScratches=== null"
-          >Next</button>
-        </div>
-      </form>
-    </mat-step>
+          <div class="buttonContainer">
+            <button mat-raised-button matStepperPrevious  class="previousBtn" (click)="page('sub','')">Back</button>
+            <button matStepperNext (click)="page('add','')" mat-raised-button class="nextBtn"   
+            [disabled]="this.vehicleDetailsFormGroup?.value?.NoticeableDingsDentsScratches=== null"
+            >Next</button>
+          </div>
+        </form>
+      </mat-step>
+    </ng-container>
   
     <mat-step [stepControl]="vehicleDetailsFormGroup">
       <form [formGroup]="vehicleDetailsFormGroup">

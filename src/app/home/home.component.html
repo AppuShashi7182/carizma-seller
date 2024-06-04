@@ -37,11 +37,11 @@
         </div> -->
         <div class="container-fluid mt-5" >
           <div class="d-flex justify-content-center">
-            <img class="background " src="../../../assets/images/cardBackground.png" alt="background" />
+            <img class="background " src="../../../assets/images/home-side-image.png" alt="background" />
           </div>
-          <div>
+          <!-- <div>
           <img  class="d-block w-100" style="position: relative;" [src]="images[currentCarouselCarIndex]" alt="Slide">
-        </div>
+        </div> -->
         </div>
       </div>
     </div>
@@ -107,7 +107,11 @@
       <div class="row gy-4">
   
         <div class="how-it-works-light col-lg-3">
-          <ng-container *ngIf="showImage1">
+          
+          <div class="text-align-center">
+            <img src="assets/img/red-yellow-green.gif" align="center" alt="yellow-light">
+          </div>
+          <!-- <ng-container *ngIf="showImage1">
             <img src="assets/img/red-light-traffic.png" align="center" alt="yellow-light">
           </ng-container>
           <ng-container *ngIf="showImage2">
@@ -115,7 +119,7 @@
           </ng-container>
           <ng-container *ngIf="showImage3">
             <img src="assets/img/green-light-traffic.png" align="center" alt="yellow-light">
-          </ng-container>
+          </ng-container> -->
         </div>
   
         <div class="col-lg-9">
@@ -182,7 +186,7 @@
         <div class="testimonialContainer mt-5 col-lg-5">
             <div class="testimonial-item">
               <div class="d-flex">
-                <img [src]="testimonials[currentCarouselTestimonialIndex].img" class="testimonial-img flex-shrink-0" alt="">
+                <!-- <img [src]="testimonials[currentCarouselTestimonialIndex].img" class="testimonial-img flex-shrink-0" alt=""> -->
                 <div>
                   <h3 class="authorName">{{testimonials[currentCarouselTestimonialIndex].author}}</h3>
                   <h4 class="authorDesignation">{{testimonials[currentCarouselTestimonialIndex].designation}}</h4>
@@ -320,7 +324,7 @@
           </div><!-- End Faq item-->
 
           <div class="faq-item">
-            <h3><span class="num text-format-open-sans">3.</span> <span style="color: white;">Are you in my State or States?</span></h3>
+            <h3><span class="num text-format-open-sans">3.</span> <span style="color: white;">Are you in my State?</span></h3>
             <div class="faq-content text-format-open-sans">
               <p>Most likely, yes! We partner with transporters in all 50 states to pick up and move cars right where we need them.</p>
             </div>
@@ -354,130 +358,8 @@
 <!-- End Faq Section -->
 
 <!-- Features Section - Home Page -->
-<section id="services" class="features">
 
-  <!--  Section Title -->
-  <div class="container-fluid section-title">
-    <h2 class="text-format-montserrat">Services</h2>
-    <p class="text-format-open-sans">Sell your car to Carizma</p>
-  </div>
 
-  <div class="container-fluid">
-
-    <div class="row gy-4 align-items-stretch justify-content-between features-item ">
-      <div class="col-lg-6 d-flex align-items-center features-img-bg">
-        <img src="assets/img/pickup-truck.png" class="img-fluid" alt="">
-      </div>
-      <div class="col-lg-5 d-flex justify-content-center flex-column">
-        <h3 class="text-format-montserrat">We’ll pick your car from anywhere!</h3>
-        <!-- <p class="text-format-open-sans">Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut
-          quia voluptatem hic voluptas dolor doloremque.</p> -->
-        <ul>
-          <li><i class="bi bi-check"></i> <span class="text-format-open-sans">Get a Hazzle-Free offer.</span></li>
-          <li><i class="bi bi-check"></i><span class="text-format-open-sans">Pick up is free.</span>
-          </li>
-          <li><i class="bi bi-check"></i> <span class="text-format-open-sans">Paid on the spot.</span>.
-          </li>
-          <li><i class="bi bi-check"></i> <span class="text-format-open-sans">No headaches.</span>.
-          </li>
-        </ul>
-        <a href="#"  class="btn btn-get-started align-self-start text-format-open-sans">Get the best price</a>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-<section id="contact" class="contact">
-
-  <!--  Section Title -->
-  <div class="container-fluid section-title" data-aos="fade-up">
-    <h2 class="text-format-montserrat">Contact</h2>
-    <!-- <p class="text-format-open-sans">Contact us get started</p> -->
-  </div><!-- End Section Title -->
-
-  <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="row gy-4">
-
-      <div class="col-lg-6">
-
-        <div class="row gy-4">
-          <div class="col-md-6">
-            <div class="info-item" data-aos="fade" data-aos-delay="200">
-              <i class="bi bi-geo-alt"></i>
-              <h3 class="text-format-montserrat link" (click)="showDistance()">Address</h3>
-              <p class="text-format-open-sans link" (click)="showDistance()">13935 Lynmar Blvd</p>
-              <p class="text-format-open-sans link" (click)="showDistance()">Tampa, FL 33626</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-md-6">
-            <div class="info-item" data-aos="fade" data-aos-delay="300">
-              <i class="bi bi-telephone"></i>
-              <h3 class="text-format-montserrat">Call / Text Us</h3>
-              <p class="text-format-open-sans">(813) 240-4086</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-md-6">
-            <div class="info-item" data-aos="fade" data-aos-delay="400">
-              <i class="bi bi-envelope"></i>
-              <h3 class="text-format-montserrat">Email Us</h3>
-              <p class="text-format-open-sans">info@Carizma.com</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-md-6">
-            <div class="info-item" data-aos="fade" data-aos-delay="500">
-              <i class="bi bi-clock"></i>
-              <h3 class="text-format-montserrat">Open Hours</h3>
-              <p class="text-format-open-sans">Monday - Friday</p>
-              <p class="text-format-open-sans">9:00AM - 05:00PM</p>
-            </div>
-          </div><!-- End Info Item -->
-
-        </div>
-
-      </div>
-
-      <div class="col-lg-6">
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" name="name" [(ngModel)]="contactDetails.name" class="form-control" placeholder="Your Name" required>
-            </div>
-
-            <div class="col-md-6 "> 
-              <input type="email" class="form-control" [(ngModel)]="contactDetails.email" name="email" placeholder="Your Email" required>
-            </div>
-
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" [(ngModel)]="contactDetails.subject" placeholder="Subject" required>
-            </div>
-
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" [(ngModel)]="contactDetails.message" placeholder="Message" required></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
-              <div class="loading text-format-open-sans">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message text-format-open-sans">Your message has been sent. Thank you!</div>
-
-              <button type="submit" (click)="submitContactDetails()" class="text-format-open-sans">Send Message</button>
-            </div>
-
-          </div>
-        </form>
-      </div><!-- End Contact Form -->
-
-    </div>
-
-  </div>
-
-</section><!-- End Contact Section -->
 
 <!-- Scroll Top Button -->
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i

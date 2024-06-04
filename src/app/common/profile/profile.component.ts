@@ -144,6 +144,7 @@ export class ProfileComponent {
         this.isLoading = true;
         // setTimeout(() => {
           this.isLoading = false;
+          this._service.updateSalesForceDetails(this.sellerProfile.seller_id, this.vehicle_id?.params?.vehicle_id);
           this.router.navigateByUrl('/dashboard');
         // }, 1000);
       });
