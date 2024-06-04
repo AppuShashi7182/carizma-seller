@@ -62,12 +62,19 @@ export class HomeComponent {
   showImage3: boolean = false;;
   isLoading:boolean=false;
   contactDetails:any={};
+  public innerWidth: any;
+  public mobileView = false;
   constructor(private router: Router, private _nhtsaervice: NHTSAService ,public alertService: AlertService,
     private toaster: ToastrService,) {}
   
   ngOnInit() {
     this.startCarCarousel();
     this.startTestimonialCarousel();
+    this.innerWidth = window.innerWidth;
+    if(this.innerWidth<700){
+      this.mobileView = true;
+    }
+    console.log(this.innerWidth,'this.innerWidth')
   }
   testimonials = [
     { author: 'Rosemary',designation:'Design consultant',img:'assets/img/testimonials/testimonials-1.jpg',text: 'My encounter with Carizma during the sale of my vehicle was flawless. Their offer surpassed others. The agent was punctual, friendly, and thorough in explaining paperwork. Afterward, I received my check and my car was transported.' },

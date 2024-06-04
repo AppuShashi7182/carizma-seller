@@ -48,7 +48,8 @@ export class VechileSelectionComponent {
     public router: Router,
     private toaster: ToastrService,
   ) {
-    this.VechileRegisterationList = VechileYears;
+    let vehicleYears= VechileYears.sort(function(a:any,b:any){return b-a});
+    this.VechileRegisterationList = vehicleYears;
     this.makesList = of([]);
     this.modelList = of([]);
     this.trimList = of([]);

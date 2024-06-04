@@ -36,7 +36,7 @@
   </form> -->
   <form [formGroup]="licensePlateSelection" style="height: 70%" (ngSubmit)="onSubmit()">
     <mat-grid-list cols="4" rowHeight="50px" gutterSize="3px">
-    <mat-grid-tile colspan="2" rowspan="1.5">
+    <mat-grid-tile colspan="4" rowspan="1.0">
     <div class="form-group" style="width: 90%;">
       <input type="text" id="licensePlateNumber" class="form-control" placeholder="Enter License Number" [(ngModel)]="licenseDetails.licensePlateNumber" formControlName="licensePlateNumber">
   
@@ -49,7 +49,7 @@
       </div>
     </div>
   </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="1.5">
+    <mat-grid-tile colspan="4" rowspan="1.0">
     <div class="form-group"  style="width: 90%;">
       <select id="state" class="form-control" formControlName="state" [(ngModel)]="licenseDetails.state">
         <option value="" disabled>Select State</option>
