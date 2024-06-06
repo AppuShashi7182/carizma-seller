@@ -181,9 +181,9 @@ export class NHTSAService {
 
   updateSalesForceDetails(
     sellerId: number,
-    vehicleid: number
+    vehicleId: number
   ): Observable<any> {
-    let data = { seller_id: sellerId, vehicle_id: vehicleid };
+    let data = { sellerId: sellerId, vehicleId: vehicleId };
     return this.http.post<any>(
       environment.apiURL + salesForceAPI_URL(),
       data

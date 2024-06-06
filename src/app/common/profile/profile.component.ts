@@ -144,7 +144,11 @@ export class ProfileComponent {
         this.isLoading = true;
         // setTimeout(() => {
           this.isLoading = false;
-          this._service.updateSalesForceDetails(this.sellerProfile.seller_id, this.vehicle_id?.params?.vehicle_id);
+          this._service.updateSalesForceDetails(this.sellerProfile.seller_id, this.vehicle_id?.params?.vehicle_id).subscribe(
+            (response) => {
+              console.log('Success');
+            }
+          );
           this.router.navigateByUrl('/dashboard');
         // }, 1000);
       });
