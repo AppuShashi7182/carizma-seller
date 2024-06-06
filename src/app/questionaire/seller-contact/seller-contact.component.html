@@ -1,8 +1,4 @@
-<div style="
-    background-color: aad0e2;
-    padding: 25px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
-  ">
+<div class="sellerWrapper">
   <form [formGroup]="contactFormGroup">
     <mat-card class="question-card ml-auto mr-auto">
       <mat-card-content>
@@ -10,7 +6,7 @@
           <!-- <h2>Where should we send your Instant Cash Offer?</h2> -->
           <span class="breadcrumb" style="text-decoration: none !important">Where should we send your Instant Cash
             Offer?</span>
-          <div class="form-group mt-2 w-50">
+          <div class="form-group mt-2 formElements">
             <mat-label>Full Name</mat-label>
             <input matNativeControl
               [ngClass]="{'input-form-success': contactFormGroup.get('fullName')?.valid, 'form-control':true,'input-form-error': contactFormGroup.get('fullName')?.invalid && contactFormGroup.get('fullName')?.touched}"
@@ -21,7 +17,7 @@
               Full Name.</mat-error>
           </div>
 
-          <div class="form-group mt-2 w-50 ">
+          <div class="form-group mt-2 formElements ">
             <mat-label>Email</mat-label>
             <input matNativeControl
               [ngClass]="{'input-form-success': contactFormGroup.get('email')?.valid, 'form-control':true,'input-form-error': contactFormGroup.get('email')?.invalid && contactFormGroup.get('email')?.touched}"
@@ -37,7 +33,7 @@
             </mat-error>
           </div>
 
-          <div class="form-group mt-2 w-50">
+          <div class="form-group mt-2 formElements">
             <mat-label>Phone Number</mat-label>
             <input matNativeControl
               [ngClass]="{'input-form-success': contactFormGroup.get('mobile')?.valid, 'form-control':true,'input-form-error': contactFormGroup.get('mobile')?.invalid && contactFormGroup.get('mobile')?.touched}"

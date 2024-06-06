@@ -1877,6 +1877,10 @@ section {
   background-color: var(--color-primary);
 }
 
+mat-grid-tile-content{
+  margin-top: 10px;
+}
+
 @media (max-width: 767px) {
 
   .testimonials .testimonials-carousel,
@@ -3106,6 +3110,7 @@ section {
   padding-right: 100px !important;
 }
 
+
 .how-it-works-headding {
   font-size: xx-large;
   font-weight: 800;
@@ -3327,5 +3332,10 @@ section {
         width: 16.8rem;
       }
     }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container{
+    padding: 0 !important;
   }
 }

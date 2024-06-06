@@ -132,4 +132,7 @@ mat-horizontal-stepper {
   .car-stepper-content {
     margin: 5px 10px 0 15px
   }
+  .car-header{
+    padding-left:0
+  }
 }
