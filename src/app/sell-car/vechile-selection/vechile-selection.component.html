@@ -68,12 +68,12 @@
     </div>
   </div>
 </form> -->
-<form [formGroup]="manualVechileSelectionForm" style="height: 70%;margin:10px 0;" (ngSubmit)="onSubmit()">
+<form [formGroup]="manualVechileSelectionForm" class="makeModel" style="height: 70%;margin:10px 0;" (ngSubmit)="onSubmit()">
   
-  <mat-grid-list cols="4" rowHeight="50px" gutterSize="3px">
-  <mat-grid-tile colspan="4" rowspan="1.0">
-  <div class="form-group"  style="width: 90%;">
-    <select id="year" class=" form-control form-select form-select-md mb-3" aria-label=".form-select-md example" formControlName="year" (change)="yearSelectionChange($event)" [(ngModel)]="modelDetails.year">
+  <!-- <mat-grid-list  cols="4" rowHeight="50px" gutterSize="3px"> -->
+  <div class="mb-3">
+  <div class="form-group ml-6"  style="width: 90%;">
+    <select id="year" class=" form-control form-select form-select-md" aria-label=".form-select-md example" formControlName="year" (change)="yearSelectionChange($event)" [(ngModel)]="modelDetails.year">
       <option value=""  disabled>Select Year</option>
           <option *ngFor="let year of VechileRegisterationList" [value]="year" >{{year}}</option>
     </select>
@@ -82,11 +82,11 @@
       Year is required.
     </div>
   </div>
-</mat-grid-tile>
-  <mat-grid-tile colspan="4" rowspan="1.0">
-  <div class="form-group" style="width: 90%;">
+</div>
+  <div colspan="4"rowspan="1.5" class="mb-3">
+  <div class="form-group ml-6" style="width: 90%;">
     <!-- <input type="text" id="make" class="form-control" placeholder="Enter Make" [(ngModel)]="modelDetails.make" formControlName="make"> -->
-    <select  id="make" class=" form-control form-select form-select-md mb-3" aria-label=".form-select-md example" formControlName="make" (change)="makeSelectionChange($event)" [(ngModel)]="modelDetails.make">
+    <select  id="make" class=" form-control form-select form-select-md" aria-label=".form-select-md example" formControlName="make" (change)="makeSelectionChange($event)" [(ngModel)]="modelDetails.make">
       
       <option value=""  disabled>Select Make</option>
       <optgroup *ngFor="let group of makesList | async"
@@ -100,11 +100,11 @@
       Make is required.
     </div>
   </div>
-</mat-grid-tile>
-<mat-grid-tile colspan="4" rowspan="1.0">
-  <div class="form-group" style="width: 90%;">
+</div>
+<div colspan="4" rowspan="1.5" class="mb-3">
+  <div class="form-group ml-6" style="width: 90%;">
     <!-- <input type="text" id="model" class="form-control" placeholder="Enter Model" [(ngModel)]="modelDetails.model" formControlName="model"> -->
-    <select id="year" class="form-control form-select form-select-md mb-3" aria-label=".form-select-md example" formControlName="model" (change)="modelSelectionChange($event)" [(ngModel)]="modelDetails.model">
+    <select id="year" class="form-control form-select form-select-md" aria-label=".form-select-md example" formControlName="model" (change)="modelSelectionChange($event)" [(ngModel)]="modelDetails.model">
       <option value=""  disabled>Select Model</option>
           <option *ngFor="let model of modelList | async" [value]="model" >{{model}}</option>
     </select>
@@ -113,10 +113,10 @@
       Model is required.
     </div>
   </div>
-</mat-grid-tile>
-  <mat-grid-tile colspan="4" rowspan="1.0">
-  <div class="form-group"  style="width: 90%;">
-    <select id="trim" class="form-control form-select form-select-md mb-3" formControlName="trim" [(ngModel)]="modelDetails.trim">
+</div>
+  <div colspan="4" rowspan="1.5" class="mb-3">
+  <div class="form-group ml-6"  style="width: 90%;">
+    <select id="trim" class="form-control form-select form-select-md" formControlName="trim" [(ngModel)]="modelDetails.trim">
       <option value="" disabled>Select Trim</option>
           <option *ngFor="let trim of trimList | async" [value]="trim" >{{trim}}</option>
     </select>
@@ -125,12 +125,12 @@
       Trim is required.
     </div>
   </div>
-</mat-grid-tile>
+</div>
 
-<mat-grid-tile colspan="4" class="w-80">
+<div colspan="4" class="w-100">
   <div class="d-flex justify-content-center w-100">
     <button type="button" (click)="onSubmit()" class="btn getOfferBtn ml-2">GET MY OFFER</button>
 </div>
-</mat-grid-tile>
-</mat-grid-list>
+</div>
+<!-- </mat-grid-list> -->
 </form>

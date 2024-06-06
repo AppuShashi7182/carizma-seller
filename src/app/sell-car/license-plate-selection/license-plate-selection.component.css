@@ -5,6 +5,9 @@ mat-form-field {
   width: 80%;
   height: 80%;
 }
+.makeModel{
+  margin-left: 2rem;
+}
 
 .btn-go {
   margin-bottom: 14px;

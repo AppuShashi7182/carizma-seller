@@ -1,10 +1,18 @@
 .seller-contact mat-form-field {
   width: 50%;
 }
+.sellerWrapper{
+  background-color: aad0e2;
+  padding: 25px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
+}
 
 .seller-contact {
   justify-content: center;
   align-items: center;
+}
+.formElements{
+  width: 50%;
 }
 
 .question-card {
@@ -50,4 +58,26 @@
 .custom-form-field.mat-focused {
   /* Set a different shadow style when the input is focused (optional) */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 768px) {
+  .formElements{
+    width: 100%;
+  }
+  .sellerWrapper{
+    padding: 0;
+  }
+  .mat-card{
+    margin-bottom: 0;
+  }
+  .question-card {
+    min-width: 350px;
+    margin-bottom: 0;
+  }
+  mat-stepper-horizontal{
+    padding: 0 !important;
+  }
+  mat-horizontal-content-container{
+    padding: 0 !important;
+  }
 }

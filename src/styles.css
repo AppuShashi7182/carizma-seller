@@ -21,7 +21,9 @@ body {
   font-weight: 599;
   font-size: 20px;
 }
-
+.mat-grid-tile-content{
+  /* margin-top: 10px !important; */
+}
 .required--before::before {
   content: "*";
   color: red;
@@ -174,8 +176,9 @@ body {
 .btn-go:hover{
   box-shadow: 2px 1px 5px black ;
 }
-
-
+mat-radio-button{
+  display: block;
+}
 .mat-mdc-raised-button.mat-unthemed {
   --mdc-protected-button-container-color: #BDF279;
   --mdc-protected-button-label-text-color: #000 !important;
