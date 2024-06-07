@@ -339,4 +339,11 @@
        margin-left: 0;
        padding-top: 30px;
     }
+    .servicesFlag{
+        margin-top: -4%;
+    }
+    .take-it-all{
+        width: 90%;
+        margin: 20px;
+    }
   }

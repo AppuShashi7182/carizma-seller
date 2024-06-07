@@ -216,7 +216,7 @@ section {
 
 @media (max-width: 1200px) {
   .header .logo {
-    order: 1;
+    /* order: 1; */
   }
 
   .header .btn-getstarted {
