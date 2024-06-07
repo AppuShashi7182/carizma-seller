@@ -55,8 +55,11 @@ export class HomeComponent {
 
   currentCarouselTestimonialIndex = 0;
   CarouselTestimonialDirection = 0;
+  CarouselNationWideDirection = 0;
+  currentNationWideIndex=0;
   interval: any;
   animationState = 'void';
+  nationWideServices=['../../../assets/images/nationWideServices2.png','../../../assets/images/nationWideServices3.png','../../../assets/images/nationWideServices5.png','../../../assets/images/nationWideServices6.png']
   showImage1: boolean = false;
   showImage2: boolean = false;;
   showImage3: boolean = false;;
@@ -70,6 +73,7 @@ export class HomeComponent {
   ngOnInit() {
     this.startCarCarousel();
     this.startTestimonialCarousel();
+    this.startNationWideCarousel();
     this.innerWidth = window.innerWidth;
     if(this.innerWidth<700){
       this.mobileView = true;
@@ -91,6 +95,11 @@ export class HomeComponent {
   startTestimonialCarousel() {
     setInterval(() => {
       this.nextTestimonial();
+    }, 4000); // Adjust the interval as needed
+  }
+  startNationWideCarousel() {
+    setInterval(() => {
+      this.nextNationWideImage();
     }, 4000); // Adjust the interval as needed
   }
   images = [
@@ -116,6 +125,14 @@ export class HomeComponent {
   prevTestimonial() {
     this.CarouselTestimonialDirection= 100; 
     this.currentCarouselTestimonialIndex = (this.currentCarouselTestimonialIndex - 1 + this.testimonials.length) % this.testimonials.length;
+  }
+  nextNationWideImage() {
+    this.CarouselNationWideDirection= -100; // Slide to the left
+    this.currentNationWideIndex = (this.currentNationWideIndex + 1) % this.nationWideServices.length;
+  }
+  prevNationWideImage() {
+    this.CarouselNationWideDirection= 100; 
+    this.currentNationWideIndex = (this.currentNationWideIndex - 1 + this.nationWideServices.length) % this.nationWideServices.length;
   }
 
   @HostListener('window:scroll', [])
