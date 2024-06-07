@@ -191,7 +191,8 @@
   <div class="d-flex justify-content-center">
     <img class="dots " src="../../../assets/images/threeDotsWithoutBackground.png" alt="dots" />
   </div>
-  <h5 class="howItWorksText mt-5 text-format-montserrat">NATIONWIDE SERVICES</h5>
+  <h5 class="howItWorksText mt-5 text-format-montserrat mb-3">NATIONWIDE SERVICES</h5>
+  <ng-container *ngIf="!mobileView">
   <mat-grid-list cols="3" rowHeight="3:2" style="margin: 0 6rem;">
     <img class="servicesFlag" src="../../../assets/images/nationWideServicesflag.png" alt="services" />
     <mat-grid-tile [colspan]="1" [rowspan]="2" class="servicesBlock1">
@@ -234,6 +235,32 @@
       </div>
     </mat-grid-tile>
   </mat-grid-list>
+  </ng-container>
+  <ng-container *ngIf="mobileView">
+    <div  style="margin: 0 6rem;">
+      <img class="servicesFlag" src="../../../assets/images/nationWideServicesflag.png" alt="services" />
+      <div class="servicesBlock1">
+        <!-- <div class="col-md-12">
+      <h1 class="carHeader">Nationwide Presence </h1>
+    </div>
+    <div class="col-md-12">
+      <h5 class="carText">Our Reach Extends to Every State in the USA!</h5>
+    </div> -->
+
+      </div>
+      <div> <img class="services" src="../../../assets/images/nationWideServices2.png"
+          alt="services" /></div>
+      <div> <img class="services" src="../../../assets/images/nationWideServices3.png"
+          alt="services" /></div>
+      <div> <img class="services" src="../../../assets/images/nationWideServices5.png"
+          alt="services" /></div>
+      <div> <img class="services" src="../../../assets/images/nationWideServices6.png"
+          alt="services" /></div>
+      <div class="carContainer">
+      </div>
+
+    </div>
+    </ng-container>
   <div class="d-flex align-items-center know-more" (click)="navigate('about')">
     <h5 style="font-weight: bold;" class="hoverLink text-format-open-sans">KNOW MORE ABOUT US</h5>
     <mat-icon class="ml-2 arrowicon">arrow_right_alt</mat-icon>
@@ -246,6 +273,7 @@
   <div>
     <img class="backgroundCar" src="../../../assets/images/takeAllCarsBackgroundCar.png" alt="backgroundCar" />
   </div>
+  <ng-container *ngIf="!mobileView">
   <div class="d-flex justify-content-center" style="height: 35%">
     <div class="container-fluid row w-100" id="take-it-all" class="take-it-all p-0">
       <div class="col-md-6 p-3 textContainer">
@@ -256,9 +284,28 @@
       <div class="col-md-6">
         <img class="takeAllCarsImg " src="../../../assets/images/takeAllCars.png" alt="cars" />
       </div>
+    
     </div>
-
+  
+  </div>
+</ng-container>
+<ng-container *ngIf="mobileView">
+  <div style="height: 35%;">
+  <div class="container-fluid w-100" id="take-it-all" class="take-it-all p-0">
+  <div class="col-md-12 p-3 textContainer">
+      <img class="dots2" src="../../../assets/images/threeDotsWithoutBackground.png" alt="dots" />
+    <h5 class="takeItAllTextHeader mt-1 text-format-montserrat">WE TAKE IT ALL</h5>
+    <h2 class="takeItAllText text-format-open-sans">We buy any car in any condition</h2>
+  </div>
+ 
 </div>
+<div class="container-fluid row w-100" id="take-it-all" class="take-it-all p-0">
+<div class="col-md-12">
+  <img class="takeAllCarsImg " src="../../../assets/images/takeAllCars.png" alt="cars" />
+</div>
+</div>
+</div>
+</ng-container>
 </div>
 
 <section id="faq" class="faq">

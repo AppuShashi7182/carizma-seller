@@ -1,7 +1,7 @@
 
 <header id="header" class="header fixed-top d-flex align-items-center">
-  <div class="btn-group" style="margin: 10px 10px 0;"> 
-    <ng-container *ngIf="!showMenu">
+  <div class="btn-group" > 
+    <!-- <ng-container *ngIf="!showMenu">
       <div (click)="handleShowMenu()"><mat-icon >dehaze</mat-icon></div>
     </ng-container>
     <ng-container  *ngIf="showMenu">
@@ -20,22 +20,17 @@
       <li class="menu-item"><a class="dropdown-item text-format-open-sans" href="index.html#contact" style="align-items: center;display: flex"><span>Contact</span></a></li>
     </ul>
   </div>
-    </ng-container>
+    </ng-container> -->
   </div>
   <div class="container-fluid d-flex align-items-center justify-content-between">
-    <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <img src="assets/img/logo01.png" alt="carizma logo" style="max-height: 4rem;">
-      <!-- <h1>Append</h1>
-      <span>.</span> -->
-    </a>
+   
 
     <!-- Nav Menu -->
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li class="headerLink" ><a (click)="navigate('home')" class="link text-format-open-sans"   [ngClass]="{ 'active': key === 'home'}">Home</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'home'}"></span></li>
+    <!-- <nav id="navmenu" class="navmenu"> -->
+      <!-- <ul> -->
+        <!-- <li class="headerLink" ><a (click)="navigate('home')" class="link text-format-open-sans"   [ngClass]="{ 'active': key === 'home'}">Home</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'home'}"></span></li>
         <li  class="headerLink"><a (click)="navigate('about')" class="link text-format-open-sans" [ngClass]="{'active': key === 'about'}">About</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'about'}"></span></li>
-        <li  class="headerLink"><a (click)="navigate('how-we-work')" class="link text-format-open-sans" [ngClass]="{ 'active': key === 'how-we-work'}">How we work</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'how-we-work'}"></span></li>
+        <li  class="headerLink"><a (click)="navigate('how-we-work')" class="link text-format-open-sans" [ngClass]="{ 'active': key === 'how-we-work'}">How we work</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'how-we-work'}"></span></li> -->
         <!-- <li  class="headerLink"><a href="index.html#services" class="link" [ngClass]="{ 'active': key === 'services'}">Services</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'services'}"></span></li> -->
         <!-- <li><a href="index.html#portfolio">Portfolio</a></li>
         <li><a href="index.html#team">Team</a></li>
@@ -57,15 +52,20 @@
             <li><a href="#">Dropdown 4</a></li>
           </ul>
         </li> -->
-        <li class="headerLink"><a href="index.html#contact"  class="link text-format-open-sans" [ngClass]="{ 'active': key === 'services'}">Contact</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'contact'}"></span></li>
-      </ul>
+        <!-- <li class="headerLink"><a href="index.html#contact"  class="link text-format-open-sans" [ngClass]="{ 'active': key === 'services'}">Contact</a><span class="col-md-8"  [ngClass]="{ 'activeLink': key === 'contact'}"></span></li> -->
+      <!-- </ul> -->
 
-      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-    </nav>
+      <!-- <i class="mobile-nav-toggle d-xl-none bi bi-list"></i> -->
+    <!-- </nav> -->
     <!-- End Nav Menu -->
-    <button type="button" (click)="navigate('login')" class="loginBtn btn btn-outline-primary text-format-open-sans">Login / Sign Up</button> 
     <!-- <a class="btn-getstarted" href="index.html#about">Login / Sign Up</a> -->
-
+    <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <img src="assets/img/logo01.png" alt="carizma logo" style="max-height: 2.5rem;">
+      <!-- <h1>Append</h1>
+      <span>.</span> -->
+      </a>
+    <button type="button" (click)="navigate('login')" class="loginBtn btn btn-outline-primary text-format-open-sans">Login / Sign Up</button> 
   </div>
 </header><!-- End Header -->
 <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-light">

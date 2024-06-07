@@ -11,6 +11,9 @@
 .btn:hover {
     background: #021a3d !important;
 }
+.cardContainer{
+    margin-top: 20px;
+}
 
 .card {
     box-shadow: 2px 2px 15px gray;
@@ -36,4 +39,21 @@
   .text {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+
+  @media only screen and (max-width: 768px) {
+    .container{
+        height: 90%;
+        width: 100%;
+        padding: 20px !important;
+        max-width: 100%; 
+        }
+    .cardContainer{
+        margin-top: 0 !important;
+        height: 100%;
+    }
+    .cardWrapper{
+        height: 100%;
+    }
   }

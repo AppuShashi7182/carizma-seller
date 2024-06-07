@@ -1,8 +1,8 @@
 <app-car-loader *ngIf="isLoading"></app-car-loader>
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center cardWrapper">
     <div class="col-lg-6 col-md-8 col-sm-10">
-      <div class="card mt-5">
+      <div class="card cardContainer">
         <div class="card-body">
           <h3 class="card-title justify-content-center breadcrumb text-center mb-4">
             Login
@@ -79,7 +79,7 @@
       </div> -->
       <div class="text-center mt-3">
         <span>Don't have an account?</span>
-        <a (click)="toggleBetweenLoginPages('signUp')" class="text-primary mx-2" style="cursor: pointer;">Sign Up</a>
+        <a (click)="toggleBetweenLoginPages('signUp')" class="text-primary mx-2" style="cursor: pointer;display: block;">Sign Up</a>
       </div>
    <!--   <div class="row w-100 my-4">
         <div class="container d-flex align-items-center justify-content-center">
@@ -129,7 +129,7 @@
       <hr />
       <div class="text-center mt-3">
         <span>Don't have an account?</span>
-        <a (click)="toggleBetweenLoginPages('signUp')" style="cursor: pointer;">Sign Up</a>
+        <a (click)="toggleBetweenLoginPages('signUp')" style="cursor: pointer;display: block;">Sign Up</a>
       </div>
       <div class="row w-100 my-4">
         <div class="container d-flex align-items-center justify-content-center">
