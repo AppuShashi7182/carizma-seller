@@ -237,15 +237,15 @@
   </mat-grid-list>
   </ng-container>
   <ng-container *ngIf="mobileView">
-    <div  style="margin: 0 6rem;">
+    <!-- <div  style="margin: 0 6rem;">
       <img class="servicesFlag" src="../../../assets/images/nationWideServicesflag.png" alt="services" />
       <div class="servicesBlock1">
-        <!-- <div class="col-md-12">
+        <div class="col-md-12">
       <h1 class="carHeader">Nationwide Presence </h1>
     </div>
     <div class="col-md-12">
       <h5 class="carText">Our Reach Extends to Every State in the USA!</h5>
-    </div> -->
+    </div>
 
       </div>
       <div> <img class="services" src="../../../assets/images/nationWideServices2.png"
@@ -259,7 +259,17 @@
       <div class="carContainer">
       </div>
 
+    </div> -->
+    <div class="testimonialContainer mt-5 col-lg-5">
+      <div class="testimonial-item">
+        <div class="d-flex">
+          <div>
+            <div> <img class="services" [src]="nationWideServices[currentNationWideIndex]"
+              alt="services" /></div>
+          </div>
+        </div>
     </div>
+  </div>
     </ng-container>
   <div class="d-flex align-items-center know-more" (click)="navigate('about')">
     <h5 style="font-weight: bold;" class="hoverLink text-format-open-sans">KNOW MORE ABOUT US</h5>
