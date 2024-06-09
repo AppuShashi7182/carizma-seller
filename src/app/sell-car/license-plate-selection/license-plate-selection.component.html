@@ -35,9 +35,9 @@
     </mat-grid-list>
   </form> -->
   <form [formGroup]="licensePlateSelection" style="height: 70%" (ngSubmit)="onSubmit()">
-    <mat-grid-list cols="4" rowHeight="50px" gutterSize="3px">
-    <mat-grid-tile colspan="4" rowspan=1.5>
-    <div class="form-group" style="width: 90%;">
+    <div >
+    <div class="d-flex justify-content-center">
+    <div class="form-group" style="width: 90%;margin: 10px;">
       <input type="text" id="licensePlateNumber" class="form-control" placeholder="Enter License Number" [(ngModel)]="licenseDetails.licensePlateNumber" formControlName="licensePlateNumber">
   
       <!-- Display error only if the field is touched -->
@@ -48,9 +48,9 @@
         {{errors['licensePlate']}}
       </div>
     </div>
-  </mat-grid-tile>
-    <mat-grid-tile colspan="4" rowspan=1.5>
-    <div class="form-group"  style="width: 90%;">
+  </div>
+    <div class="d-flex justify-content-center">
+    <div class="form-group"  style="width: 90%;margin: 10px;">
       <select id="state" class="form-control" formControlName="state" [(ngModel)]="licenseDetails.state">
         <option value="" disabled>Select State</option>
             <option *ngFor="let option of filteredOptions | async" [value]="option" >{{option}}</option>
@@ -63,14 +63,14 @@
         &nbsp;
       </div>
     </div>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="4" class="w-80">
+  </div>
+  <div class="w-100 d-flex justify-content-center">
     <div class="d-flex justify-content-center w-100">
       <button type="button" (click)="onSubmit()" class="btn getOfferBtn ml-2 text-format-open-sans">GET MY OFFER</button>
   </div>
 
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</div>
   </form>
   
 

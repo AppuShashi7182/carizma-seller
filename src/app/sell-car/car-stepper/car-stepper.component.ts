@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 import { IVechileDetailQuestionaire } from 'src/app/questionaire/questionsJson';
 import { Router } from '@angular/router';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
+import { GoogleAnalyticsService } from '../../services/google-analytics.service';
 
 @Component({
   selector: 'app-car-stepper',
@@ -65,7 +66,8 @@ export class CarStepperComponent {
     public router: Router,
     public reviewService: ReviewService,
     private toaster: ToastrService,
-    private animationBuilder: AnimationBuilder
+    private animationBuilder: AnimationBuilder,
+    private gaService: GoogleAnalyticsService
   ) {
     // this._store.loadSellerDetails();
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
@@ -272,7 +274,7 @@ export class CarStepperComponent {
       console.log('Final value of Intact',this._store.sellerCompleteDetails.vehicleCondition);
       this.nhtsa.getInstantOffer(this._store.sellerCompleteDetails).subscribe(
         (res) => {
-
+          this.gaService.sendEvent('conversion', { 'send_to': 'AW-852077583/PqSyCNSMg7cZEI_YppYD' });
           this.reviewService.currentOffer = res;
           this.reviewService.offerPrice = res.instant_offer_price;
           this.myStepper.next()
