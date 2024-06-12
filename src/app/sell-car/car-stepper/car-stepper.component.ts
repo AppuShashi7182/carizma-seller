@@ -182,7 +182,7 @@ export class CarStepperComponent {
 
   }
   nextStep(index: number) {
-    console.log(index,this.stepperNumber)
+    console.log(index,this.stepperNumber,this.reviewService.conatctPageStepper)
     let sellerDetails  = this._store.sellerCompleteDetails;
     // if(index === 0 && sellerDetails.vehicleDetails.carTitle 
     //   && sellerDetails.vehicleDetails.mileage 
@@ -197,18 +197,18 @@ export class CarStepperComponent {
     if (this.reviewService.vehicleConditionPageStepper && index == 1) {
       this.validator = true;
     }
-    else if (this.reviewService.vehicleBodyConditionPageStepper && index == 2) {
+     if (this.reviewService.vehicleBodyConditionPageStepper && index == 2) {
       this.validator = true;
+      }else {
+      this.validator = false;
     }
-    else if (this.reviewService.conatctPageStepper && index == 3) {
-      this.validator = true;
-    }
-    else if (this.reviewService.conatctPageStepper && index == 3) {
+     if (this.reviewService.conatctPageStepper && index == 3) {
       this.validator = true;
     } 
-    else if (index == 4) {
+     if (index == 4) {
       this.validator = true;
     }
+    console.log(this.validator,'validator')
     if (this.validator) {
       if (index == 4) {
         this.callApiToGetInstantOffer()
